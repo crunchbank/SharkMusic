@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Shark Music: shark fin in the water -->
+<!--
+  Shark Music launcher icon. Launcher icon foreground: shark fin and water.
+  Copyright (c) 2026 crunchbank
+  Licensed under the GNU General Public License v3 or later; see LICENSE.md.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"

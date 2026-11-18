@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Modified by crunchbank, 2026 (Shark Music): app name in three messages. -->
 <resources>
     <string name="about_album_label">About %s</string>
     <string name="about_settings_summary">Team, social links</string>

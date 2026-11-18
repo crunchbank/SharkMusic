@@ -2,6 +2,7 @@
 
 Shark Music is a modified version of [Retro Music Player](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
 by Hemanth Savarala and contributors, released under the same GNU GPL v3 licence (see [LICENSE.md](LICENSE.md)).
+Modifications are copyright © 2026 crunchbank; [NOTICE.md](NOTICE.md) lists them.
 
 Changes from Retro Music:
 - Playback keeps going with the screen off. After a stop or quit, the player service now returns to the foreground,

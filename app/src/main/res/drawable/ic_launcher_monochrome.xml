@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Shark Music: single-colour layer for themed icons (fin, wave) -->
+<!--
+  Shark Music launcher icon. Themed (monochrome) launcher icon: shark fin and wave.
+  Copyright (c) 2026 crunchbank
+  Licensed under the GNU General Public License v3 or later; see LICENSE.md.
+-->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"

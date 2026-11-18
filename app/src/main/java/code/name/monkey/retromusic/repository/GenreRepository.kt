@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2019 Hemanth Savarala.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): genre song counts come from one query on Android 11+.
  *
  * Licensed under the GNU General Public License v3
  *

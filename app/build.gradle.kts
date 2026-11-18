@@ -1,3 +1,4 @@
+// Modified by crunchbank, 2026 (Shark Music): app ID. Licensed under the GNU GPL v3 or later.
 import java.util.Properties
 
 plugins {

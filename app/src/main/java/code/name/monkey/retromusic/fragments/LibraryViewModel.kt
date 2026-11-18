@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): library sections are posted as soon as each one loads.
  *
  * Licensed under the GNU General Public License v3
  *
