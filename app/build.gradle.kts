@@ -20,7 +20,8 @@ android {
             useSupportLibrary = true
         }
 
-        applicationId = namespace
+        // Shark Music: own app ID; the code namespace stays code.name.monkey.retromusic
+        applicationId = "io.github.crunchbank.sharkmusic"
         versionCode = 10703
         versionName = "7.0.3"
 

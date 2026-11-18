@@ -1,3 +1,20 @@
+# Shark Music
+
+Shark Music is a modified version of [Retro Music Player](https://github.com/RetroMusicPlayer/RetroMusicPlayer)
+by Hemanth Savarala and contributors, released under the same GNU GPL v3 licence (see [LICENSE.md](LICENSE.md)).
+
+Changes from Retro Music:
+- Playback keeps going with the screen off. After a stop or quit, the player service now returns to the foreground,
+  so Android doesn't mute it.
+- Playlists and the home screen no longer wait for genres to load.
+- Genre song counts come from one query instead of one per genre (Android 11+), so the Genres list loads in a
+  fraction of a second on large libraries.
+- New name, icon and app ID (`io.github.crunchbank.sharkmusic`), so it installs alongside Retro Music.
+
+The original Retro Music README follows.
+
+---
+
 <p align="center">
   <a href="https://retromusic.app">
     <img src="app\src\main\ic_launcher-web.png" height="128">

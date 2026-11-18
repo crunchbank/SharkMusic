@@ -41,3 +41,8 @@ app/normal/release/
 /app/release/
 
 .kotlin
+
+# Local release signing (never commit)
+retro.properties
+*.jks
+*.keystore
