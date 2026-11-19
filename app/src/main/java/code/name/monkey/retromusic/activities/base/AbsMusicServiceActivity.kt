@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): plays are counted by the music service (see PlayCounts), not here.
  */
 package code.name.monkey.retromusic.activities.base
 
@@ -23,7 +24,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import code.name.monkey.appthemehelper.util.VersionUtils
 import code.name.monkey.retromusic.R
-import code.name.monkey.retromusic.db.toPlayCount
 import code.name.monkey.retromusic.helper.MusicPlayerRemote
 import code.name.monkey.retromusic.interfaces.IMusicServiceEventListener
 import code.name.monkey.retromusic.repository.RealRepository
@@ -126,11 +126,6 @@ abstract class AbsMusicServiceActivity : AbsBaseActivity(), IMusicServiceEventLi
             if (!PreferenceUtil.pauseHistory) {
                 repository.upsertSongInHistory(MusicPlayerRemote.currentSong)
             }
-            val song = repository.findSongExistInPlayCount(MusicPlayerRemote.currentSong.id)
-                ?.apply { playCount += 1 }
-                ?: MusicPlayerRemote.currentSong.toPlayCount()
-
-            repository.upsertSongInPlayCount(song)
         }
     }
 

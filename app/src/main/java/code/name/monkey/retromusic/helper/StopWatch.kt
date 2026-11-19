@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): start() and pause() are safe to call in any state.
  */
 package code.name.monkey.retromusic.helper
 
@@ -58,6 +59,8 @@ class StopWatch {
      */
     fun start() {
         synchronized(this) {
+            // Already running: keep counting from the original start rather than losing the time.
+            if (isRunning) return
             startTime = System.currentTimeMillis()
             isRunning = true
         }
@@ -71,6 +74,9 @@ class StopWatch {
      */
     fun pause() {
         synchronized(this) {
+            // Not running (e.g. just reset, startTime 0): adding "now - startTime" would add the
+            // whole time since 1970.
+            if (!isRunning) return
             previousElapsedTime += System.currentTimeMillis() - startTime
             isRunning = false
         }

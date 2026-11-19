@@ -1,6 +1,8 @@
 /*
  * Copyright (c) 2019 Hemanth Savarala.
- * Modifications copyright (c) 2026 crunchbank (Shark Music): the service can return to the foreground after quit().
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the service can return to the foreground after quit();
+ * it counts a play (for Most played) once at least half of a song has been heard, timed
+ * from the moment each track starts.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -89,6 +91,7 @@ import code.name.monkey.retromusic.model.smartplaylist.AbsSmartPlaylist
 import code.name.monkey.retromusic.providers.HistoryStore
 import code.name.monkey.retromusic.providers.MusicPlaybackQueueStore
 import code.name.monkey.retromusic.providers.SongPlayCountStore
+import code.name.monkey.retromusic.util.PlayCounts
 import code.name.monkey.retromusic.service.notification.PlayingNotification
 import code.name.monkey.retromusic.service.playback.Playback
 import code.name.monkey.retromusic.service.playback.Playback.PlaybackCallbacks
@@ -1169,14 +1172,19 @@ class MusicService : MediaBrowserServiceCompat(),
                 }
                 savePosition()
                 savePositionInTrack()
+                // Decide here, as the track changes, whether the previous song was listened to,
+                // and start timing the new one; only the database writes go to the background.
+                val currentSong = currentSong
+                val finishedSong = songPlayCountHelper.song
+                val countPlay = songPlayCountHelper.shouldBumpPlayCount()
+                songPlayCountHelper.notifySongChanged(currentSong, isPlaying)
                 serviceScope.launch(IO) {
-                    val currentSong = currentSong
                     HistoryStore.getInstance(this@MusicService).addSongId(currentSong.id)
-                    if (songPlayCountHelper.shouldBumpPlayCount()) {
+                    if (countPlay) {
                         SongPlayCountStore.getInstance(this@MusicService)
-                            .bumpPlayCount(songPlayCountHelper.song.id)
+                            .bumpPlayCount(finishedSong.id)
+                        PlayCounts.bump(finishedSong)
                     }
-                    songPlayCountHelper.notifySongChanged(currentSong)
                     storage.saveSong(currentSong)
                 }
             }

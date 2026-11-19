@@ -521,6 +521,7 @@
     <string name="label_channels">Channels</string>
     <string name="label_lossless">Lossless</string>
     <string name="fix_genres">Fix genres</string>
+    <string name="sort_order_most_played">Most played</string>
     <string name="fix_genres_apply">Apply</string>
     <string name="tags_not_saved">Couldn\'t save tags to %1$d of %2$d files. They were left unchanged.</string>
     <string name="could_not_write_tags_to_file">Could not write tags to the music file!</string>
