@@ -56,23 +56,25 @@
             </group>
         </vector>
     </aapt:attr>
+    <!-- Modified for Shark Music (crunchbank, 2026): the two clip steps now run in sequence, so
+         the full-heart step always finishes last (run together, the heart could stop half
+         full), and the clip spans 16-40 so it no longer trims the edges and point of the fill. -->
     <target android:name="clip">
         <aapt:attr name="android:animation">
-            <set>
-                <objectAnimator
-                    android:propertyName="pathData"
-                    android:startOffset="360"
-                    android:duration="140"
-                    android:valueFrom="M 18 26 C 18 26 21 28 24 28 C 27 28 29 25 32 25 C 35 25 38 26 38 26 L 38 38 L 18 38 L 18 26 Z"
-                    android:valueTo="M 18 18 C 18 18 24 18 24 18 C 24 18 32 18 32 18 C 32 18 38 18 38 18 L 38 38 L 18 38 L 18 18 Z"
-                    android:valueType="pathType"
-                    android:interpolator="@android:interpolator/fast_out_linear_in"/>
+            <set android:ordering="sequentially">
                 <objectAnimator
                     android:propertyName="pathData"
                     android:startOffset="200"
                     android:duration="160"
-                    android:valueFrom="M 18 38 C 18 38 24 38 24 38 C 24 38 32 38 32 38 C 32 38 38 38 38 38 L 38 38 L 18 38 L 18 38 Z"
-                    android:valueTo="M 18 26 C 18 26 21 28 24 28 C 27 28 29 25 32 25 C 35 25 38 26 38 26 L 38 38 L 18 38 L 18 26 Z"
+                    android:valueFrom="M 16 40 C 16 40 24 40 24 40 C 24 40 32 40 32 40 C 32 40 40 40 40 40 L 40 40 L 16 40 L 16 40 Z"
+                    android:valueTo="M 16 26 C 16 26 21 28 24 28 C 27 28 29 25 32 25 C 35 25 40 26 40 26 L 40 40 L 16 40 L 16 26 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:interpolator/fast_out_linear_in"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="140"
+                    android:valueFrom="M 16 26 C 16 26 21 28 24 28 C 27 28 29 25 32 25 C 35 25 40 26 40 26 L 40 40 L 16 40 L 16 26 Z"
+                    android:valueTo="M 16 16 C 16 16 24 16 24 16 C 24 16 32 16 32 16 C 32 16 40 16 40 16 L 40 40 L 16 40 L 16 16 Z"
                     android:valueType="pathType"
                     android:interpolator="@android:interpolator/fast_out_linear_in"/>
             </set>

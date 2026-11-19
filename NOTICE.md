@@ -26,6 +26,7 @@ based on upstream `dev` at 0be018679 (2026-11-12):
 | `repository/GenreRepository.kt`, `repository/SongRepository.kt`, `MainModule.kt` | On Android 11+ the Genres tab splits genre strings such as "Pop, Folk" (also `;` and `\|`) into separate genres, merging names that differ only in case. |
 | `activities/tageditor/TagWriter.kt`, `AbsTagEditorActivity.kt` | The genre box shows every genre field in the file, joined with commas, and saving replaces all of them with one field. |
 | `activities/tageditor/AbsTagEditorActivity.kt`, `SongTagEditorActivity.kt`, `AlbumTagEditorActivity.kt`, `res/values/strings.xml`, `res/drawable/ic_auto_fix.xml` | "Fix genres" button on the genre box: pick which genres to keep, written back as a tidy comma-separated list. The icon is Material Icons "auto_fix_high" (Apache License 2.0, Google). |
+| `res/drawable/avd_favorite.xml` | The favourite animation always ends on a completely filled heart (it could stop half full). |
 | `app/build.gradle.kts` | App ID `io.github.crunchbank.sharkmusic`. |
 | `res/values/donottranslate.xml`, `res/values/strings.xml` | App name "Shark Music". |
 | `res/drawable/ic_launcher_*.xml`, `res/mipmap-*/ic_launcher*`, `ic_launcher-web.png` | New launcher icon (shark fin on a vinyl record), copyright © 2026 crunchbank. |
