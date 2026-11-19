@@ -31,6 +31,8 @@ based on upstream `dev` at 0be018679 (2026-11-12):
 | `res/values/donottranslate.xml`, `res/values/strings.xml` | App name "Shark Music". |
 | `res/drawable/ic_launcher_*.xml`, `res/mipmap-*/ic_launcher*`, `ic_launcher-web.png` | New launcher icon (shark fin on a vinyl record), copyright © 2026 crunchbank. |
 | `assets/license.html` | Shark Music copyright, licence, warranty and source notice on the in-app licences screen. |
-| `README.md`, `NOTICE.md`, `.gitignore` | Fork notice, this file, and ignored signing files. |
+| `activities/MainActivity.kt` | The "What's new" sheet (Retro Music's changelog) no longer opens on launch. |
+| `assets/retro-changelog.html` | Removed the "Looking for maintainers/contributors" notice. |
+| `README.md`, `NOTICE.md`, `.gitignore` | Shark Music README (replaces Retro Music's), this file, and ignored signing files. |
 
 "Retro Music" is the name of the original project. Shark Music is not affiliated with or endorsed by it.

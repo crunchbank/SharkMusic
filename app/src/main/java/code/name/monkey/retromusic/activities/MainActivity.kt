@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the "What's new" sheet no longer opens on launch.
  */
 package code.name.monkey.retromusic.activities
 
@@ -52,8 +53,6 @@ class MainActivity : AbsCastActivity() {
         AppRater.appLaunched(this)
 
         setupNavigationController()
-
-        WhatsNewFragment.showChangeLog(this)
     }
 
     private fun setupNavigationController() {
