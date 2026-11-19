@@ -45,8 +45,8 @@ import kotlin.random.Random
  * every other sighting chases three tiny fish. After a catch it slows down and sinks without
  * turning while the other fish flee. Then the water settles.
  *
- * Everything is drawn in the slider's parent overlay, so no layout changes; the progress dot is
- * left uncovered (the shark passes behind it). Nothing runs between sightings except one delayed
+ * Everything is drawn in the window's overlay (the slider's own parent can be too short for the
+ * fin), so no layout changes; the progress dot is left uncovered (the shark passes behind it). Nothing runs between sightings except one delayed
  * callback. Only for the round-dot slider style.
  */
 class SharkSightings(
@@ -92,13 +92,13 @@ class SharkSightings(
     }
 
     private fun startSighting() {
-        val parent = slider.parent as? ViewGroup ?: return
+        val host = slider.rootView as? ViewGroup ?: return
         val width = trackWidthDp()
         if (width < 120f) return
         sightings++
         sim = Sim(width, chase = sightings % 2 == 0)
-        drawable.setBounds(0, 0, parent.width, parent.height)
-        parent.overlay.add(drawable)
+        drawable.setBounds(0, 0, host.width, host.height)
+        host.overlay.add(drawable)
         animator = TimeAnimator().apply {
             setTimeListener { _, _, deltaMs ->
                 val s = sim
@@ -108,7 +108,7 @@ class SharkSightings(
                 if (!canContinue()) s.dive(QUICK_DIVE)
                 s.width = trackWidthDp()
                 if (!s.update(min(deltaMs, 50L) / 1000f)) stopSighting()
-                else parent.invalidate()
+                else host.invalidate()
             }
             start()
         }
@@ -118,7 +118,7 @@ class SharkSightings(
         animator?.cancel()
         animator = null
         sim = null
-        (slider.parent as? ViewGroup)?.let {
+        (slider.rootView as? ViewGroup)?.let {
             it.overlay.remove(drawable)
             it.invalidate()
         }
@@ -133,9 +133,19 @@ class SharkSightings(
     // --- Geometry, read from the slider every frame so it follows layout and theme changes ---
 
     private val density get() = slider.resources.displayMetrics.density
-    private fun trackLeftPx() = slider.left + slider.trackSidePadding.toFloat()
-    private fun trackRightPx() = slider.right - slider.trackSidePadding.toFloat()
-    private fun trackWidthDp() = (trackRightPx() - trackLeftPx()) / density
+    private val sliderLoc = IntArray(2)
+    private val hostLoc = IntArray(2)
+
+    /** Where the slider sits in the window overlay's coordinates; updated each frame. */
+    private fun locateSlider() {
+        slider.getLocationInWindow(sliderLoc)
+        slider.rootView.getLocationInWindow(hostLoc)
+    }
+    private fun sliderX() = (sliderLoc[0] - hostLoc[0]).toFloat()
+    private fun sliderY() = (sliderLoc[1] - hostLoc[1]).toFloat()
+    private fun trackLeftPx() = sliderX() + slider.trackSidePadding
+    private fun trackRightPx() = sliderX() + slider.width - slider.trackSidePadding
+    private fun trackWidthDp() = (slider.width - 2f * slider.trackSidePadding) / density
 
     /** The animation state, in dp along the track. Pure maths: no drawing, no Android. */
     private class Sim(var width: Float, val chase: Boolean) {
@@ -299,9 +309,10 @@ class SharkSightings(
         override fun draw(canvas: Canvas) {
             val s = sim ?: return
             val d = density
+            locateSlider()
             val left = trackLeftPx()
             val right = trackRightPx()
-            val cy = slider.top + slider.height / 2f
+            val cy = sliderY() + slider.height / 2f
             val lineTop = cy - slider.trackHeight / 2f
             val state = slider.drawableState
             val active = slider.trackActiveTintList.getColorForState(state, 0)
