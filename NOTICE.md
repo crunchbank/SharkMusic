@@ -38,6 +38,7 @@ based on upstream `dev` at 0be018679 (2026-11-12):
 | `assets/retro-changelog.html` | Removed the "Looking for maintainers/contributors" notice. |
 | `fragments/home/HomeFragment.kt`, `HomeBinding.kt`, `res/layout*/fragment_home.xml`, `res/navigation/main_graph.xml`, `res/xml/pref_ui.xml`, `util/PreferenceUtil.kt`, `glide/RetroGlideExtension.kt` | Removed the home screen greeting ("Welcome, …" with an avatar, or the optional banner), its Profile page (`UserInfoFragment` and its layouts, `views/HomeImageLayout.kt`) and the Banner setting. |
 | `fastlane/metadata/android/en-US/short_description.txt`, `full_description.txt` | Store listing text describes Shark Music. |
+| `fastlane/metadata/android/en-US/images/featureGraphic.png`, `phoneScreenshots/*.jpg` | New feature graphic and screenshots of Shark Music, copyright © 2026 crunchbank. The library shown is invented demo content with generated artwork. Retro Music's old changelog file is removed. |
 | `README.md`, `NOTICE.md`, `.gitignore` | Shark Music README (replaces Retro Music's), this file, and ignored signing files. |
 
 "Retro Music" is the name of the original project. Shark Music is not affiliated with or endorsed by it.
