@@ -18,8 +18,8 @@
         <item name="colorSurface">@android:color/system_accent1_50</item>
     </style>
 
+    <!-- Shark Music (crunchbank, 2026): the Shark Music icon instead of Retro's animated logo. -->
     <style name="Theme.RetroMusic.SplashScreen" parent="Theme.SplashScreen">
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/avd_splash</item>
-        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
     </style>
 </resources>

@@ -10,6 +10,8 @@
   ~ This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
   ~ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   ~ See the GNU General Public License for more details.
+  ~
+  ~ Modifications copyright (c) 2026 crunchbank (Shark Music): ic_splash is the Shark Music icon.
   -->
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">

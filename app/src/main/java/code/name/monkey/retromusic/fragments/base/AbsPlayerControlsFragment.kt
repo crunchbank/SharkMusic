@@ -301,14 +301,16 @@ abstract class AbsPlayerControlsFragment(@LayoutRes layout: Int) : AbsMusicServi
             slider,
             canStart = {
                 val ok = MusicPlayerRemote.isPlaying && !isSeeking && isPlayerExpanded() &&
-                        MusicPlayerRemote.musicService?.isCurrentSongCountedAsPlayed == true
+                        (MusicPlayerRemote.musicService?.currentSongListenedFraction ?: 0f) >=
+                        SHARK_START_FRACTION
                 if (ok) sharkSongId = MusicPlayerRemote.currentSong.id
                 ok
             },
             canContinue = {
                 MusicPlayerRemote.isPlaying && !isSeeking && isPlayerExpanded() &&
                         MusicPlayerRemote.currentSong.id == sharkSongId
-            }
+            },
+            songKey = { MusicPlayerRemote.currentSong.id }
         ).also { sharkSightings = it }
         sightings.resume()
     }
@@ -320,5 +322,11 @@ abstract class AbsPlayerControlsFragment(@LayoutRes layout: Int) : AbsMusicServi
 
     companion object {
         const val SLIDER_ANIMATION_TIME: Long = 400
+
+        /**
+         * The shark first surfaces once a third of the way to "counts as played" (half the song),
+         * i.e. after a sixth of the song has been heard.
+         */
+        private const val SHARK_START_FRACTION = 0.5f / 3f
     }
 }

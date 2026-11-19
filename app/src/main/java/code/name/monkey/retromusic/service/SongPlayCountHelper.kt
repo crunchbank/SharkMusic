@@ -29,6 +29,10 @@ class SongPlayCountHelper {
         return song.duration * 0.5 < stopWatch.elapsedTime
     }
 
+    /** How much of [song] has been heard so far, as a fraction of its length (0 if unknown). */
+    fun listenedFraction(): Float =
+        if (song.duration > 0) stopWatch.elapsedTime.toFloat() / song.duration else 0f
+
     /**
      * Starts timing [song]. [isPlaying] restarts the timer at once: a track change while playing
      * sends no new play-state event, so without it the next song would never be timed.

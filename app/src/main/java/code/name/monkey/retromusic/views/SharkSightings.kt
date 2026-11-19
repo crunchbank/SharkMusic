@@ -38,7 +38,8 @@ import kotlin.random.Random
 /**
  * Now and then, a shark fin surfaces in the now-playing progress line.
  *
- * While a song plays, after it has counted as played, a sighting starts every 30–50 seconds:
+ * While a song plays, the first sighting starts as soon as [canStart] allows (checked every
+ * second), then again 9–30 seconds after each one ends; a new song starts the count over:
  * the line swells into ripples, a fin rises out of it, cruises (sinking halfway to turn), and in
  * every other sighting chases three tiny fish. After a catch it slows down and sinks without
  * turning while the other fish flee. Then the water settles.
@@ -55,6 +56,8 @@ class SharkSightings(
     private val canStart: () -> Boolean,
     /** True while a running sighting may carry on; when it turns false the shark dives. */
     private val canContinue: () -> Boolean,
+    /** Identifies the current song, so each song gets its own first sighting. */
+    private val songKey: () -> Any?,
 ) {
     private val handler = Handler(Looper.getMainLooper())
     private val drawable = SharkDrawable()
@@ -78,9 +81,14 @@ class SharkSightings(
     private var sim: Sim? = null
     private var sightings = 0
     private var resumed = false
+    private var lastSightingSong: Any? = NO_SONG
 
     private val scheduled = Runnable {
-        if (resumed && sim == null && canStart()) startSighting()
+        if (!resumed || sim != null) return@Runnable
+        if (canStart()) {
+            startSighting()
+            if (sim != null) return@Runnable // stopSighting() schedules the next one
+        }
         schedule()
     }
 
@@ -102,9 +110,16 @@ class SharkSightings(
         sim?.dive(QUICK_DIVE)
     }
 
+    /**
+     * Until this song's first sighting, checks every second so the shark arrives right at the
+     * threshold; after that, waits 9–30 seconds.
+     */
     private fun schedule() {
         handler.removeCallbacks(scheduled)
-        if (resumed) handler.postDelayed(scheduled, Random.nextLong(MIN_GAP_MS, MAX_GAP_MS))
+        if (!resumed) return
+        val delay = if (songKey() == lastSightingSong) Random.nextLong(MIN_GAP_MS, MAX_GAP_MS + 1)
+        else POLL_MS
+        handler.postDelayed(scheduled, delay)
     }
 
     private fun startSighting() {
@@ -112,6 +127,7 @@ class SharkSightings(
         val width = trackWidthDp()
         if (width < 120f) return
         sightings++
+        lastSightingSong = songKey()
         sim = Sim(width, chase = sightings % 2 == 0)
         drawable.setBounds(0, 0, host.width, host.height)
         host.overlay.add(drawable)
@@ -120,12 +136,14 @@ class SharkSightings(
     }
 
     private fun stopSighting() {
+        val wasRunning = sim != null
         Choreographer.getInstance().removeFrameCallback(frame)
         sim = null
         (slider.rootView as? ViewGroup)?.let {
             it.overlay.remove(drawable)
             it.invalidate()
         }
+        if (wasRunning) schedule()
     }
 
     // --- Geometry, read from the slider every frame so it follows layout and theme changes ---
@@ -429,8 +447,10 @@ class SharkSightings(
     }
 
     companion object {
-        private const val MIN_GAP_MS = 30_000L
-        private const val MAX_GAP_MS = 50_000L
+        private const val POLL_MS = 1_000L
+        private const val MIN_GAP_MS = 9_000L
+        private const val MAX_GAP_MS = 30_000L
+        private val NO_SONG = Any()
         private const val QUICK_DIVE = 0.7f
     }
 }

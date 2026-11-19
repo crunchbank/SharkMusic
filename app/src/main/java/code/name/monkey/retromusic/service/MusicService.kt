@@ -2,7 +2,7 @@
  * Copyright (c) 2019 Hemanth Savarala.
  * Modifications copyright (c) 2026 crunchbank (Shark Music): the service can return to the foreground after quit();
  * it counts a play (for Most played) once at least half of a song has been heard, timed
- * from the moment each track starts; it says whether the current song has counted as played yet.
+ * from the moment each track starts; it says how much of the current song has been heard.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -268,9 +268,9 @@ class MusicService : MediaBrowserServiceCompat(),
     var shuffleMode = 0
     private val songPlayCountHelper = SongPlayCountHelper()
 
-    /** True once the current song has been listened to long enough to count as played. */
-    val isCurrentSongCountedAsPlayed: Boolean
-        get() = songPlayCountHelper.shouldBumpPlayCount()
+    /** How much of the current song has been heard, as a fraction of its length. */
+    val currentSongListenedFraction: Float
+        get() = songPlayCountHelper.listenedFraction()
 
     private val bluetoothReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
