@@ -43,6 +43,10 @@ object PlayCounts : KoinComponent {
     /** Song id → times played, for every song played at least once. */
     fun all(): Map<Long, Int> = dao.playCounts().associate { it.id to it.playCount }
 
+    /** The songs in [songs] never listened to past the counts-as-played point, in the same order. */
+    fun unplayed(songs: List<Song>, counts: Map<Long, Int> = all()): List<Song> =
+        songs.filter { (counts[it.id] ?: 0) == 0 }
+
     /** [songs] most played first; songs with the same count (or never played) by title. */
     fun mostPlayedFirst(songs: List<Song>, counts: Map<Long, Int> = all()): List<Song> {
         val collator = Collator.getInstance()

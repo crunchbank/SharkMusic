@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
  * Modifications copyright (c) 2026 crunchbank (Shark Music): Shark Music title; removed the
- * greeting row and its Profile page.
+ * greeting row and its Profile page; the Shuffle button is now Unplayed.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -94,7 +94,7 @@ class HomeFragment :
 
     private fun adjustPlaylistButtons() {
         val buttons =
-            listOf(binding.history, binding.lastAdded, binding.topPlayed, binding.actionShuffle)
+            listOf(binding.history, binding.lastAdded, binding.topPlayed, binding.unplayed)
         buttons.maxOf { it.lineCount }.let { maxLineCount ->
             buttons.forEach { button ->
                 // Set the highest line count to every button for consistency
@@ -120,8 +120,12 @@ class HomeFragment :
             setSharedAxisYTransitions()
         }
 
-        binding.actionShuffle.setOnClickListener {
-            libraryViewModel.shuffleSongs()
+        binding.unplayed.setOnClickListener {
+            findNavController().navigate(
+                R.id.detailListFragment,
+                bundleOf(EXTRA_PLAYLIST_TYPE to UNPLAYED_PLAYLIST)
+            )
+            setSharedAxisYTransitions()
         }
 
         binding.history.setOnClickListener {
@@ -153,7 +157,7 @@ class HomeFragment :
         binding.history.elevatedAccentColor()
         binding.lastAdded.elevatedAccentColor()
         binding.topPlayed.elevatedAccentColor()
-        binding.actionShuffle.elevatedAccentColor()
+        binding.unplayed.elevatedAccentColor()
     }
 
     private fun checkForMargins() {

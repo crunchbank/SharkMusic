@@ -12,6 +12,10 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the Unplayed list.
+ * Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.fragments.other
 
 import android.graphics.Color
@@ -91,6 +95,7 @@ class DetailListFragment : AbsMainActivityFragment(R.layout.fragment_playlist_de
             }
             LAST_ADDED_PLAYLIST -> lastAddedSongs()
             TOP_PLAYED_PLAYLIST -> topPlayed()
+            UNPLAYED_PLAYLIST -> unplayedSongs()
         }
 
         binding.appBarLayout.statusBarForeground =
@@ -111,6 +116,24 @@ class DetailListFragment : AbsMainActivityFragment(R.layout.fragment_playlist_de
         }
         libraryViewModel.recentSongs().observe(viewLifecycleOwner) { songs ->
             songAdapter.swapDataSet(songs)
+        }
+    }
+
+    private fun unplayedSongs() {
+        binding.toolbar.setTitle(R.string.unplayed)
+        val songAdapter = ShuffleButtonSongAdapter(
+            requireActivity(),
+            mutableListOf(),
+            R.layout.item_list
+        )
+        binding.recyclerView.apply {
+            adapter = songAdapter
+            layoutManager = linearLayoutManager()
+            scheduleLayoutAnimation()
+        }
+        libraryViewModel.unplayedSongs().observe(viewLifecycleOwner) { songs ->
+            songAdapter.swapDataSet(songs)
+            binding.empty.isVisible = songs.isEmpty()
         }
     }
 

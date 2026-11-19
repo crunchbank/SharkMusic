@@ -11,6 +11,10 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): unplayedTracks().
+ * Licensed under the GNU General Public License v3.
+ */
 
 package code.name.monkey.retromusic.repository
 
@@ -24,6 +28,7 @@ import code.name.monkey.retromusic.model.Artist
 import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.providers.HistoryStore
 import code.name.monkey.retromusic.providers.SongPlayCountStore
+import code.name.monkey.retromusic.util.PlayCounts
 import code.name.monkey.retromusic.util.PreferenceUtil
 
 
@@ -37,6 +42,9 @@ interface TopPlayedRepository {
     fun topTracks(): List<Song>
 
     fun notRecentlyPlayedTracks(): List<Song>
+
+    /** Songs never played past the counts-as-played point, newest added first. */
+    fun unplayedTracks(): List<Song>
 
     fun topAlbums(): List<Album>
 
@@ -57,6 +65,12 @@ class RealTopPlayedRepository(
     override fun topTracks(): List<Song> {
         return songRepository.songs(makeTopTracksCursorAndClearUpDatabase())
     }
+
+    override fun unplayedTracks(): List<Song> = PlayCounts.unplayed(
+        songRepository.songs(
+            songRepository.makeSongCursor(null, null, MediaStore.Audio.Media.DATE_ADDED + " DESC")
+        )
+    )
 
     override fun notRecentlyPlayedTracks(): List<Song> {
         val allSongs = mutableListOf<Song>().apply {

@@ -12,6 +12,10 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): UNPLAYED_PLAYLIST.
+ * Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic
 
 import androidx.annotation.IntDef
@@ -40,3 +44,6 @@ const val PLAYLISTS = 7
 const val HISTORY_PLAYLIST = 8
 const val LAST_ADDED_PLAYLIST = 9
 const val TOP_PLAYED_PLAYLIST = 10
+
+/** Shark Music: songs never played past the counts-as-played point. */
+const val UNPLAYED_PLAYLIST = 11

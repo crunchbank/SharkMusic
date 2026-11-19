@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
- * Modifications copyright (c) 2026 crunchbank (Shark Music): library sections are posted as soon as each one loads.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): library sections are posted as soon as each one loads;
+ * unplayedSongs().
  *
  * Licensed under the GNU General Public License v3
  *
@@ -269,6 +270,10 @@ class LibraryViewModel(
 
     fun recentSongs(): LiveData<List<Song>> = liveData(IO) {
         emit(repository.recentSongs())
+    }
+
+    fun unplayedSongs(): LiveData<List<Song>> = liveData(IO) {
+        emit(repository.unplayedSongs())
     }
 
     fun playCountSongs(): LiveData<List<Song>> {

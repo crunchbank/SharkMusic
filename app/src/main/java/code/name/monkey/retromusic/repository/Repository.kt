@@ -11,6 +11,10 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): unplayedSongs().
+ * Licensed under the GNU General Public License v3.
+ */
 
 package code.name.monkey.retromusic.repository
 
@@ -82,6 +86,7 @@ interface Repository {
     suspend fun upsertSongInHistory(currentSong: Song)
     suspend fun favoritePlaylistSongs(): List<SongEntity>
     suspend fun recentSongs(): List<Song>
+    suspend fun unplayedSongs(): List<Song>
     suspend fun topPlayedSongs(): List<Song>
     suspend fun upsertSongInPlayCount(playCountEntity: PlayCountEntity)
     suspend fun deleteSongInPlayCount(playCountEntity: PlayCountEntity)
@@ -279,6 +284,8 @@ class RealRepository(
         roomRepository.favoritePlaylistSongs(context.getString(R.string.favorites))
 
     override suspend fun recentSongs(): List<Song> = lastAddedRepository.recentSongs()
+
+    override suspend fun unplayedSongs(): List<Song> = topPlayedRepository.unplayedTracks()
 
     override suspend fun topPlayedSongs(): List<Song> = topPlayedRepository.topTracks()
 
