@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): starts the playlist backup.
  */
 package code.name.monkey.retromusic
 
@@ -23,6 +24,7 @@ import code.name.monkey.retromusic.activities.ErrorActivity
 import code.name.monkey.retromusic.activities.MainActivity
 import code.name.monkey.retromusic.appshortcuts.DynamicShortcutManager
 import code.name.monkey.retromusic.helper.WallpaperAccentManager
+import code.name.monkey.retromusic.util.PlaylistAutoBackup
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -46,6 +48,7 @@ class App : Application() {
                 .commit()
         }
         wallpaperAccentManager.init()
+        PlaylistAutoBackup.start(this)
 
         if (VersionUtils.hasNougatMR())
             DynamicShortcutManager(this).initDynamicShortcuts()

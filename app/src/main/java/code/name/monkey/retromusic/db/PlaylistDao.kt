@@ -11,11 +11,14 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): playlistsWithSongsFlow, for the
+ * playlist backup in the Music folder.
  */
 package code.name.monkey.retromusic.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PlaylistDao {
@@ -40,6 +43,11 @@ interface PlaylistDao {
     @Transaction
     @Query("SELECT * FROM PlaylistEntity")
     suspend fun playlistsWithSongs(): List<PlaylistWithSongs>
+
+    /** Every playlist with its songs, emitted again whenever a playlist or its songs change. */
+    @Transaction
+    @Query("SELECT * FROM PlaylistEntity")
+    fun playlistsWithSongsFlow(): Flow<List<PlaylistWithSongs>>
 
     @Transaction
     @Query("SELECT * FROM PlaylistEntity WHERE playlist_id= :playlistId")

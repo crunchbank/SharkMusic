@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modifications copyright (c) 2026 crunchbank (Shark Music): playlist backup switch. -->
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -30,6 +31,13 @@
             android:positiveButtonText="@null"
             android:title="@string/pref_title_last_added_interval"
             app:icon="@drawable/ic_playlist_add" />
+
+        <code.name.monkey.appthemehelper.common.prefs.supportv7.ATESwitchPreference
+            android:defaultValue="true"
+            android:key="auto_backup_playlists"
+            android:layout="@layout/list_item_view_switch"
+            android:summary="@string/pref_summary_auto_backup_playlists"
+            android:title="@string/pref_title_auto_backup_playlists" />
 
     </code.name.monkey.appthemehelper.common.prefs.supportv7.ATEPreferenceCategory>
     <code.name.monkey.appthemehelper.common.prefs.supportv7.ATEPreferenceCategory
