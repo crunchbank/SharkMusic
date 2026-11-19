@@ -11,6 +11,8 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): lyrics saved through the tag
+ * editor's verified write path; nothing is written back when the edit fails.
  */
 package code.name.monkey.retromusic.fragments.lyrics
 
@@ -33,6 +35,7 @@ import code.name.monkey.appthemehelper.util.ToolbarContentTintHelper
 import code.name.monkey.appthemehelper.util.VersionUtils
 import code.name.monkey.retromusic.R
 import code.name.monkey.retromusic.activities.tageditor.TagWriter
+import code.name.monkey.retromusic.extensions.showToast
 import code.name.monkey.retromusic.databinding.FragmentLyricsBinding
 import code.name.monkey.retromusic.extensions.accentColor
 import code.name.monkey.retromusic.extensions.materialDialog
@@ -44,11 +47,12 @@ import code.name.monkey.retromusic.helper.MusicProgressViewUpdateHelper
 import code.name.monkey.retromusic.lyrics.LrcView
 import code.name.monkey.retromusic.model.AudioTagInfo
 import code.name.monkey.retromusic.model.Song
-import code.name.monkey.retromusic.util.FileUtils
 import code.name.monkey.retromusic.util.LyricUtil
 import code.name.monkey.retromusic.util.UriUtil
 import com.afollestad.materialdialogs.input.input
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.jaudiotagger.audio.AudioFileIO
 import org.jaudiotagger.tag.FieldKey
 import java.io.File
@@ -66,7 +70,7 @@ class LyricsFragment : AbsMainActivityFragment(R.layout.fragment_lyrics),
     private lateinit var normalLyricsLauncher: ActivityResultLauncher<IntentSenderRequest>
     private lateinit var editSyncedLyricsLauncher: ActivityResultLauncher<IntentSenderRequest>
 
-    private lateinit var cacheFile: File
+    private var cacheFile: File? = null
     private var syncedLyrics: String = ""
     private lateinit var syncedFileUri: Uri
 
@@ -88,8 +92,20 @@ class LyricsFragment : AbsMainActivityFragment(R.layout.fragment_lyrics),
         // Normal lyrics launcher
         normalLyricsLauncher =
             registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
-                if (it.resultCode == Activity.RESULT_OK) {
-                    FileUtils.copyFileToUri(requireContext(), cacheFile, song.uri)
+                val edited = cacheFile
+                cacheFile = null
+                if (it.resultCode == Activity.RESULT_OK && edited != null) {
+                    val context = requireContext().applicationContext
+                    val uri = song.uri
+                    lifecycleScope.launch {
+                        val saved = withContext(Dispatchers.IO) {
+                            TagWriter.copyBack(context, edited, uri)
+                        }
+                        edited.delete()
+                        if (!saved) context.showToast(R.string.could_not_write_tags_to_file)
+                    }
+                } else {
+                    edited?.delete()
                 }
             }
         editSyncedLyricsLauncher =
@@ -223,6 +239,10 @@ class LyricsFragment : AbsMainActivityFragment(R.layout.fragment_lyrics),
                                 listOf(song.data), fieldKeyValueMap, null
                             )
                         )[0]
+                        if (cacheFile == null) {
+                            showToast(R.string.could_not_write_tags_to_file)
+                            return@launch
+                        }
                         val pendingIntent =
                             MediaStore.createWriteRequest(
                                 requireContext().contentResolver,
@@ -283,6 +303,10 @@ class LyricsFragment : AbsMainActivityFragment(R.layout.fragment_lyrics),
                                 requireContext(),
                                 AudioTagInfo(listOf(song.data), fieldKeyValueMap, null)
                             )[0]
+                            if (cacheFile == null) {
+                                showToast(R.string.could_not_write_tags_to_file)
+                                return@launch
+                            }
                             val pendingIntent = MediaStore.createWriteRequest(
                                 requireContext().contentResolver,
                                 listOf(song.uri)

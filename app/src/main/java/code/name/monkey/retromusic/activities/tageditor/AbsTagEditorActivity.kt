@@ -11,6 +11,8 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): saves run off the main thread, skip
+ * files that failed to edit, and report how many files could not be saved.
  */
 package code.name.monkey.retromusic.activities.tageditor
 
@@ -44,6 +46,7 @@ import code.name.monkey.retromusic.extensions.accentColor
 import code.name.monkey.retromusic.extensions.colorButtons
 import code.name.monkey.retromusic.extensions.hideSoftKeyboard
 import code.name.monkey.retromusic.extensions.setTaskDescriptionColorAuto
+import code.name.monkey.retromusic.extensions.showToast
 import code.name.monkey.retromusic.model.ArtworkInfo
 import code.name.monkey.retromusic.model.AudioTagInfo
 import code.name.monkey.retromusic.repository.Repository
@@ -51,7 +54,9 @@ import code.name.monkey.retromusic.util.logD
 import code.name.monkey.retromusic.util.logE
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.jaudiotagger.audio.AudioFile
 import org.jaudiotagger.audio.AudioFileIO
 import org.jaudiotagger.tag.FieldKey
@@ -67,13 +72,10 @@ abstract class AbsTagEditorActivity<VB : ViewBinding> : AbsBaseActivity() {
         private set
     private var paletteColorPrimary: Int = 0
     private var songPaths: List<String>? = null
-    private var savedSongPaths: List<String>? = null
-    private val currentSongPath: String? = null
-    private var savedTags: Map<FieldKey, String>? = null
-    private var savedArtworkInfo: ArtworkInfo? = null
     private var _binding: VB? = null
     protected val binding: VB get() = _binding!!
-    private var cacheFiles = listOf<File>()
+    // Edited copies awaiting write access, paired with the file each one replaces.
+    private var pendingWrites = listOf<Pair<File, Uri>>()
 
     abstract val bindingInflater: (LayoutInflater) -> VB
 
@@ -246,7 +248,11 @@ abstract class AbsTagEditorActivity<VB : ViewBinding> : AbsBaseActivity() {
         setUpViews()
         launcher = registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) {
             if (it.resultCode == Activity.RESULT_OK) {
-                writeToFiles(getSongUris(), cacheFiles)
+                writeToFiles(pendingWrites)
+            } else {
+                // Write access refused: nothing was changed, so let the user try again.
+                discardPendingWrites()
+                showFab()
             }
         }
     }
@@ -364,18 +370,28 @@ abstract class AbsTagEditorActivity<VB : ViewBinding> : AbsBaseActivity() {
         logD(fieldKeyValueMap)
         lifecycleScope.launch {
             if (VersionUtils.hasR()) {
-                cacheFiles = TagWriter.writeTagsToFilesR(
+                val edited = TagWriter.writeTagsToFilesR(
                     this@AbsTagEditorActivity, AudioTagInfo(
                         songPaths,
                         fieldKeyValueMap,
                         artworkInfo
                     )
                 )
-
-                if (cacheFiles.isNotEmpty()) {
-                    val pendingIntent =
-                        MediaStore.createWriteRequest(contentResolver, getSongUris())
+                val uris = getSongUris()
+                pendingWrites = edited.zip(uris)
+                    .mapNotNull { (file, uri) -> file?.let { it to uri } }
+                val failed = edited.size - pendingWrites.size
+                if (failed > 0) {
+                    showToast(getString(R.string.tags_not_saved, failed, edited.size))
+                }
+                if (pendingWrites.isNotEmpty()) {
+                    val pendingIntent = MediaStore.createWriteRequest(
+                        contentResolver,
+                        pendingWrites.map { it.second }
+                    )
                     launcher.launch(IntentSenderRequest.Builder(pendingIntent).build())
+                } else {
+                    showFab()
                 }
             } else {
                 TagWriter.writeTagsToFiles(
@@ -383,31 +399,6 @@ abstract class AbsTagEditorActivity<VB : ViewBinding> : AbsBaseActivity() {
                         songPaths,
                         fieldKeyValueMap,
                         artworkInfo
-                    )
-                )
-            }
-        }
-    }
-
-    private fun writeTags(paths: List<String>?) {
-        lifecycleScope.launch {
-            if (VersionUtils.hasR()) {
-                cacheFiles = TagWriter.writeTagsToFilesR(
-                    this@AbsTagEditorActivity, AudioTagInfo(
-                        paths,
-                        savedTags,
-                        savedArtworkInfo
-                    )
-                )
-                val pendingIntent = MediaStore.createWriteRequest(contentResolver, getSongUris())
-
-                launcher.launch(IntentSenderRequest.Builder(pendingIntent).build())
-            } else {
-                TagWriter.writeTagsToFiles(
-                    this@AbsTagEditorActivity, AudioTagInfo(
-                        paths,
-                        savedTags,
-                        savedArtworkInfo
                     )
                 )
             }
@@ -428,27 +419,29 @@ abstract class AbsTagEditorActivity<VB : ViewBinding> : AbsBaseActivity() {
         }
     }
 
-    private fun writeToFiles(songUris: List<Uri>, cacheFiles: List<File>) {
-        if (cacheFiles.size == songUris.size) {
-            for (i in cacheFiles.indices) {
-                contentResolver.openOutputStream(songUris[i])?.use { output ->
-                    cacheFiles[i].inputStream().use { input ->
-                        input.copyTo(output)
-                    }
+    private fun writeToFiles(writes: List<Pair<File, Uri>>) {
+        lifecycleScope.launch {
+            val failed = withContext(Dispatchers.IO) {
+                writes.count { (file, uri) ->
+                    !TagWriter.copyBack(this@AbsTagEditorActivity, file, uri)
                 }
             }
-        }
-        lifecycleScope.launch {
+            discardPendingWrites()
+            if (failed > 0) {
+                showToast(getString(R.string.tags_not_saved, failed, writes.size))
+            }
             TagWriter.scan(this@AbsTagEditorActivity, getSongPaths())
         }
     }
 
+    private fun discardPendingWrites() {
+        pendingWrites = emptyList()
+        File(cacheDir, TagWriter.TAG_EDIT_DIR).deleteRecursively()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        // Delete Cache Files
-        cacheFiles.forEach { file ->
-            file.delete()
-        }
+        if (isFinishing) discardPendingWrites()
     }
 
     companion object {
