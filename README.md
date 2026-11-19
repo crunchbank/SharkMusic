@@ -1,4 +1,6 @@
-# Shark Music
+<p align="center"><img src="app/src/main/ic_launcher-web.png" alt="Shark Music icon" width="160"></p>
+
+<h1 align="center">Shark Music</h1>
 
 A music player for Android, based on [Retro Music Player](https://github.com/RetroMusicPlayer/RetroMusicPlayer).
 
