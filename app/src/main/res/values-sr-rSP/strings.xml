@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Uredjivac tagova</string>
     <string name="action_toggle_favorite">Укључи омиљење</string>
     <string name="action_toggle_shuffle">Укључи насумично пуштање</string>
-    <string name="adaptive">Прилагодљиво</string>
     <string name="add_action">Додај</string>
     <string name="add_playlist_title">"Dodaj na plejlistu"</string>
     <string name="added_song_count_to_playlist">Added %1$d song(s) to %2$s</string>
@@ -94,7 +93,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Уређаји у близини</string>
     <string name="blur">Замагли</string>
-    <string name="blur_card">Blur Card</string>
     <string name="bug_report_manual">Пошаљи ручно</string>
     <string name="bug_report_summary">An unexpected error occurred. Sorry you found this bug, if it keeps crashing \"Clear app data\" or send an Email </string>
     <string name="card">Картица</string>
@@ -172,7 +170,6 @@
     <string name="genre">Zanr</string>
     <string name="genres">Жанра</string>
     <string name="git_hub_summary">Fork the project on GitHub</string>
-    <string name="gradient">Прелаз</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

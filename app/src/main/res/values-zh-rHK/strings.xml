@@ -45,7 +45,6 @@
     <string name="action_tag_editor">標籤編輯</string>
     <string name="action_toggle_favorite">切換至我的最愛</string>
     <string name="action_toggle_shuffle">切換隨機播放模式</string>
-    <string name="adaptive">自適應</string>
     <string name="add_action">增加</string>
     <string name="add_playlist_title">"加入至播放清單"</string>
     <string name="added_title_to_playing_queue">"已經將1首歌曲新增至播放列表。"</string>
@@ -71,7 +70,6 @@
     <string name="black_theme_name">純黑</string>
     <string name="blacklist">黑名單</string>
     <string name="blur">模糊</string>
-    <string name="blur_card">模糊卡片</string>
     <string name="bug_report_manual">手動傳送</string>
     <string name="bug_report_summary">發生未預期的錯誤。真抱歉您發現了這個bug，如果一直死機請嘗試\"清除程式數據\"，或者傳送電郵給我們 </string>
     <string name="card">卡片</string>

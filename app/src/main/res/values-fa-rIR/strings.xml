@@ -50,7 +50,6 @@
     <string name="action_tag_editor"> ویرایشگر برچسب </string>
     <string name="action_toggle_favorite">تغییر علاقه‌مندی‌ها</string>
     <string name="action_toggle_shuffle">تغییر حالت پخش مخلوط</string>
-    <string name="adaptive">سازگار</string>
     <string name="add_action">ﺍﻓﺰﻭﺩﻥ</string>
     <string name="add_playlist_title">"افزودن به لیست پخش"</string>
     <string name="added_song_count_to_playlist">%1$d عدد آهنگ به %2$s اضافه شد</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">برای بررسی دستگاه‌های بلوتوث،برنامه نیاز به مجوز دسترسی دستگاه‌های نزدیک دارد</string>
     <string name="bluetooth_title">دستگاه‌های نزدیک</string>
     <string name="blur">تاری</string>
-    <string name="blur_card">کارت تاری</string>
     <string name="bug_report_manual">ارسال دستی</string>
     <string name="bug_report_summary">یک مشکل پیش بینی نشده رخ داد. متأسفیم که شما این باگ را پیدا کردید، اگر برنامه به متوقف شدن ادامه داد لطفاً برنامه را کلیر دیتا کنید یا برای ما ایمیل بفرستید </string>
     <string name="card">کارت</string>
@@ -170,7 +168,6 @@
     <string name="genre">ژانر</string>
     <string name="genres">ژانر ها</string>
     <string name="git_hub_summary">ستاره‌دار کردن پروژه در گیت‌هاب</string>
-    <string name="gradient">شیب</string>
     <string name="grant_access">اجازه دسترسی</string>
     <string name="grid_size_1">۱</string>
     <string name="grid_size_2">۲</string>

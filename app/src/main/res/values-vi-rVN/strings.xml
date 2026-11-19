@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Sửa thẻ</string>
     <string name="action_toggle_favorite">Chuyển đổi mục yêu thích</string>
     <string name="action_toggle_shuffle">Chuyển đổi chế độ phát ngẫu nhiên</string>
-    <string name="adaptive">Thích nghi</string>
     <string name="add_action">Thêm</string>
     <string name="add_playlist_title">"Thêm vào danh sách phát"</string>
     <string name="added_song_count_to_playlist">Thêm %1$d bài hát vào %2$s</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">Ứng dụng cần quyền các thiết bị lân cận để kiểm tra các thiết bị bluetooth</string>
     <string name="bluetooth_title">Thiết bị lân cận</string>
     <string name="blur">Làm mờ</string>
-    <string name="blur_card">Thẻ mờ</string>
     <string name="bug_report_manual">Gửi thủ công</string>
     <string name="bug_report_summary">Đã xảy ra lỗi không mong muốn. Xin lỗi bạn vì lỗi này, nếu nó
 tiếp tục xảy ra hãy \"Xóa dữ liệu ứng dụng\"</string>
@@ -169,7 +167,6 @@ tiếp tục xảy ra hãy \"Xóa dữ liệu ứng dụng\"</string>
     <string name="genre">Thể loại</string>
     <string name="genres">Thể loại</string>
     <string name="git_hub_summary">Tham gia phát triển dự án trên Github</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Trao quyền truy cập</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

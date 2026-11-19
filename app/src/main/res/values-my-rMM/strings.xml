@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Tag တည်းဖြတ်ခြင်း</string>
     <string name="action_toggle_favorite">ကြိုက်ရာခလုတ်များ</string>
     <string name="action_toggle_shuffle">သီချင်းကျရာရာခလုတ်</string>
-    <string name="adaptive">လိုက်ဖက်အောင်ပြင်ဆင်ပေးသည်</string>
     <string name="add_action">ထည့်မည်</string>
     <string name="add_playlist_title">"အောက်ပါ Playlist သို့ထည့်မည်"</string>
     <string name="added_song_count_to_playlist">%2$s သို့ %1$d သီချင်း(များ) ထည့်ပြီး</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Nearby devices</string>
     <string name="blur">Blur</string>
-    <string name="blur_card">ကတ်အဝါး</string>
     <string name="bug_report_manual">ကိုယ်တိုင်အသေးစိတ်သတင်းပို့မည်</string>
     <string name="bug_report_summary">မသိထားတဲ့ Error တစ်ခုတက်ခဲ့တယ်ဆိုပါစို့။ ဆက်ပြီး Crash ဖြစ်နေတယ်ဆိုရင် \"Clear App Data\" လုပ်ပါ (ဒါမှမဟုတ်) အီးမေးလ်ပို့ပါ။</string>
     <string name="card">ကတ်</string>
@@ -168,7 +166,6 @@
     <string name="genre">အမျိုးအစား</string>
     <string name="genres">အမျိုးအစားများ</string>
     <string name="git_hub_summary">Project ကို GitHub မှာ Fork လုပ်ပါ</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">၁</string>
     <string name="grid_size_2">၂</string>

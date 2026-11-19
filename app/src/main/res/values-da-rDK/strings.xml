@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Tag editor</string>
     <string name="action_toggle_favorite">Toggle favorite</string>
     <string name="action_toggle_shuffle">Toggle shuffle mode</string>
-    <string name="adaptive">Adaptive</string>
     <string name="add_action">Add</string>
     <string name="add_playlist_title">"Add to playlist"</string>
     <string name="added_song_count_to_playlist">Added %1$d song(s) to %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Nearby devices</string>
     <string name="blur">Blur</string>
-    <string name="blur_card">Blur Card</string>
     <string name="bug_report_manual">Send manually</string>
     <string name="bug_report_summary">An unexpected error occurred. Sorry you found this bug, if it keeps crashing \"Clear app data\" or send an Email </string>
     <string name="card">Card</string>
@@ -170,7 +168,6 @@
     <string name="genre">Genre</string>
     <string name="genres">Genres</string>
     <string name="git_hub_summary">Fork the project on GitHub</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

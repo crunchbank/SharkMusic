@@ -50,7 +50,6 @@
     <string name="action_tag_editor">பாடல் அமைப்பை மாற்று</string>
     <string name="action_toggle_favorite">பிடித்தவை</string>
     <string name="action_toggle_shuffle">குழப்பி இயக்கு</string>
-    <string name="adaptive">தகவமை</string>
     <string name="add_action">சேர்</string>
     <string name="add_playlist_title">"பாடல் வரிசையில் சேர்"</string>
     <string name="added_song_count_to_playlist">%1$d பாடல்கள் %2$sயில் சேர்க்கப்பட்டுள்ளது</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">இந்தச் செயலிக்குப் பக்கத்தில் உல்ல புலுடூத் சாதனங்களைக் கண்டறிய அனுமதி வேண்டும்</string>
     <string name="bluetooth_title">பக்கத்தில் உள்ள சாதனங்கள்</string>
     <string name="blur">மங்குதல்</string>
-    <string name="blur_card">தெளிவற்ற அட்டை</string>
     <string name="bug_report_manual">தானாக அனுப்பு</string>
     <string name="bug_report_summary">தெரியாத தவறு ஏற்ப்பட்டுள்ளது. இடையூறுக்கு மன்னிக்கவும், இவ்வாறு மீண்டும் ஏற்பட்டால் \"தகவல்களை அழிக்கவும்\" அல்லது வடிவமைப்பாளரிடம் தெரிவிக்கலாம் </string>
     <string name="card">அட்டை</string>
@@ -170,7 +168,6 @@
     <string name="genre">வகைகள்</string>
     <string name="genres">வகைகள்</string>
     <string name="git_hub_summary">செயலியை நகலெடுத்து மேம்படுத்து</string>
-    <string name="gradient">க்ரேடியன்ட்டுகள்</string>
     <string name="grant_access">அனுமதி</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

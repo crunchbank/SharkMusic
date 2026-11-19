@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Editor d\'etiquetes</string>
     <string name="action_toggle_favorite">Afegeix o suprimeix dels preferits</string>
     <string name="action_toggle_shuffle">Commuta el mode de barreja</string>
-    <string name="adaptive">Adaptatiu</string>
     <string name="add_action">Afegeix</string>
     <string name="add_playlist_title">"Afegeix a la llista de reproducció"</string>
     <string name="added_song_count_to_playlist">S\'han afegit %1$d cançon(s) a %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">L\'aplicació necessita permís de dispositius propers per comprovar si hi ha dispositius Bluetooth</string>
     <string name="bluetooth_title">Dispositius propers</string>
     <string name="blur">Difuminat</string>
-    <string name="blur_card">Targeta difuminada</string>
     <string name="bug_report_manual">Enviar manualment</string>
     <string name="bug_report_summary">S\'ha produït un error inesperat. Sentim que hagis trobat aquest error, si continua succeint \"Esborra les dades de l\'aplicació\" o envia un correu electrònic </string>
     <string name="card">Targeta</string>
@@ -170,7 +168,6 @@
     <string name="genre">Gènere</string>
     <string name="genres">Gèneres</string>
     <string name="git_hub_summary">Bifurca el projecte a GitHub</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Atorga l\'accés</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

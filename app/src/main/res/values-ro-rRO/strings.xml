@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Detalii piesă</string>
     <string name="action_toggle_favorite">Comutare favorite</string>
     <string name="action_toggle_shuffle">Comutare amestecare</string>
-    <string name="adaptive">Adaptiv</string>
     <string name="add_action">Adaugă</string>
     <string name="add_playlist_title">"Adaugă la playlist"</string>
     <string name="added_song_count_to_playlist">S-au adăugat %1$d melodii la %2$s</string>
@@ -94,7 +93,6 @@
     <string name="bluetooth_summary">Aplicația are nevoie de permisiunea dispozitive din apropiere pentru a verifica dacă există dispozitive bluetooth</string>
     <string name="bluetooth_title">Dispozitive în apropiere</string>
     <string name="blur">Estompare</string>
-    <string name="blur_card">Estompare card</string>
     <string name="bug_report_manual">Trimite manual</string>
     <string name="bug_report_summary">A apărut o eroare neașteptată. Ne pare rău că ai întâmpinat această problemă. Dacă aplicația continuă să se închidă, șterge datele acesteia din setări sau trimite-ne un email </string>
     <string name="card">Card</string>
@@ -172,7 +170,6 @@
     <string name="genre">Gen muzical</string>
     <string name="genres">Genuri</string>
     <string name="git_hub_summary">Creează o copie a repertoriului pe GitHub</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Acordare acces</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

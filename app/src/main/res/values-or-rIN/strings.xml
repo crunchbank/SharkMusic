@@ -50,7 +50,6 @@
     <string name="action_tag_editor">ଟ୍ୟାଗ୍ ସମ୍ପାଦକ</string>
     <string name="action_toggle_favorite">ପସନ୍ଦକୁ ଟଗଲ୍ କରନ୍ତୁ</string>
     <string name="action_toggle_shuffle">ସଫଲ୍ ମୋଡ୍ ଟଗଲ୍ କରନ୍ତୁ</string>
-    <string name="adaptive">ଆଡାପ୍ଟିଭ୍</string>
     <string name="add_action">ଯୋଡ଼ନ୍ତୁ</string>
     <string name="add_playlist_title">"ଚାଳନାତାଲିକାରେ ଯୋଡ଼ନ୍ତୁ"</string>
     <string name="added_song_count_to_playlist">%2$sରେ %1$dଟି ଗୀତ ଯୋଡ଼ାଗଲା</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ଯାଞ୍ଚ କରିବା ପାଇଁ ଆପ୍କୁ ନିକଟସ୍ଥ ଡିଭାଇସ୍ ଅନୁମତି ଆବଶ୍ୟକ</string>
     <string name="bluetooth_title">ନିକଟସ୍ଥ ଡିଭାଇସ୍</string>
     <string name="blur">ବ୍ଲର୍</string>
-    <string name="blur_card">ବ୍ଲର୍ କାର୍ଡ</string>
     <string name="bug_report_manual">ମାନୁଆଲି ପଠାନ୍ତୁ</string>
     <string name="bug_report_summary">ଏକ ଅପ୍ରତ୍ୟାଶିତ ତ୍ରୁଟି ଘଟିଛି। ଆପଣ ଏହି ବଗ୍ ପାଇଥିବାରୁ ଦୁଃଖିତ, ଯଦି ଏହା କ୍ରାସ୍ ହେଉଛି \"ଆପ୍ ଡାଟା କ୍ଲିଅର୍ କରନ୍ତୁ\" କିମ୍ବା ଏକ ଇମେଲ୍ ପଠାନ୍ତୁ</string>
     <string name="card">କାର୍ଡ</string>
@@ -170,7 +168,6 @@
     <string name="genre">ଧରଣ</string>
     <string name="genres">ଧରଣଗୁଡ଼ିକ</string>
     <string name="git_hub_summary">ଗିଟ୍‌ହବ୍‌ରେ ପ୍ରୋଜେକ୍ଟ ଫର୍କ କରନ୍ତୁ</string>
-    <string name="gradient">ଗ୍ରାଡିଏଣ୍ଟ୍</string>
     <string name="grant_access">ପ୍ରବେଶ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="grid_size_1">୧</string>
     <string name="grid_size_2">୨</string>

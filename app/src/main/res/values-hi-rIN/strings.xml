@@ -50,7 +50,6 @@
     <string name="action_tag_editor">टैग एडिटर</string>
     <string name="action_toggle_favorite">पसंदीदा टॉगल करें</string>
     <string name="action_toggle_shuffle">शफल मोड को टॉगल करें</string>
-    <string name="adaptive">अनुकूली</string>
     <string name="add_action">जोड़ें</string>
     <string name="add_playlist_title">"प्लेलिस्ट में जोड़ें"</string>
     <string name="added_song_count_to_playlist">%1$d गाना(गाने) को %2$s में जोड़ा गया।</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">ऐप को नजदीकी उपकरणों की जाँच के लिए ब्लूटूथ उपकरणों की अनुमति चाहिए।</string>
     <string name="bluetooth_title">क़रीबी उपकरण</string>
     <string name="blur">कलंक</string>
-    <string name="blur_card">ब्लर कार्ड</string>
     <string name="bug_report_manual">मैन्युअल भेजें</string>
     <string name="bug_report_summary">एक अप्रत्याशित त्रुटि हुई। क्षमा करें, आपको यह बग मिल गया है, अगर यह \"क्लियर ऐप डेटा\" को क्रैश करता है या ईमेल भेजता है </string>
     <string name="card">कार्ड</string>
@@ -170,7 +168,6 @@
     <string name="genre">शैली</string>
     <string name="genres">शैलियाँ</string>
     <string name="git_hub_summary">गिटहब पर प्रोजेक्ट को फोर्क करें</string>
-    <string name="gradient">ग्रेडिएंट</string>
     <string name="grant_access">एक्सेस की अनुमति दें</string>
     <string name="grid_size_1">१</string>
     <string name="grid_size_2">२</string>

@@ -50,7 +50,6 @@
     <string name="action_tag_editor">ಟ್ಯಾಗ್ ಗಳನ್ನು ತಿದ್ದಿ</string>
     <string name="action_toggle_favorite">ಮೆಚ್ಚಿನವುಗಳನ್ನು ಟಾಗಲ್ ಮಾಡಿ</string>
     <string name="action_toggle_shuffle">ಷಫಲ್ ಮೋಡ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಿ</string>
-    <string name="adaptive">ಹೊಂದಿಕೊಳ್ಳುವ</string>
     <string name="add_action">ಸೇರಿಸಿ</string>
     <string name="add_playlist_title">"ಪ್ಲೇಲಿಸ್ಟ್‌ಗೆ ಸೇರಿಸಿ"</string>
     <string name="added_song_count_to_playlist">%1$d ಹಾಡು(ಗಳನ್ನು) %2$s ಗೆ ಸೇರಿಸಲಾಗಿದೆ</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">ಬ್ಲೂಟೂತ್ ಸಾಧನಗಳನ್ನು ಪರಿಶೀಲಿಸಲು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಹತ್ತಿರದ ಸಾಧನಗಳ ಅನುಮತಿಗಳ ಅಗತ್ಯವಿದೆ</string>
     <string name="bluetooth_title">ಹತ್ತಿರದ ಸಾಧನಗಳು</string>
     <string name="blur">ಬ್ಲರ್</string>
-    <string name="blur_card">ಬ್ಲರ್ ಕಾರ್ಡ್</string>
     <string name="bug_report_manual">ಹಸ್ತಚಾಲಿತವಾಗಿ ಕಳುಹಿಸಿ</string>
     <string name="bug_report_summary">ಅನಿರೀಕ್ಷಿತ ದೋಷ ಸಂಭವಿಸಿದೆ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಆಗುತ್ತಿದ್ದರೆ \"ಅಪ್ಲಿಕೇಶನ್ ಡೇಟಾವನ್ನು ತೆರವುಗೊಳಿಸಿ\" ಅಥವಾ ಇಮೇಲ್ ಕಳುಹಿಸಿ. ನಿಮ್ಮ ಅನಾನುಕೂಲತೆಗಾಗಿ ಕ್ಷಮಿಸಿ </string>
     <string name="card">ಕಾರ್ಡ್</string>
@@ -170,7 +168,6 @@
     <string name="genre">ಪ್ರಕಾರ</string>
     <string name="genres">ಪ್ರಕಾರಗಳು</string>
     <string name="git_hub_summary">GitHub ನಲ್ಲಿ ಯೋಜನೆಯನ್ನು ಫೋರ್ಕ್ ಮಾಡಿ</string>
-    <string name="gradient">ಗ್ರೇಡಿಯಂಟ್</string>
     <string name="grant_access">ಪ್ರವೇಶವನ್ನು ನೀಡಿ</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

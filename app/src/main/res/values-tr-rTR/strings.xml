@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Şarkı bilgilerini düzenle</string>
     <string name="action_toggle_favorite">Favori değiştir</string>
     <string name="action_toggle_shuffle">Karışık Çal</string>
-    <string name="adaptive">Uyarlanabilir</string>
     <string name="add_action">Ekle</string>
     <string name="add_playlist_title">"Oynatma listesine ekle"</string>
     <string name="added_song_count_to_playlist">%2$s listesine %1$d parça eklendi</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">Uygulamanın bluetooth cihazlarını kontrol etmek için yakındaki cihazlara erişim iznine ihtiyacı var</string>
     <string name="bluetooth_title">Yakındaki cihazlar</string>
     <string name="blur">Bulanıklık</string>
-    <string name="blur_card">Bulanık kart</string>
     <string name="bug_report_manual">Manuel olarak gönder</string>
     <string name="bug_report_summary">Beklenmedik bir hata oluştu. Bu hatayı bulduğunuz için üzgünüz, eğer durmadan hata veriyorsa \"Verileri Temizleyin\" ya da bir E-posta yollayın </string>
     <string name="card">Kart</string>
@@ -170,7 +168,6 @@
     <string name="genre">Janr</string>
     <string name="genres">Janrlar</string>
     <string name="git_hub_summary">Projeyi GitHub\'da çatalla</string>
-    <string name="gradient">Gradyan</string>
     <string name="grant_access">Erişim izni ver</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

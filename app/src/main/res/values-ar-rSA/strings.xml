@@ -50,7 +50,6 @@
     <string name="action_tag_editor">محرر العلامة</string>
     <string name="action_toggle_favorite">تبديل المفضلة</string>
     <string name="action_toggle_shuffle">تفعيل وضع الخلط</string>
-    <string name="adaptive">متكيف</string>
     <string name="add_action">إضافة</string>
     <string name="add_playlist_title">"إضافة إلى قائمة التشغيل"</string>
     <string name="added_song_count_to_playlist">تم إضافة %1$d أغنية إلى %2$s</string>
@@ -102,7 +101,6 @@
     <string name="bluetooth_summary">يحتاج التطبيق إلى إذن الأجهزة القريبة للتحقق من أجهزة بلوتوث</string>
     <string name="bluetooth_title">الأجهزة القريبة</string>
     <string name="blur">ضبابي</string>
-    <string name="blur_card">بطاقة ضبابية</string>
     <string name="bug_report_manual">ارسال يدويا</string>
     <string name="bug_report_summary">حصل خطأ غير متوقع. نأسف لذالك, اذا تكرر معك الخطأ \"قم بمسح بيانات التطبيق\"او ارسل ايميل</string>
     <string name="card">بطاقة</string>
@@ -181,7 +179,6 @@
     <string name="genre">فئة</string>
     <string name="genres">فئات</string>
     <string name="git_hub_summary">اجلب المشروع على GitHub</string>
-    <string name="gradient">متدرج</string>
     <string name="grant_access">السماح بالوصول</string>
     <string name="grid_size_1">١</string>
     <string name="grid_size_2">٢</string>

@@ -50,7 +50,6 @@
     <string name="action_tag_editor">แก้ไข Tag</string>
     <string name="action_toggle_favorite">สลับเพลงโปรด</string>
     <string name="action_toggle_shuffle">สลับการสุ่ม</string>
-    <string name="adaptive">Adaptive</string>
     <string name="add_action">เพิ่ม</string>
     <string name="add_playlist_title">"เพิ่มชื่อเพลย์ลิสต์"</string>
     <string name="added_song_count_to_playlist">Added %1$d song(s) to %2$s</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Nearby devices</string>
     <string name="blur">Blur</string>
-    <string name="blur_card">Blur Card</string>
     <string name="bug_report_manual">ส่งด้วยตนเอง</string>
     <string name="bug_report_summary">เกิดข้อผิดพลาดบางประการ, ขออภัยในความผิดพลาด, ถ้ายังคงเกิดปัญหาอยู่กรุณา \"Clear app data\" หรือ ส่งอีเมลหาผู้พัฒนา</string>
     <string name="card">Card</string>
@@ -168,7 +166,6 @@
     <string name="genre">ประเภทเพลง</string>
     <string name="genres">ประเภทเพลง</string>
     <string name="git_hub_summary">Fork โปรเจคจาก GitHub</string>
-    <string name="gradient">การไล่ระดับสี</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

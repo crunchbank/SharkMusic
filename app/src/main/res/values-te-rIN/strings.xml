@@ -46,7 +46,6 @@
     <string name="action_tag_editor">ట్యాగ్ ఎడిటర్</string>
     <string name="action_toggle_favorite">ఇష్టమైన టోగుల్ చేయండి</string>
     <string name="action_toggle_shuffle">షఫుల్ మోడ్‌ను టోగుల్ చేయండి</string>
-    <string name="adaptive">అనుకూల</string>
     <string name="add_action">చేర్చు</string>
     <string name="add_playlist_title">"పాటల క్రమంలో చేర్చు"</string>
     <string name="added_title_to_playing_queue">"ప్లే క్యూలో 1 శీర్షిక జోడించబడింది."</string>
@@ -72,7 +71,6 @@
     <string name="black_theme_name">జస్ట్ బ్లాక్</string>
     <string name="blacklist">బ్లాక్లిస్ట్</string>
     <string name="blur">బ్లర్</string>
-    <string name="blur_card">బ్లర్ కార్డ్</string>
     <string name="bug_report_manual">మానవీయంగా పంపండి</string>
     <string name="bug_report_summary">అనుకోని తప్పు జరిగినది. క్షమించండి, మీరు ఈ బగ్‌ను కనుగొన్నారు, అది \"అనువర్తన డేటాను క్లియర్ చేయి\" క్రాష్ చేస్తూ ఉంటే లేదా ఇమెయిల్ పంపండి</string>
     <string name="card">కార్డ్</string>

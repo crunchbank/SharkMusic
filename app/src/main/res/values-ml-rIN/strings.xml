@@ -50,7 +50,6 @@
     <string name="action_tag_editor">ടാഗ് എഡിറ്റർ</string>
     <string name="action_toggle_favorite">പ്രിയപ്പെട്ടതായി മാറ്റുക</string>
     <string name="action_toggle_shuffle">ഷഫ്ഫിൾ മോഡ് മാറ്റുക</string>
-    <string name="adaptive">ആദാപ്റ്റീവ്</string>
     <string name="add_action">ചേർക്കുക</string>
     <string name="add_playlist_title">"പ്ലേലിസ്റ്റിലേക്ക് ആഡ് ചെയ്യുക"</string>
     <string name="added_song_count_to_playlist">%2$s എന്ന പാട്ടില്‍ %1$d പാട്ട്(കൾ) ചേർത്തു</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Nearby devices</string>
     <string name="blur">Blur</string>
-    <string name="blur_card">Blur Card</string>
     <string name="bug_report_manual">Send manually</string>
     <string name="bug_report_summary">An unexpected error occurred. Sorry you found this bug, if it keeps crashing \"Clear app data\" or send an Email </string>
     <string name="card">കാർഡ്</string>
@@ -170,7 +168,6 @@
     <string name="genre">Genre</string>
     <string name="genres">Genres</string>
     <string name="git_hub_summary">Fork the project on GitHub</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

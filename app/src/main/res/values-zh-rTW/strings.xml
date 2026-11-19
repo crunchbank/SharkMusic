@@ -50,7 +50,6 @@
     <string name="action_tag_editor">編輯音樂資訊</string>
     <string name="action_toggle_favorite">新增/移除最愛</string>
     <string name="action_toggle_shuffle">開啟/關閉隨機播放模式</string>
-    <string name="adaptive">自動調整</string>
     <string name="add_action">新增</string>
     <string name="add_playlist_title">"新增至播放清單"</string>
     <string name="added_song_count_to_playlist">已新增 %1$d 首歌至 %2$s</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">應用程式必須取得鄰近裝置權限以檢查藍芽裝置</string>
     <string name="bluetooth_title">鄰近裝置</string>
     <string name="blur">模糊</string>
-    <string name="blur_card">模糊卡片</string>
     <string name="bug_report_manual">手動傳送</string>
     <string name="bug_report_summary">發生意外錯誤。很抱歉讓您遇到這項錯誤，若應用程式仍處在當機狀態，請「清除應用程式儲存空間」或透過電子郵件與我們聯繫 </string>
     <string name="card">卡片</string>
@@ -168,7 +166,6 @@
     <string name="genre">風格類型</string>
     <string name="genres">風格類型</string>
     <string name="git_hub_summary">在 GitHub 上分支這項專案</string>
-    <string name="gradient">漸層風</string>
     <string name="grant_access">授予權限</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

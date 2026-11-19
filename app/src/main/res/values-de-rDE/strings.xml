@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Tag-Editor</string>
     <string name="action_toggle_favorite">Favoriten ein-/ausblenden</string>
     <string name="action_toggle_shuffle">Zufallswiedergabe</string>
-    <string name="adaptive">Adaptiv</string>
     <string name="add_action">Hinzufügen</string>
     <string name="add_playlist_title">"Zur Playlist hinzufügen"</string>
     <string name="added_song_count_to_playlist">%1$d Titel zu %2$s hinzugefügt</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">Die App benötigt die Berechtigung für Geräte in der Nähe, um in der Umgebung nach Bluetooth-Geräten zu suchen</string>
     <string name="bluetooth_title">Geräte in der Nähe</string>
     <string name="blur">Weichzeichner</string>
-    <string name="blur_card">Weichgezeichnete Karte</string>
     <string name="bug_report_manual">Manuell senden</string>
     <string name="bug_report_summary">Ein unerwarteter Fehler ist aufgetreten. Sorry, dass du ihn entdeckt hast. Wenn er weiterhin auftritt, App-\"Speicherinhalt löschen\" oder eine E-Mail schicken </string>
     <string name="card">Karte</string>
@@ -170,7 +168,6 @@
     <string name="genre">Genre</string>
     <string name="genres">Genres</string>
     <string name="git_hub_summary">Projekt bei GitHub forken</string>
-    <string name="gradient">Farbverlauf</string>
     <string name="grant_access">Zugriff gewähren</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Editor de etiquetas</string>
     <string name="action_toggle_favorite">Ligar/desligar favoritos</string>
     <string name="action_toggle_shuffle">Ligar/desligar aleatório</string>
-    <string name="adaptive">Adaptável</string>
     <string name="add_action">Adicionar</string>
     <string name="add_playlist_title">"Adicionar à lista"</string>
     <string name="added_song_count_to_playlist">%1$d música(s) adicionada(s) a %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">Esta aplicação necessita de permissão de dispositivos próximos para encontrar dispositivos Bluetooth</string>
     <string name="bluetooth_title">Dispositivos próximos</string>
     <string name="blur">Desfocar</string>
-    <string name="blur_card">Desfocar cartão</string>
     <string name="bug_report_manual">Enviar manualmente</string>
     <string name="bug_report_summary">Ocorreu um erro inesperado. Se continuar a acontecer limpe os dados da aplicação ou envie um email </string>
     <string name="card">Cartão</string>
@@ -170,7 +168,6 @@
     <string name="genre">Género</string>
     <string name="genres">Géneros</string>
     <string name="git_hub_summary">Fork o projeto no Github</string>
-    <string name="gradient">Gradiente</string>
     <string name="grant_access">Conceder acesso</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

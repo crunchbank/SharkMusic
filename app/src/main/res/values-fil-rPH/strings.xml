@@ -50,7 +50,6 @@
     <string name="action_tag_editor">I-edit ang tag</string>
     <string name="action_toggle_favorite">I-toggle sa paborito</string>
     <string name="action_toggle_shuffle">I-toggle sa shuffle mode</string>
-    <string name="adaptive">Adaptive</string>
     <string name="add_action">Magdagdag</string>
     <string name="add_playlist_title">"Idagdag sa playlist"</string>
     <string name="added_song_count_to_playlist">Added %1$d song(s) to %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Nearby devices</string>
     <string name="blur">Blur</string>
-    <string name="blur_card">Blur Card</string>
     <string name="bug_report_manual">I-send ng manu-mano</string>
     <string name="bug_report_summary">May naganap na hindi inaasahang error. Paumanhin, nakikita mo ang bug na ito, kung patuloy itong nagka-crash \"Burahin ang data ng app\" o magpadala ng Email </string>
     <string name="card">Kard</string>
@@ -170,7 +168,6 @@
     <string name="genre">Dyanra</string>
     <string name="genres">Mga Dyanra</string>
     <string name="git_hub_summary">I-fork ang proyekto sa GitHub</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

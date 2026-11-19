@@ -670,7 +670,7 @@ object PreferenceUtil {
                     return nowPlayingScreen
                 }
             }
-            return NowPlayingScreen.Adaptive
+            return NowPlayingScreen.Normal
         }
         set(value) = sharedPreferences.edit {
             putInt(NOW_PLAYING_SCREEN_ID, value.id)

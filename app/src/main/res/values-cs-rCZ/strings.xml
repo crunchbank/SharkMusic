@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Editor tagů</string>
     <string name="action_toggle_favorite">Přepnout oblíbené</string>
     <string name="action_toggle_shuffle">Přepnout náhodné přehrávání</string>
-    <string name="adaptive">Adaptivní</string>
     <string name="add_action">Přidat</string>
     <string name="add_playlist_title">"Přidat do seznamu skladeb"</string>
     <string name="added_song_count_to_playlist">Přidána/přidány %1$d skladba (skladby) do %2$s</string>
@@ -96,7 +95,6 @@
     <string name="bluetooth_summary">Aplikace potřebuje oprávnění zařízení v okolí pro kontrolu bluetooth zařízení</string>
     <string name="bluetooth_title">Zařízení v okolí</string>
     <string name="blur">Rozostření</string>
-    <string name="blur_card">Rozostřit karty</string>
     <string name="bug_report_manual">Odeslat ručně</string>
     <string name="bug_report_summary">Došlo k neočekávané chybě. Je nám líto, že jste našli tuto chybu, pokud aplikace bude stále padat, použijte funkci \"Vymazat data aplikace\" nebo nám pošlete e-mail </string>
     <string name="card">Karta</string>
@@ -174,7 +172,6 @@
     <string name="genre">Žánr</string>
     <string name="genres">Žánry</string>
     <string name="git_hub_summary">Forkněte projekt na GitHubu</string>
-    <string name="gradient">Barevný Přechod</string>
     <string name="grant_access">Povolit přístup</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

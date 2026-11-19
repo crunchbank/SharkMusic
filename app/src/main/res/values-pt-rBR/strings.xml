@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Editor de tags</string>
     <string name="action_toggle_favorite">Ativar/desativar favorito</string>
     <string name="action_toggle_shuffle">Ativar/desativar modo aleatório</string>
-    <string name="adaptive">Adaptável</string>
     <string name="add_action">Adicionar</string>
     <string name="add_playlist_title">"Adicionar à playlist"</string>
     <string name="added_song_count_to_playlist">%1$d Música(s) adicionada(s) a %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">O aplicativo precisa de permissão de dispositivos próximos para verificar por dispositivo “bluetooth”</string>
     <string name="bluetooth_title">Dispositivos próximos</string>
     <string name="blur">Desfoque</string>
-    <string name="blur_card">Cartão Desfocado</string>
     <string name="bug_report_manual">Enviar manualmente</string>
     <string name="bug_report_summary">Um erro inesperado ocorreu. Se você tentar novamente e o erro persistir, use a opção \"Limpar dados do aplicativo\" ou envie-nos um e-mail</string>
     <string name="card">Cartão</string>
@@ -170,7 +168,6 @@
     <string name="genre">Gênero</string>
     <string name="genres">Gêneros</string>
     <string name="git_hub_summary">Bifurcação do projeto no GitHub</string>
-    <string name="gradient">Degradê</string>
     <string name="grant_access">Permitir acesso</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

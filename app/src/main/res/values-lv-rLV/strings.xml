@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Atzīmju rediģēšana</string>
     <string name="action_toggle_favorite">Toggle favorite</string>
     <string name="action_toggle_shuffle">Toggle shuffle mode</string>
-    <string name="adaptive">Adaptīvs</string>
     <string name="add_action">Pievienot</string>
     <string name="add_playlist_title">"Pievienot atskaņošanas sarakstam"</string>
     <string name="added_song_count_to_playlist">%1$d dziesma(s) tika pievienota(s) %2$s</string>
@@ -94,7 +93,6 @@
     <string name="bluetooth_summary">Šai lietotnei nepieciešama pieeja tuvumā esošām ierīcēm, lai atrastu bluetooth ierīces</string>
     <string name="bluetooth_title">Tuvumā esošās ierīces</string>
     <string name="blur">Izpludināt</string>
-    <string name="blur_card">Blur Card</string>
     <string name="bug_report_manual">Sūtīt manuāli</string>
     <string name="bug_report_summary">Notika neparadzēta kļūda. Žēl, ka Jūs saskārāties ar šo problēmu, ja lietotne turpina avarēt, notīriet lietotnes datus vai sūtiet e-pasta vēstuli </string>
     <string name="card">Card</string>
@@ -172,7 +170,6 @@
     <string name="genre">Žanrs</string>
     <string name="genres">Žanri</string>
     <string name="git_hub_summary">Fork the project on GitHub</string>
-    <string name="gradient">Krāsu pāreja</string>
     <string name="grant_access">Piešķirt piekļuvi</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

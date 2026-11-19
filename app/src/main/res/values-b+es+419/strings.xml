@@ -49,7 +49,6 @@
     <string name="action_tag_editor">Editor de etiquetas</string>
     <string name="action_toggle_favorite">Alternar Me gusta</string>
     <string name="action_toggle_shuffle">Alternar modo aleatorio</string>
-    <string name="adaptive">Adaptable</string>
     <string name="add_action">Agregar</string>
     <string name="add_playlist_title">"Agregar a playlist"</string>
     <string name="added_song_count_to_playlist">%1$d Canción(es) añadidas a %2$s</string>
@@ -89,7 +88,6 @@
     <string name="black_theme_name">Negro puro</string>
     <string name="blacklist">Lista negra</string>
     <string name="blur">Difuminado</string>
-    <string name="blur_card">Tarjeta difuminado</string>
     <string name="bug_report_manual">Enviar manualmente</string>
     <string name="bug_report_summary">Ocurrió un error inesperado. Lamento haber encontrado este error, si sigue fallando \"Borre los datos de la aplicación\" o enviar un correo electrónico </string>
     <string name="card">Tarjeta</string>
@@ -160,7 +158,6 @@
     <string name="genre">Género</string>
     <string name="genres">Géneros</string>
     <string name="git_hub_summary">Bifurca el proyecto en GitHub</string>
-    <string name="gradient">Degradado</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>
     <string name="grid_size_3">3</string>

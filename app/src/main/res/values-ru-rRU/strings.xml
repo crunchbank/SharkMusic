@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Редактор тегов</string>
     <string name="action_toggle_favorite">Показать избранное</string>
     <string name="action_toggle_shuffle">Включить режим перемешивания</string>
-    <string name="adaptive">Адаптивная</string>
     <string name="add_action">Добавить</string>
     <string name="add_playlist_title">"Добавить в плейлист"</string>
     <string name="added_song_count_to_playlist">Добавлено %1$d трек(ов) в %2$s</string>
@@ -96,7 +95,6 @@
     <string name="bluetooth_summary">Приложению требуется разрешение на поиск ближайших устройств Bluetooth</string>
     <string name="bluetooth_title">Ближайшие устройства</string>
     <string name="blur">Размытие</string>
-    <string name="blur_card">Карточка с размытием</string>
     <string name="bug_report_manual">Отправить вручную</string>
     <string name="bug_report_summary">Произошла непредвиденная ошибка. Приносим извинения за доставленные неудобства. Если проблемы не исчезают, очистите данные приложения или свяжитесь с нами по электронной почте </string>
     <string name="card">Карточка</string>
@@ -174,7 +172,6 @@
     <string name="genre">Жанр</string>
     <string name="genres">Жанры</string>
     <string name="git_hub_summary">Присоединяйтесь к развитию проекта на GitHub</string>
-    <string name="gradient">Градиент</string>
     <string name="grant_access">Предоставить доступ</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

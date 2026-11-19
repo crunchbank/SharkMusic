@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Pengubah label</string>
     <string name="action_toggle_favorite">Aktifkan/nonaktifkan favorit</string>
     <string name="action_toggle_shuffle">Aktifkan/nonaktifkan mode acak</string>
-    <string name="adaptive">Adaptif</string>
     <string name="add_action">Tambah</string>
     <string name="add_playlist_title">"Tambah ke daftar putar"</string>
     <string name="added_song_count_to_playlist">Menambah %1$d lagu ke %2$s</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">Aplikasi butuh izin ke perangkat terdekat untuk memeriksa perangkat bluetooth</string>
     <string name="bluetooth_title">Perangkat terdekat</string>
     <string name="blur">Keburaman</string>
-    <string name="blur_card">Kartu buram</string>
     <string name="bug_report_manual">Kirim secara manual</string>
     <string name="bug_report_summary">Terjadi kesalahan tak terduga. Maaf jika Anda menemukan bug ini, jika terus terjadi maka \"Hapus data aplikasi\" atau kirim Email </string>
     <string name="card">Kartu</string>
@@ -168,7 +166,6 @@
     <string name="genre">Genre</string>
     <string name="genres">Genre</string>
     <string name="git_hub_summary">Beri fork pada proyek di GitHub</string>
-    <string name="gradient">Gradasi</string>
     <string name="grant_access">Izinkan akses</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

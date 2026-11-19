@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Επεξεργασία ετικετών</string>
     <string name="action_toggle_favorite">Εναλλαγή αγαπημένου</string>
     <string name="action_toggle_shuffle">Εναλλαγή λειτουργίας τυχαίας σειράς</string>
-    <string name="adaptive">Προσαρμοστικό</string>
     <string name="add_action">Προσθήκη</string>
     <string name="add_playlist_title">"Προσθήκη στη λίστα αναπαραγωγής"</string>
     <string name="added_song_count_to_playlist">Προστέθηκαν %1$d τραγούδι(α) στο %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">Η εφαρμογή χρειάζεται άδεια κοντινών συσκευών για να ελέγξει για συσκευές Bluetooth</string>
     <string name="bluetooth_title">Κοντινές συσκευές</string>
     <string name="blur">Θολούρα</string>
-    <string name="blur_card">Θάμπωμα κάρτας</string>
     <string name="bug_report_manual">Αποστολή χειροκίνητα</string>
     <string name="bug_report_summary">Προέκυψε ένα μη αναμενόμενο σφάλμα. Λυπούμαστε που βρήκατε αυτό το σφάλμα, εάν εξακολουθεί να παρουσιάζεται διαγράψτε τα δεδομένα εφαρμογής ή στείλτε ένα Email </string>
     <string name="card">Κάρτα</string>
@@ -170,7 +168,6 @@
     <string name="genre">Είδος</string>
     <string name="genres">Είδη</string>
     <string name="git_hub_summary">Fork το έργο στο GitHub</string>
-    <string name="gradient">Διαβάθμιση</string>
     <string name="grant_access">Παραχώρηση πρόσβασης</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

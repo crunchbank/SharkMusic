@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Editor de etiquetas</string>
     <string name="action_toggle_favorite">Alternar favoritos</string>
     <string name="action_toggle_shuffle">Alternar modo aleatorio</string>
-    <string name="adaptive">Adaptable</string>
     <string name="add_action">Agregar</string>
     <string name="add_playlist_title">"Agregar a lista de reproducción"</string>
     <string name="added_song_count_to_playlist">%1$d Canción(es) añadida(s) a %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">La aplicación necesita el permiso de los dispositivos cercanos para buscar dispositivos bluetooth</string>
     <string name="bluetooth_title">Dispositivos cercanos</string>
     <string name="blur">Desenfoque</string>
-    <string name="blur_card">Tarjeta con desenfoque</string>
     <string name="bug_report_manual">Enviar manualmente</string>
     <string name="bug_report_summary">Se ha producido un error inesperado. Sentimos que haya encontrado este error, si sigue fallando \"Borre los datos de la aplicación\" o envíe un correo electrónico </string>
     <string name="card">Tarjeta</string>
@@ -170,7 +168,6 @@
     <string name="genre">Género</string>
     <string name="genres">Géneros</string>
     <string name="git_hub_summary">Bifurca el proyecto en GitHub</string>
-    <string name="gradient">Degradado</string>
     <string name="grant_access">Conceder acceso</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

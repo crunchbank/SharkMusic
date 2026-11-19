@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Címkeszerkesztő</string>
     <string name="action_toggle_favorite">A kedvenc bekapcsolása/kikapcsolása</string>
     <string name="action_toggle_shuffle">A véletlenszerű lejátszás bekapcsolása/kikapcsolása</string>
-    <string name="adaptive">Adaptív</string>
     <string name="add_action">Hozzáad</string>
     <string name="add_playlist_title">"Hozzáadás lejátszási listához"</string>
     <string name="added_song_count_to_playlist">%1$d zene hozzáadva a %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">Az alkalmazásnak szüksége van a \'Közeli eszközök\' engedélyre, hogy Bluetooth eszközöket kereshessen</string>
     <string name="bluetooth_title">Közeli eszközök</string>
     <string name="blur">Homályosítás</string>
-    <string name="blur_card">Homályosított kártya</string>
     <string name="bug_report_manual">Küldés manuálisan</string>
     <string name="bug_report_summary">Egy váratlan hiba történt. Sajnáljuk, hogy hibába botlottál, ha folyton összeomlik, töröld az alkalmazásadatokat, vagy küldj nekünk E-Mailt.</string>
     <string name="card">Kártya</string>
@@ -170,7 +168,6 @@
     <string name="genre">Műfaj</string>
     <string name="genres">Műfajok</string>
     <string name="git_hub_summary">Szerezd meg a projektet a githubon</string>
-    <string name="gradient">Színátmenet</string>
     <string name="grant_access">Hozzáférés engedélyezése</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

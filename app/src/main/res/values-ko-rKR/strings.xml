@@ -50,7 +50,6 @@
     <string name="action_tag_editor">태그 편집기</string>
     <string name="action_toggle_favorite">Toggle favorite</string>
     <string name="action_toggle_shuffle">Toggle shuffle mode</string>
-    <string name="adaptive">Adaptive</string>
     <string name="add_action">추가</string>
     <string name="add_playlist_title">"재생목록에 추가"</string>
     <string name="added_song_count_to_playlist">Added %1$d song(s) to %2$s</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="bluetooth_title">Nearby devices</string>
     <string name="blur">흐림 효과</string>
-    <string name="blur_card">블러 카드</string>
     <string name="bug_report_manual">Send manually</string>
     <string name="bug_report_summary">An unexpected error occurred. Sorry you found this bug, if it keeps crashing \"Clear app data\" or send an Email </string>
     <string name="card">카드</string>
@@ -168,7 +166,6 @@
     <string name="genre">장르</string>
     <string name="genres">장르</string>
     <string name="git_hub_summary">Fork the project on GitHub</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Grant access</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

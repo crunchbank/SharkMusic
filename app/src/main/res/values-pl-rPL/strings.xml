@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Edytor tagów</string>
     <string name="action_toggle_favorite">Przełącz na ulubione</string>
     <string name="action_toggle_shuffle">Przełącz tryb losowy</string>
-    <string name="adaptive">Adaptacyjny</string>
     <string name="add_action">Dodaj</string>
     <string name="add_playlist_title">"Dodaj do playlisty"</string>
     <string name="added_song_count_to_playlist">Dodano %1$d utworów do %2$s</string>
@@ -96,7 +95,6 @@
     <string name="bluetooth_summary">Aplikacja potrzebuje uprawnień urządzeń w pobliżu do sprawdzania urządzeń Bluetooth</string>
     <string name="bluetooth_title">Urządzenia w pobliżu</string>
     <string name="blur">Rozmycie</string>
-    <string name="blur_card">Rozmyta Karta</string>
     <string name="bug_report_manual">Wyślij ręcznie</string>
     <string name="bug_report_summary">Wystąpił nieoczekiwany błąd. Przepraszamy za wystąpienie tego problemu. Jeśli nie możesz korzystać z aplikacji – wyczyść dane aplikacji lub wyślij nam e-maila </string>
     <string name="card">Karta</string>
@@ -174,7 +172,6 @@
     <string name="genre">Gatunek</string>
     <string name="genres">Gatunki</string>
     <string name="git_hub_summary">Zobacz kod na GitHubie</string>
-    <string name="gradient">Gradient</string>
     <string name="grant_access">Przyznaj dostęp</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

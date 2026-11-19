@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Редактор тегів</string>
     <string name="action_toggle_favorite">Перемкнути улюблене</string>
     <string name="action_toggle_shuffle">Перемкнути режим</string>
-    <string name="adaptive">Адаптивний</string>
     <string name="add_action">Додати</string>
     <string name="add_playlist_title">"Додати до списку відтворення"</string>
     <string name="added_song_count_to_playlist">Додано %1$d пісень(ів) до %2$s</string>
@@ -96,7 +95,6 @@
     <string name="bluetooth_summary">Застосунку потрібен дозвіл на пристрої поблизу, щоб перевірити наявність пристроїв Bluetooth</string>
     <string name="bluetooth_title">Пристрої поруч</string>
     <string name="blur">Розмиття</string>
-    <string name="blur_card">Розмита картка</string>
     <string name="bug_report_manual">Надіслати вручну</string>
     <string name="bug_report_summary">Сталася неочікувана помилка. Вибачте, що натрапили на цю помилку, якщо вона постійно повторюється, спробуйте «Очистити дані застосунку» або надішліть лист на пошту </string>
     <string name="card">Картка</string>
@@ -174,7 +172,6 @@
     <string name="genre">Жанр</string>
     <string name="genres">Жанри</string>
     <string name="git_hub_summary">Форк проєкту на GitHub</string>
-    <string name="gradient">Градієнт</string>
     <string name="grant_access">Надати доступ</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

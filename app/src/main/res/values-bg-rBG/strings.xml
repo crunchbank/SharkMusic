@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Редактиране на тагове</string>
     <string name="action_toggle_favorite">Показване на любими</string>
     <string name="action_toggle_shuffle">Активирайте режима на разбъркване</string>
-    <string name="adaptive">Адаптивна</string>
     <string name="add_action">Добавете</string>
     <string name="add_playlist_title">"Добави в плейлист"</string>
     <string name="added_song_count_to_playlist">Добавена(-и) %1$d песен (-и, -ен) към %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">Приложението се нуждае от разрешение за търсене на близки Bluetooth устройства</string>
     <string name="bluetooth_title">Най-близки устройства</string>
     <string name="blur">Замъгляване</string>
-    <string name="blur_card">Замъглена карта</string>
     <string name="bug_report_manual">Изпратете ръчно</string>
     <string name="bug_report_summary">Появи се неочаквана грешка. Извиняваме се за причиненото неудобство. Ако проблемите продължават, моля, изчистете данните на приложението или се свържете с нас по имейл
  </string>
@@ -171,7 +169,6 @@
     <string name="genre">Жанр</string>
     <string name="genres">Жанрове</string>
     <string name="git_hub_summary">Развивайте проект на GitHub</string>
-    <string name="gradient">Градиент</string>
     <string name="grant_access">Дайте достъп</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

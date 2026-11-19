@@ -49,7 +49,6 @@
     <string name="action_toggle_favorite">Toggle favorite</string>
     <string name="action_toggle_shuffle">Toggle shuffle mode</string>
 
-    <string name="adaptive">Adaptive</string>
 
     <string name="add_action">Add</string>
     <string name="add_playlist_title">"Add to playlist"</string>
@@ -99,7 +98,6 @@
     <string name="blacklist">Blacklist</string>
 
     <string name="blur">Blur</string>
-    <string name="blur_card">Blur Card</string>
 
     <string name="bug_report_manual">Send manually</string>
     <string name="bug_report_summary">An unexpected error occurred. Sorry you found this bug, if it keeps crashing \"Clear app data\" or send an Email </string>

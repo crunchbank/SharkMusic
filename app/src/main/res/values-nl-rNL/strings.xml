@@ -50,7 +50,6 @@
     <string name="action_tag_editor">Tags aanpassen</string>
     <string name="action_toggle_favorite">Favorieten in-/uitschakelen</string>
     <string name="action_toggle_shuffle">Shuffle mode in-/uitschakelen</string>
-    <string name="adaptive">Adaptief</string>
     <string name="add_action">Toevoegen</string>
     <string name="add_playlist_title">"Toevogen aan afspeellijst"</string>
     <string name="added_song_count_to_playlist">%1$d nummer(s) toegevoegd aan %2$s</string>
@@ -92,7 +91,6 @@
     <string name="bluetooth_summary">De app heeft nabije toestel toestemming nodig om te checken voor bluetooth toestellen</string>
     <string name="bluetooth_title">Apparaten in de buurt</string>
     <string name="blur">Vervagen</string>
-    <string name="blur_card">Vervaag Kaart</string>
     <string name="bug_report_manual">Verstuur handmatig</string>
     <string name="bug_report_summary">Een onverwachte fout is opgetreden. Het spijt me dat je deze bug tegengekomen bent. Als het blijft crashen, kies dan \"Clear app data\" of verstuur een email </string>
     <string name="card">Kaart</string>
@@ -170,7 +168,6 @@
     <string name="genre">Genre</string>
     <string name="genres">Genres</string>
     <string name="git_hub_summary">Fork het project op GitHub</string>
-    <string name="gradient">Gradiënt</string>
     <string name="grant_access">Verleen toegang</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>

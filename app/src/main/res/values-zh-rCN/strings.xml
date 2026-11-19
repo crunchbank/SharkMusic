@@ -50,7 +50,6 @@
     <string name="action_tag_editor">标签编辑器</string>
     <string name="action_toggle_favorite">切换收藏夹</string>
     <string name="action_toggle_shuffle">切换随机播放模式</string>
-    <string name="adaptive">自适应</string>
     <string name="add_action">添加</string>
     <string name="add_playlist_title">"加入播放列表"</string>
     <string name="added_song_count_to_playlist">已将 %1$d 首歌添加到 %2$s</string>
@@ -90,7 +89,6 @@
     <string name="bluetooth_summary">此应用需打开查找附近设备权限以寻找蓝牙设备</string>
     <string name="bluetooth_title">附近的蓝牙设备</string>
     <string name="blur">模糊</string>
-    <string name="blur_card">模糊卡片</string>
     <string name="bug_report_manual">手动发送</string>
     <string name="bug_report_summary">发生未知错误。很抱歉让您遇到此错误，如一直崩溃，请尝试“清除应用数据”或发送邮件</string>
     <string name="card">卡片</string>
@@ -168,7 +166,6 @@
     <string name="genre">流派</string>
     <string name="genres">流派</string>
     <string name="git_hub_summary">在 GitHub 上克隆项目</string>
-    <string name="gradient">渐变</string>
     <string name="grant_access">允许访问</string>
     <string name="grid_size_1">1</string>
     <string name="grid_size_2">2</string>
