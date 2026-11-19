@@ -1,3 +1,7 @@
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): removed the greeting row.
+ * Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.fragments.home
 
 import code.name.monkey.retromusic.databinding.FragmentHomeBinding
@@ -10,13 +14,10 @@ class HomeBinding(
     val contentContainer = homeBinding.contentContainer
     val appBarLayout = homeBinding.appBarLayout
     val toolbar = homeBinding.appBarLayout.toolbar
-    val bannerImage = homeBinding.imageLayout.bannerImage
-    val userImage = homeBinding.imageLayout.userImage
     val lastAdded = homeBinding.homeContent.absPlaylists.lastAdded
     val topPlayed = homeBinding.homeContent.absPlaylists.topPlayed
     val actionShuffle = homeBinding.homeContent.absPlaylists.actionShuffle
     val history = homeBinding.homeContent.absPlaylists.history
     val recyclerView = homeBinding.homeContent.recyclerView
-    val titleWelcome = homeBinding.imageLayout.titleWelcome
     val suggestions = homeBinding.homeContent.suggestions
 }

@@ -17,7 +17,10 @@ Get the latest APK from [Releases](https://github.com/crunchbank/SharkMusic/rele
   failures are reported.
 - An "All tags" viewer (song menu → Details → All tags) and a "Fix genres" button in the tag editor.
 - The favourite heart fills completely.
+- Plays are counted properly (including with the screen off), and songs can be sorted by "Most played" in the
+  Songs tab and an artist's page.
 - The "What's new" sheet no longer opens on launch.
+- No "Welcome" greeting or Profile page on the home screen.
 
 ## Licence
 

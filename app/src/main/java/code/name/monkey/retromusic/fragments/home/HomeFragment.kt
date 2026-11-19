@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
- * Modifications copyright (c) 2026 crunchbank (Shark Music): Shark Music title.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): Shark Music title; removed the
+ * greeting row and its Profile page.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -25,7 +26,6 @@ import androidx.core.view.doOnLayout
 import androidx.core.view.doOnPreDraw
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import code.name.monkey.appthemehelper.common.ATHToolbarActivity
@@ -43,14 +43,11 @@ import code.name.monkey.retromusic.extensions.setUpMediaRouteButton
 import code.name.monkey.retromusic.fragments.ReloadType
 import code.name.monkey.retromusic.fragments.base.AbsMainActivityFragment
 import code.name.monkey.retromusic.glide.RetroGlideExtension
-import code.name.monkey.retromusic.glide.RetroGlideExtension.profileBannerOptions
 import code.name.monkey.retromusic.glide.RetroGlideExtension.songCoverOptions
-import code.name.monkey.retromusic.glide.RetroGlideExtension.userProfileOptions
 import code.name.monkey.retromusic.helper.MusicPlayerRemote
 import code.name.monkey.retromusic.interfaces.IScrollHelper
 import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.util.PreferenceUtil
-import code.name.monkey.retromusic.util.PreferenceUtil.userName
 import com.bumptech.glide.Glide
 import com.google.android.material.transition.MaterialFadeThrough
 import com.google.android.material.transition.MaterialSharedAxis
@@ -68,10 +65,6 @@ class HomeFragment :
         mainActivity.setSupportActionBar(binding.toolbar)
         mainActivity.supportActionBar?.title = null
         setupListeners()
-        val name = userName?.trim().orEmpty()
-        val hasCustomName = name.isNotEmpty() && name != getString(R.string.user_name)
-        binding.titleWelcome.isVisible = hasCustomName
-        binding.titleWelcome.text = name
 
         enterTransition = MaterialFadeThrough().addTarget(binding.contentContainer)
         reenterTransition = MaterialFadeThrough().addTarget(binding.contentContainer)
@@ -90,7 +83,6 @@ class HomeFragment :
             homeAdapter.swapData(it)
         }
 
-        loadProfile()
         setupTitle()
         colorButtons()
         postponeEnterTransition()
@@ -112,15 +104,6 @@ class HomeFragment :
     }
 
     private fun setupListeners() {
-        binding.bannerImage?.setOnClickListener {
-            findNavController().navigate(
-                R.id.user_info_fragment, null, null, FragmentNavigatorExtras(
-                    binding.userImage to "user_image"
-                )
-            )
-            reenterTransition = null
-        }
-
         binding.lastAdded.setOnClickListener {
             findNavController().navigate(
                 R.id.detailListFragment,
@@ -149,13 +132,6 @@ class HomeFragment :
             setSharedAxisYTransitions()
         }
 
-        binding.userImage.setOnClickListener {
-            findNavController().navigate(
-                R.id.user_info_fragment, null, null, FragmentNavigatorExtras(
-                    binding.userImage to "user_image"
-                )
-            )
-        }
         // Reload suggestions
         binding.suggestions.refreshButton.setOnClickListener {
             libraryViewModel.forceReload(
@@ -171,19 +147,6 @@ class HomeFragment :
         val hexColor = String.format("#%06X", 0xFFFFFF and accentColor())
         val appName = "Shark <font color=$hexColor>Music</font>".parseAsHtml()
         binding.appBarLayout.title = appName
-    }
-
-    private fun loadProfile() {
-        binding.bannerImage?.let {
-            Glide.with(requireContext())
-                .load(RetroGlideExtension.getBannerModel())
-                .profileBannerOptions(RetroGlideExtension.getBannerModel())
-                .into(it)
-        }
-        Glide.with(requireActivity())
-            .load(RetroGlideExtension.getUserModel())
-            .userProfileOptions(RetroGlideExtension.getUserModel(), requireContext())
-            .into(binding.userImage)
     }
 
     fun colorButtons() {

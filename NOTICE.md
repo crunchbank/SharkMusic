@@ -36,6 +36,7 @@ based on upstream `dev` at 0be018679 (2026-11-12):
 | `helper/SortOrder.kt`, `repository/SongRepository.kt`, `repository/GenreRepository.kt`, `fragments/songs/SongsFragment.kt`, `fragments/artists/AbsArtistDetailsFragment.kt`, `model/Artist.kt`, `res/menu/menu_artist_song_sort_order.xml`, `res/values/ids.xml`, `res/values/strings.xml` | "Most played" sort order for the Songs tab and an artist's songs. |
 | `activities/MainActivity.kt` | The "What's new" sheet (Retro Music's changelog) no longer opens on launch. |
 | `assets/retro-changelog.html` | Removed the "Looking for maintainers/contributors" notice. |
+| `fragments/home/HomeFragment.kt`, `HomeBinding.kt`, `res/layout*/fragment_home.xml`, `res/navigation/main_graph.xml`, `res/xml/pref_ui.xml`, `util/PreferenceUtil.kt`, `glide/RetroGlideExtension.kt` | Removed the home screen greeting ("Welcome, …" with an avatar, or the optional banner), its Profile page (`UserInfoFragment` and its layouts, `views/HomeImageLayout.kt`) and the Banner setting. |
 | `README.md`, `NOTICE.md`, `.gitignore` | Shark Music README (replaces Retro Music's), this file, and ignored signing files. |
 
 "Retro Music" is the name of the original project. Shark Music is not affiliated with or endorsed by it.
