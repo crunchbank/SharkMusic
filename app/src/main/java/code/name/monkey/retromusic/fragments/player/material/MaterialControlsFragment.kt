@@ -12,6 +12,10 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the play button is a filled circle
+ * in the accent colour, taken from the former MD3 style. Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.fragments.player.material
 
 import android.graphics.PorterDuff
@@ -22,6 +26,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import code.name.monkey.appthemehelper.util.ATHUtil
+import code.name.monkey.appthemehelper.util.ColorUtil
 import code.name.monkey.appthemehelper.util.MaterialValueHelper
 import code.name.monkey.retromusic.R
 import code.name.monkey.retromusic.databinding.FragmentMaterialPlaybackControlsBinding
@@ -154,7 +159,12 @@ class MaterialControlsFragment :
     }
 
     private fun updatePlayPauseColor() {
-        binding.playPauseButton.setColorFilter(lastPlaybackControlsColor, PorterDuff.Mode.SRC_IN)
+        val cardColor = accentColor().ripAlpha()
+        binding.playPauseCard.setCardBackgroundColor(cardColor)
+        binding.playPauseButton.setColorFilter(
+            MaterialValueHelper.getPrimaryTextColor(requireContext(), ColorUtil.isColorLight(cardColor)),
+            PorterDuff.Mode.SRC_IN
+        )
     }
 
     private fun setUpPlayPauseFab() {
@@ -166,14 +176,14 @@ class MaterialControlsFragment :
             binding.playPauseButton.setImageDrawable(
                 ContextCompat.getDrawable(
                     requireContext(),
-                    R.drawable.ic_pause_outline
+                    R.drawable.ic_pause_outline_small
                 )
             )
         } else if (!MusicPlayerRemote.isPlaying) {
             binding.playPauseButton.setImageDrawable(
                 ContextCompat.getDrawable(
                     requireContext(),
-                    R.drawable.ic_play_arrow_outline
+                    R.drawable.ic_play_arrow_outline_small
                 )
             )
         }

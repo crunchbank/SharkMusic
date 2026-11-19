@@ -34,7 +34,6 @@ enum class NowPlayingScreen constructor(
     Fit(R.string.fit, R.drawable.np_fit, 12, AlbumCoverStyle.Full),
     Full(R.string.full, R.drawable.np_full, 2, AlbumCoverStyle.Full),
     Material(R.string.material, R.drawable.np_material, 11, AlbumCoverStyle.Normal),
-    MD3(R.string.md3, R.drawable.np_normal, 18, AlbumCoverStyle.Normal),
     Normal(R.string.normal, R.drawable.np_normal, 0, AlbumCoverStyle.Normal),
     Peek(R.string.peek, R.drawable.np_peek, 14, AlbumCoverStyle.Normal),
     Plain(R.string.plain, R.drawable.np_plain, 3, AlbumCoverStyle.Normal),
