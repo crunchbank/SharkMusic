@@ -13,8 +13,6 @@
  */
 package code.name.monkey.retromusic.views
 
-import android.animation.TimeAnimator
-import android.animation.ValueAnimator
 import android.graphics.Canvas
 import android.graphics.ColorFilter
 import android.graphics.Paint
@@ -25,7 +23,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings
+import android.view.Choreographer
 import android.view.ViewGroup
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.slider.Slider
@@ -46,8 +44,10 @@ import kotlin.random.Random
  * turning while the other fish flee. Then the water settles.
  *
  * Everything is drawn in the window's overlay (the slider's own parent can be too short for the
- * fin), so no layout changes; the progress dot is left uncovered (the shark passes behind it). Nothing runs between sightings except one delayed
- * callback. Only for the round-dot slider style.
+ * fin), so no layout changes; the progress dot is left uncovered (the shark passes behind it).
+ * Frames come from [Choreographer], not an animator, so it also runs when the system animation
+ * scale is off (the shark has its own setting). Nothing runs between sightings except one
+ * delayed callback. Only for the round-dot slider style.
  */
 class SharkSightings(
     private val slider: Slider,
@@ -58,13 +58,29 @@ class SharkSightings(
 ) {
     private val handler = Handler(Looper.getMainLooper())
     private val drawable = SharkDrawable()
-    private var animator: TimeAnimator? = null
+    private var lastFrameNanos = 0L
+    private val frame = object : Choreographer.FrameCallback {
+        override fun doFrame(frameTimeNanos: Long) {
+            val s = sim ?: return
+            val dt = if (lastFrameNanos == 0L) 0f
+            else min((frameTimeNanos - lastFrameNanos) / 1_000_000_000f, 0.05f)
+            lastFrameNanos = frameTimeNanos
+            if (!canContinue()) s.dive(QUICK_DIVE)
+            s.width = trackWidthDp()
+            if (!s.update(dt)) {
+                stopSighting()
+                return
+            }
+            slider.rootView.invalidate()
+            Choreographer.getInstance().postFrameCallback(this)
+        }
+    }
     private var sim: Sim? = null
     private var sightings = 0
     private var resumed = false
 
     private val scheduled = Runnable {
-        if (resumed && sim == null && canStart() && animationsEnabled()) startSighting()
+        if (resumed && sim == null && canStart()) startSighting()
         schedule()
     }
 
@@ -99,36 +115,18 @@ class SharkSightings(
         sim = Sim(width, chase = sightings % 2 == 0)
         drawable.setBounds(0, 0, host.width, host.height)
         host.overlay.add(drawable)
-        animator = TimeAnimator().apply {
-            setTimeListener { _, _, deltaMs ->
-                val s = sim
-                if (s == null) {
-                    stopSighting(); return@setTimeListener
-                }
-                if (!canContinue()) s.dive(QUICK_DIVE)
-                s.width = trackWidthDp()
-                if (!s.update(min(deltaMs, 50L) / 1000f)) stopSighting()
-                else host.invalidate()
-            }
-            start()
-        }
+        lastFrameNanos = 0L
+        Choreographer.getInstance().postFrameCallback(frame)
     }
 
     private fun stopSighting() {
-        animator?.cancel()
-        animator = null
+        Choreographer.getInstance().removeFrameCallback(frame)
         sim = null
         (slider.rootView as? ViewGroup)?.let {
             it.overlay.remove(drawable)
             it.invalidate()
         }
     }
-
-    private fun animationsEnabled(): Boolean =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ValueAnimator.areAnimatorsEnabled()
-        else Settings.Global.getFloat(
-            slider.context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f
-        ) != 0f
 
     // --- Geometry, read from the slider every frame so it follows layout and theme changes ---
 
