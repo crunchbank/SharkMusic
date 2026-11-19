@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): "All tags" button.
  */
 
 package code.name.monkey.retromusic.dialogs
@@ -158,6 +159,11 @@ class SongDetailDialog : DialogFragment() {
         }
         return materialDialog(R.string.action_details)
             .setPositiveButton(android.R.string.ok, null)
+            .apply {
+                if (song != null) setNeutralButton(R.string.all_tags) { _, _ ->
+                    AllTagsDialog.create(song).show(parentFragmentManager, AllTagsDialog.TAG)
+                }
+            }
             .setView(binding.root)
             .create()
             .colorButtons()

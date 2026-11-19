@@ -22,6 +22,7 @@ based on upstream `dev` at 0be018679 (2026-11-12):
 | `repository/GenreRepository.kt` | Genre song counts come from a single query on Android 11+. |
 | `fragments/home/HomeFragment.kt`, `fragments/library/LibraryFragment.kt` | Toolbar title "Shark Music". |
 | `activities/tageditor/TagWriter.kt`, `activities/tageditor/AbsTagEditorActivity.kt`, `fragments/lyrics/LyricsFragment.kt`, `res/values/strings.xml` | Tag editor saves safely on Android 11+: one working copy per song (songs sharing a file name no longer overwrite each other), each edited copy verified before it replaces the original, the original truncated before writing, and failures reported instead of ignored. |
+| `dialogs/AllTagsDialog.kt`, `util/TagDump.kt` (new, copyright © 2026 crunchbank), `dialogs/SongDetailDialog.kt`, `res/values/strings.xml` | "All tags" viewer, opened from a song's Details: the audio stream, every standard tag field with all of its values, other fields in the file, and embedded artwork. Read-only. |
 | `app/build.gradle.kts` | App ID `io.github.crunchbank.sharkmusic`. |
 | `res/values/donottranslate.xml`, `res/values/strings.xml` | App name "Shark Music". |
 | `res/drawable/ic_launcher_*.xml`, `res/mipmap-*/ic_launcher*`, `ic_launcher-web.png` | New launcher icon (shark fin on a vinyl record), copyright © 2026 crunchbank. |
