@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): SHARK_SIGHTINGS key.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -149,6 +150,7 @@ const val LAST_USED_TAB = "last_used_tab"
 const val WHITELIST_MUSIC = "whitelist_music"
 const val MATERIAL_YOU = "material_you"
 const val SNOWFALL = "snowfall"
+const val SHARK_SIGHTINGS = "shark_sightings"
 const val LYRICS_TYPE = "lyrics_type"
 const val PLAYBACK_SPEED = "playback_speed"
 const val PLAYBACK_PITCH = "playback_pitch"

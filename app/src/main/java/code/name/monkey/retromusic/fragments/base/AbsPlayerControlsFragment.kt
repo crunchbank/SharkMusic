@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): shark sightings in the progress line.
  */
 package code.name.monkey.retromusic.fragments.base
 
@@ -30,6 +31,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import code.name.monkey.retromusic.R
+import code.name.monkey.retromusic.activities.base.AbsSlidingMusicPanelActivity
 import code.name.monkey.retromusic.extensions.whichFragment
 import code.name.monkey.retromusic.fragments.MusicSeekSkipTouchListener
 import code.name.monkey.retromusic.fragments.other.VolumeFragment
@@ -39,6 +41,8 @@ import code.name.monkey.retromusic.service.MusicService
 import code.name.monkey.retromusic.util.MusicUtil
 import code.name.monkey.retromusic.util.PreferenceUtil
 import code.name.monkey.retromusic.util.color.MediaNotificationProcessor
+import code.name.monkey.retromusic.views.SharkSightings
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.slider.Slider
 
 /**
@@ -77,6 +81,13 @@ abstract class AbsPlayerControlsFragment(@LayoutRes layout: Int) : AbsMusicServi
     open val songCurrentProgress: TextView? = null
 
     private var progressAnimator: ObjectAnimator? = null
+
+    /** False for player screens that should never show the shark (the lock screen). */
+    protected open val sharkSightingsAllowed = true
+
+    private var sharkSightings: SharkSightings? = null
+
+    private var sharkSongId = -1L
 
     override fun onUpdateProgressViews(progress: Int, total: Int) {
         if (seekBar == null) {
@@ -267,11 +278,44 @@ abstract class AbsPlayerControlsFragment(@LayoutRes layout: Int) : AbsMusicServi
     override fun onResume() {
         super.onResume()
         progressViewUpdateHelper.start()
+        startSharkSightings()
     }
 
     override fun onPause() {
         super.onPause()
         progressViewUpdateHelper.stop()
+        sharkSightings?.pause()
+    }
+
+    /** Only on the round-dot slider style; the other progress bars are drawn too differently. */
+    private fun startSharkSightings() {
+        val slider = progressSlider
+        if (!sharkSightingsAllowed || seekBar != null || slider == null ||
+            !PreferenceUtil.sharkSightings || slider.thumbWidth != slider.thumbHeight
+        ) {
+            sharkSightings?.pause()
+            sharkSightings = null
+            return
+        }
+        val sightings = sharkSightings ?: SharkSightings(
+            slider,
+            canStart = {
+                val ok = MusicPlayerRemote.isPlaying && !isSeeking && isPlayerExpanded() &&
+                        MusicPlayerRemote.musicService?.isCurrentSongCountedAsPlayed == true
+                if (ok) sharkSongId = MusicPlayerRemote.currentSong.id
+                ok
+            },
+            canContinue = {
+                MusicPlayerRemote.isPlaying && !isSeeking && isPlayerExpanded() &&
+                        MusicPlayerRemote.currentSong.id == sharkSongId
+            }
+        ).also { sharkSightings = it }
+        sightings.resume()
+    }
+
+    private fun isPlayerExpanded(): Boolean {
+        val activity = activity as? AbsSlidingMusicPanelActivity ?: return true
+        return activity.panelState == BottomSheetBehavior.STATE_EXPANDED
     }
 
     companion object {

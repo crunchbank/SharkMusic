@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): panelState is public (for shark sightings).
  *
  * Licensed under the GNU General Public License v3
  *
@@ -131,7 +132,7 @@ abstract class AbsSlidingMusicPanelActivity : AbsMusicServiceActivity(),
     private var paletteColor: Int = android.graphics.Color.WHITE
     private var navigationBarColor = 0
 
-    private val panelState: Int
+    val panelState: Int
         get() = bottomSheetBehavior.state
     private var panelStateBefore: Int? = null
     private var panelStateCurrent: Int? = null

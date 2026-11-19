@@ -1,6 +1,6 @@
 /*
  * Modifications copyright (c) 2026 crunchbank (Shark Music): removed the profile name and
- * home banner settings.
+ * home banner settings; added the shark sightings setting.
  * Licensed under the GNU General Public License v3.
  */
 package code.name.monkey.retromusic.util
@@ -91,6 +91,7 @@ import code.name.monkey.retromusic.SCROLL_TO_PLAYING_SONG
 import code.name.monkey.retromusic.SHOW_LYRICS
 import code.name.monkey.retromusic.SHOW_WHEN_LOCKED
 import code.name.monkey.retromusic.SLEEP_TIMER_FINISH_SONG
+import code.name.monkey.retromusic.SHARK_SIGHTINGS
 import code.name.monkey.retromusic.SNOWFALL
 import code.name.monkey.retromusic.SONG_GRID_SIZE
 import code.name.monkey.retromusic.SONG_GRID_SIZE_LAND
@@ -806,6 +807,9 @@ object PreferenceUtil {
 
     val isSnowFalling
         get() = sharedPreferences.getBoolean(SNOWFALL, false)
+
+    val sharkSightings
+        get() = sharedPreferences.getBoolean(SHARK_SIGHTINGS, true)
 
     val lyricsType: CoverLyricsType
         get() = if (sharedPreferences.getString(LYRICS_TYPE, "0") == "0") {

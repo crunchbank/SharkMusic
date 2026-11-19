@@ -18,6 +18,7 @@ Get the latest APK from [Releases](https://github.com/crunchbank/SharkMusic/rele
   failures are reported.
 - An "All tags" viewer (song menu → Details → All tags) and a "Fix genres" button in the tag editor.
 - The favourite heart fills completely.
+- Now and then a shark fin surfaces in the now-playing progress line (Settings → Now playing → Shark sightings).
 - Playlists are backed up automatically as .m3u files in the Music folder, with relative paths.
 - Plays are counted properly (including with the screen off), and songs can be sorted by "Most played" in the
   Songs tab and an artist's page.

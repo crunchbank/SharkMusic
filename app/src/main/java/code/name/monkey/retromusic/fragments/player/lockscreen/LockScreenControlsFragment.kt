@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2020 Hemanth Savarla.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): no shark sightings on the lock screen.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -40,6 +41,8 @@ import com.google.android.material.slider.Slider
  */
 class LockScreenControlsFragment :
     AbsPlayerControlsFragment(R.layout.fragment_lock_screen_playback_controls) {
+
+    override val sharkSightingsAllowed = false
 
     private var _binding: FragmentLockScreenPlaybackControlsBinding? = null
     private val binding get() = _binding!!
