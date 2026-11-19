@@ -1,0 +1,5 @@
+• Shark sightings: now and then a shark fin surfaces in the now-playing progress line
+• Plays are counted properly, and songs can be sorted by Most played
+• Playlists are backed up automatically as .m3u files in the Music folder
+• Restoring a backup shows its progress and result
+• No greeting, Profile page or What's new sheet; Shark Music splash screen
