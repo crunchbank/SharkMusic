@@ -29,7 +29,7 @@ based on upstream `dev` at 0be018679 (2026-11-12):
 | `res/drawable/avd_favorite.xml` | The favourite animation always ends on a completely filled heart (it could stop half full). |
 | `app/build.gradle.kts` | App ID `io.github.crunchbank.sharkmusic`. |
 | `res/values/donottranslate.xml`, `res/values/strings.xml` | App name "Shark Music". |
-| `res/drawable/ic_launcher_*.xml`, `res/mipmap-*/ic_launcher*`, `ic_launcher-web.png` | New launcher icon (shark fin on a vinyl record), copyright © 2026 crunchbank. |
+| `res/drawable/ic_launcher_*.xml`, `res/mipmap-*/ic_launcher*`, `ic_launcher-web.png`, `fastlane/metadata/android/en-US/images/icon.png` | New launcher icon (shark fin on a vinyl record), copyright © 2026 crunchbank. |
 | `assets/license.html` | Shark Music copyright, licence, warranty and source notice on the in-app licences screen. |
 | `util/PlayCounts.kt` (new, copyright © 2026 crunchbank), `db/PlayCountDao.kt`, `service/MusicService.kt`, `activities/base/AbsMusicServiceActivity.kt` | Plays are counted by the music service once at least half a song has been heard, including with the screen off; the screen-based count that counted every track change is removed. "Most played" uses these counts. |
 | `helper/StopWatch.kt`, `service/SongPlayCountHelper.kt` | The listening timer restarts on each track change and no longer adds the time since 1970 when paused while stopped. |
