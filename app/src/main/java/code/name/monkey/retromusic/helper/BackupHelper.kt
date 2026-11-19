@@ -1,3 +1,9 @@
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): restoreBackup reports how many
+ * items it restored instead of showing a toast, so the restore screen can show the result;
+ * a failed backup is logged.
+ * Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.helper
 
 import android.content.Context
@@ -57,6 +63,7 @@ object BackupHelper : KoinComponent {
                     }
                 }
             }.onFailure {
+                android.util.Log.e("BackupHelper", "Can't create backup ${backupFile.path}", it)
                 withContext(Dispatchers.Main) {
                     context.showToast(R.string.error_create_backup)
                 }
@@ -135,35 +142,42 @@ object BackupHelper : KoinComponent {
         return zipItemList
     }
 
+    /**
+     * Restores the chosen [contents] from a backup file. Returns how many items were restored,
+     * which is 0 if the file holds none of them (or isn't a backup at all). Throws if the file
+     * can't be read.
+     */
     suspend fun restoreBackup(
         context: Context,
         inputStream: InputStream?,
         contents: List<BackupContent>
-    ) {
-        withContext(Dispatchers.IO) {
-            ZipInputStream(inputStream).use {
-                var entry = it.nextEntry
-                while (entry != null) {
-                    if (entry.isPlaylistEntry() && contents.contains(PLAYLISTS)) {
-                        restorePlaylists(it, entry)
-                    } else if (entry.isPreferenceEntry() && contents.contains(SETTINGS)) {
-                        restorePreferences(context, it, entry)
-                    } else if (entry.isImageEntry() && contents.contains(USER_IMAGES)) {
-                        restoreImages(context, it, entry)
-                    } else if (entry.isCustomArtistEntry() && contents.contains(CUSTOM_ARTIST_IMAGES)) {
-                        if (entry.isCustomArtistPrefEntry()) {
-                            restoreCustomArtistPrefs(context, it, entry)
-                        } else if (entry.isCustomArtistImageEntry()) {
-                            restoreCustomArtistImages(context, it, entry)
-                        }
+    ): Int = withContext(Dispatchers.IO) {
+        var restored = 0
+        ZipInputStream(inputStream).use {
+            var entry = it.nextEntry
+            while (entry != null) {
+                if (entry.isPlaylistEntry() && contents.contains(PLAYLISTS)) {
+                    restorePlaylists(it, entry)
+                    restored++
+                } else if (entry.isPreferenceEntry() && contents.contains(SETTINGS)) {
+                    restorePreferences(context, it, entry)
+                    restored++
+                } else if (entry.isImageEntry() && contents.contains(USER_IMAGES)) {
+                    restoreImages(context, it, entry)
+                    restored++
+                } else if (entry.isCustomArtistEntry() && contents.contains(CUSTOM_ARTIST_IMAGES)) {
+                    if (entry.isCustomArtistPrefEntry()) {
+                        restoreCustomArtistPrefs(context, it, entry)
+                        restored++
+                    } else if (entry.isCustomArtistImageEntry()) {
+                        restoreCustomArtistImages(context, it, entry)
+                        restored++
                     }
-                    entry = it.nextEntry
                 }
-            }
-            withContext(Dispatchers.Main) {
-                context.showToast(R.string.message_restore_success)
+                entry = it.nextEntry
             }
         }
+        restored
     }
 
     private fun restoreImages(context: Context, zipIn: ZipInputStream, zipEntry: ZipEntry) {

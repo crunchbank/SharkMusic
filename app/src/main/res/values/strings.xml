@@ -224,6 +224,10 @@
     <string name="message_backup_create_success">Backup created successfully.</string>
     <string name="message_limit_tabs">Not more than 5 items</string>
     <string name="message_restore_success">Restore completed successfully.</string>
+    <string name="restore_in_progress">Restoring…</string>
+    <string name="restore_done_restarting">Restore complete. Shark Music will now restart.</string>
+    <string name="restore_nothing_found">Nothing to restore: this file has none of the items you chose.</string>
+    <string name="restore_failed">Couldn\'t restore from this file. It may be damaged or not a backup.</string>
     <string name="message_updated">Updated</string>
     <string name="message_welcome"><![CDATA[Hello there! <br>Welcome to %s]]></string>
     <string name="my_name">Name</string>
