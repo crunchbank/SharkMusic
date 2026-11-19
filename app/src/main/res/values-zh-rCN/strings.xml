@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">加入播放列表</string>
     <string name="action_cancel">取消</string>
     <string name="action_cast">投射</string>
-    <string name="action_clear_playing_queue">清空播放队列</string>
     <string name="action_cycle_repeat">循环重复模式</string>
     <string name="action_delete">删除</string>
     <string name="action_delete_from_device">从设备中删除</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">扫描</string>
     <string name="action_search">搜索</string>
     <string name="action_set">开始</string>
-    <string name="action_set_as_ringtone">设为铃声</string>
     <string name="action_set_as_start_directory">设为起始目录</string>
     <string name="action_settings">"设置"</string>
     <string name="action_share">分享</string>
@@ -132,8 +130,6 @@
     <string name="deleted_x_songs">已删除 %1$d 首歌曲。</string>
     <string name="depth">深度</string>
     <string name="device_info">设备信息</string>
-    <string name="dialog_message_set_ringtone">允许 Retro Music 修改声音设置</string>
-    <string name="dialog_title_set_ringtone">设为铃声</string>
     <string name="disc_hint">盘片编号</string>
     <string name="do_you_want_to_clear_the_blacklist">您想清空黑名单吗？</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[确定从黑名单中移除 <b>%1$s</b> 吗？]]></string>
@@ -391,8 +387,6 @@
     <string name="reset_artist_image">重置艺术家图片</string>
     <string name="restore">恢复</string>
     <string name="retro_music_player">Retro Music 播放器</string>
-    <string name="ringtone_summary">应用需要系统设置访问权限，才能将音乐设置为为铃声</string>
-    <string name="ringtone_title">铃声（可选）</string>
     <string name="permission_alarm_summary">应用程序需要权限来安排准确的闹钟以设置睡眠定时器</string>
     <string name="permission_alarm_title">闹铃(可选）</string>
     <string name="saf_delete_failed">文件删除失败：%s</string>
@@ -490,7 +484,6 @@
     <string name="welcome">欢迎，</string>
     <string name="what_do_you_want_to_share">您有什么想分享的吗？</string>
     <string name="window">窗口</string>
-    <string name="x_has_been_set_as_ringtone">将 %1$s 设置为铃声。</string>
     <string name="x_selected">已选择 %1$d 项</string>
     <string name="year">年份</string>
     <string name="you_have_to_select_at_least_one_category">请至少选择一个分类。</string>

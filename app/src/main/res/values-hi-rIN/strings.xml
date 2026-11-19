@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">प्लेलिस्ट में जोड़ें</string>
     <string name="action_cancel">रद्द करें</string>
     <string name="action_cast">प्रसारित करें</string>
-    <string name="action_clear_playing_queue">बजने वाली कतार साफ़ करें</string>
     <string name="action_cycle_repeat">पुनः चलित स्थिती</string>
     <string name="action_delete">हटाएं</string>
     <string name="action_delete_from_device">डिवाइस से हटाएं</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">छाने</string>
     <string name="action_search">खोजें</string>
     <string name="action_set">सेट</string>
-    <string name="action_set_as_ringtone">रिंगटोन के रूप में सेट करें</string>
     <string name="action_set_as_start_directory">शुरू निर्देशिका के रूप में सेट करें</string>
     <string name="action_settings">"सेटिंग"</string>
     <string name="action_share">शेयर</string>
@@ -134,8 +132,6 @@
     <string name="deleted_x_songs">%1$d गाने हटा दिए गए।</string>
     <string name="depth">डेप्थ</string>
     <string name="device_info">डिवाइस की जानकारी</string>
-    <string name="dialog_message_set_ringtone">रेट्रो म्यूजिक को ऑडियो सेटिंग्स को संशोधित करने की अनुमति दें</string>
-    <string name="dialog_title_set_ringtone">रिंगटोन सेट करें</string>
     <string name="disc_hint">डिस्क संख्या</string>
     <string name="do_you_want_to_clear_the_blacklist">क्या आप ब्लैक्लिस्ट साफ़ करना चाहते हैं?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[क्या आप <b>%1$s</b> को ब्लैक्लिस्ट से हटाना चाहते हैं?]]></string>
@@ -392,8 +388,6 @@
     <string name="reset_artist_image">कलाकार छवि रीसेट करें</string>
     <string name="restore">पुनर्स्थापित करें</string>
     <string name="retro_music_player">रेट्रो म्यूजिक प्लेयर</string>
-    <string name="ringtone_summary">संगीत को रिंगटोन के रूप में सेट करने के लिए ऐप को आपकी डिवाइस सेटिंग्स तक पहुंचने की अनुमति की आवश्यकता है।</string>
-    <string name="ringtone_title">रिंगटोन (वैकल्पिक)</string>
     <string name="permission_alarm_summary">The app needs permission to schedule exact alarms to set sleep timers</string>
     <string name="permission_alarm_title">अलार्म(वैकल्पिक)</string>
     <string name="saf_delete_failed">फ़ाइल हटाना विफल: %s</string>
@@ -491,7 +485,6 @@
     <string name="welcome">स्वागत है,</string>
     <string name="what_do_you_want_to_share">आप क्या साझा करना चाहते हैं?</string>
     <string name="window">विंडो</string>
-    <string name="x_has_been_set_as_ringtone">%1$s को अपनी रिंगटोन के रूप में सेट करें।</string>
     <string name="x_selected">%1$d चयनित</string>
     <string name="year">वर्ष</string>
     <string name="you_have_to_select_at_least_one_category">आपको कम से कम एक कैटेगरी का चयन करना होगा।</string>

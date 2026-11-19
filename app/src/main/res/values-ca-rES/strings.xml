@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">Afegeix a la llista de reproducció</string>
     <string name="action_cancel">Cancel·la</string>
     <string name="action_cast">Emet</string>
-    <string name="action_clear_playing_queue">Esborra la cua de reproducció</string>
     <string name="action_cycle_repeat">Canvia el mode de repetició</string>
     <string name="action_delete">Suprimir</string>
     <string name="action_delete_from_device">Elimina d\'aquest dispositiu</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">Escaneja</string>
     <string name="action_search">Cerca</string>
     <string name="action_set">Inicia</string>
-    <string name="action_set_as_ringtone">Estableix com a to de trucada</string>
     <string name="action_set_as_start_directory">Estableix com a directori d\'inici</string>
     <string name="action_settings">"Configuració"</string>
     <string name="action_share">Comparteix</string>
@@ -134,8 +132,6 @@
     <string name="deleted_x_songs">S\'han esborrat %1$d cançons.</string>
     <string name="depth">Profunditat</string>
     <string name="device_info">Informació del dispositiu</string>
-    <string name="dialog_message_set_ringtone">Permet que Retro Music modifiqui la configuració d\'àudio</string>
-    <string name="dialog_title_set_ringtone">Estableix el to de trucada</string>
     <string name="disc_hint">Número del disc</string>
     <string name="do_you_want_to_clear_the_blacklist">Voleu esborrar la llista negra?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[Voleu suprimir <b>%1$s</b> de la llista negra?]]></string>
@@ -392,8 +388,6 @@
     <string name="reset_artist_image">Restableix la imatge de l\'artista</string>
     <string name="restore">Restaurar</string>
     <string name="retro_music_player">Retro Music Player</string>
-    <string name="ringtone_summary">L\'aplicació necessita permís per accedir a la configuració del dispositiu per configurar la música com a to de trucada</string>
-    <string name="ringtone_title">To de trucada (Opcional)</string>
     <string name="permission_alarm_summary">Cal permís per posar alarmes exactes per configurar temporitzadors d\'aturada</string>
     <string name="permission_alarm_title">Alarma (Opcional)</string>
     <string name="saf_delete_failed">L\'eliminació del fitxer ha fallat: %s</string>
@@ -491,7 +485,6 @@
     <string name="welcome">Benvingut,</string>
     <string name="what_do_you_want_to_share">Què vols compartir?</string>
     <string name="window">Finestra</string>
-    <string name="x_has_been_set_as_ringtone">Estableix %1$s com a to de trucada.</string>
     <string name="x_selected">%1$d seleccionat</string>
     <string name="year">Any</string>
     <string name="you_have_to_select_at_least_one_category">Has de seleccionar com a mínim una categoria.</string>

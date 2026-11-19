@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">เพิ่มเข้าเพลย์ลิสต์</string>
     <string name="action_cancel">ยกเลิก</string>
     <string name="action_cast">แคสต์</string>
-    <string name="action_clear_playing_queue">ล้างคิวเพลง</string>
     <string name="action_cycle_repeat">เปิดเล่นซ้ำ</string>
     <string name="action_delete">ลบ</string>
     <string name="action_delete_from_device">ลบออกจากเครื่อง</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">สแกน</string>
     <string name="action_search">ค้นหา</string>
     <string name="action_set">เริ่ม</string>
-    <string name="action_set_as_ringtone">กำหนดเป็นริงโทน</string>
     <string name="action_set_as_start_directory">กำหนดเป็น Directory เริ่มต้น</string>
     <string name="action_settings">"การตั้งค่า"</string>
     <string name="action_share">แชร์</string>
@@ -132,8 +130,6 @@
     <string name="deleted_x_songs">ลบ %1$d เพลงแล้ว</string>
     <string name="depth">Depth</string>
     <string name="device_info">ข้อมูลเครื่อง</string>
-    <string name="dialog_message_set_ringtone">อนุญาตให้ Retro Music สามารถแก้ไขการตั้งค่าเสียงได้</string>
-    <string name="dialog_title_set_ringtone">กำหนดริงโทน</string>
     <string name="disc_hint">Disc Number</string>
     <string name="do_you_want_to_clear_the_blacklist">คุณต้องการล้างรายชื่อแบล็คลิสต์ใช่ไหม?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[คุณต้องการลบ <b>%1$s</b> จากรายชื่อแบล็คลิสต์ใช่ไหม?]]></string>
@@ -390,8 +386,6 @@
     <string name="reset_artist_image">รีเซ็ทรูปศิลปิน</string>
     <string name="restore">กู้คืนการสั่งซื้อ</string>
     <string name="retro_music_player">Retro Music Player</string>
-    <string name="ringtone_summary">ต้องการสิทธิ์เพื่อตั้งค่าริงโทน</string>
-    <string name="ringtone_title">ริงโทน (Optional)</string>
     <string name="permission_alarm_summary">The app needs permission to schedule exact alarms to set sleep timers</string>
     <string name="permission_alarm_title">Alarm (Optional)</string>
     <string name="saf_delete_failed">ลบไฟล์ %s ไม่สำเร็จ</string>
@@ -489,7 +483,6 @@
     <string name="welcome">ยินดีต้อนรับ</string>
     <string name="what_do_you_want_to_share">คุณต้องการจะแชร์อะไร?</string>
     <string name="window">Window</string>
-    <string name="x_has_been_set_as_ringtone">กำหนดให้ %1$s เป็นริงโทนของคุณ</string>
     <string name="x_selected">เลือก %1$d</string>
     <string name="year">ปี</string>
     <string name="you_have_to_select_at_least_one_category">คุณต้องเลือกอย่างน้อยหนึ่งหมวดหมู่</string>

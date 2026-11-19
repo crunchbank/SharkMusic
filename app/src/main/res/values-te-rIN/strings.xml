@@ -8,7 +8,6 @@
     <string name="action_add_to_playing_queue">క్యూ ఆడటానికి జోడించండి</string>
     <string name="action_add_to_playlist">పాటల క్రమంలో చేర్చు</string>
     <string name="action_cast">తారాగణం</string>
-    <string name="action_clear_playing_queue">క్యూ ప్లే చేయడం క్లియర్</string>
     <string name="action_cycle_repeat">సైకిల్ రిపీట్ మోడ్</string>
     <string name="action_delete">తొలగించు</string>
     <string name="action_delete_from_device">పరికరం నుండి తొలగించండి</string>
@@ -35,7 +34,6 @@
     <string name="action_scan">స్కాన్</string>
     <string name="action_search">వెతకండి</string>
     <string name="action_set">ప్రారంభం</string>
-    <string name="action_set_as_ringtone">రింగు టోనుగా ఏర్పాటు చేయు</string>
     <string name="action_set_as_start_directory">ప్రారంభ డైరెక్టరీగా సెట్ చేయండి</string>
     <string name="action_settings">"సెట్టింగులు"</string>
     <string name="action_share">Share</string>
@@ -106,8 +104,6 @@
     <string name="deleted_x_songs">%1$dపాటలు తొలగించబడ్డాయి.</string>
     <string name="depth">లోతు</string>
     <string name="device_info">పరికర సమాచారం</string>
-    <string name="dialog_message_set_ringtone">ఆడియో సెట్టింగులను సవరించడానికి రెట్రో సంగీతాన్ని అనుమతించండి</string>
-    <string name="dialog_title_set_ringtone">రింగ్‌టోన్ సెట్ చేయండి</string>
     <string name="do_you_want_to_clear_the_blacklist">మీరు బ్లాక్లిస్ట్ క్లియర్ చేయాలనుకుంటున్నారా?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[మీరు బ్లాక్లిస్ట్ నుండి <b>%1$s</b> ను తొలగించాలనుకుంటున్నారా?]]></string>
     <string name="donate">దానం</string>
@@ -376,7 +372,6 @@
     <string name="welcome">స్వాగతం</string>
     <string name="what_do_you_want_to_share">మీరు ఏమి భాగస్వామ్యం చేయాలనుకుంటున్నారు?</string>
     <string name="window">కిటికీ</string>
-    <string name="x_has_been_set_as_ringtone">%1$s ను మీ రింగ్‌టోన్‌గా సెట్ చేయండి.</string>
     <string name="x_selected">%1$d ఎంచుకోబడింది</string>
     <string name="year">ఇయర్</string>
     <string name="you_have_to_select_at_least_one_category">మీరు కనీసం ఒక వర్గాన్ని ఎంచుకోవాలి.</string>

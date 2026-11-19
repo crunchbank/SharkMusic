@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">Dodaj na plejlistu</string>
     <string name="action_cancel">Otkazi trenutni tajmer</string>
     <string name="action_cast">Cast</string>
-    <string name="action_clear_playing_queue">Izbrisi trenutnu plejlistu za pustanje</string>
     <string name="action_cycle_repeat">Понављај</string>
     <string name="action_delete">Obrisi</string>
     <string name="action_delete_from_device">Izbrisi sa uredjaja</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">Skeniraj fajlove</string>
     <string name="action_search">Pretrazi</string>
     <string name="action_set">Postavi</string>
-    <string name="action_set_as_ringtone">Postavi kao melodiju zvona</string>
     <string name="action_set_as_start_directory">Postavi kao pocetni direktorijum</string>
     <string name="action_settings">"Подешавања"</string>
     <string name="action_share">Podeli</string>
@@ -136,8 +134,6 @@
     <string name="deleted_x_songs">Izbrisi %1$d numere.</string>
     <string name="depth">Depth</string>
     <string name="device_info">Device info</string>
-    <string name="dialog_message_set_ringtone">Allow Retro Music to modify audio settings</string>
-    <string name="dialog_title_set_ringtone">Set ringtone</string>
     <string name="disc_hint">Disc Number</string>
     <string name="do_you_want_to_clear_the_blacklist">Da li zelite da ispraznite listu za ignorisanje foldera?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[Da li zelite da izbrisete <b>%1$s</b> sa liste za ignorisanje foldera?]]></string>
@@ -394,8 +390,6 @@
     <string name="reset_artist_image">Resetuj sliku izvodjaca</string>
     <string name="restore">Restore</string>
     <string name="retro_music_player">Retro Music Player</string>
-    <string name="ringtone_summary">The app needs permission to access your device settings in order to set music as Ringtone</string>
-    <string name="ringtone_title">Ringtone (Optional)</string>
     <string name="permission_alarm_summary">The app needs permission to schedule exact alarms to set sleep timers</string>
     <string name="permission_alarm_title">Alarm (Optional)</string>
     <string name="saf_delete_failed">File delete failed: %s</string>
@@ -493,7 +487,6 @@
     <string name="welcome">Welcome,</string>
     <string name="what_do_you_want_to_share">Sta zelis da podelis?</string>
     <string name="window">Window</string>
-    <string name="x_has_been_set_as_ringtone">Postavi %1$s kao melodiju zvona.</string>
     <string name="x_selected">Selektovano %1$d</string>
     <string name="year">Godina</string>
     <string name="you_have_to_select_at_least_one_category">You have to select at least one category.</string>

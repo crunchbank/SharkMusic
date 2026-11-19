@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">افزودن به لیست پخش</string>
     <string name="action_cancel">انصراف</string>
     <string name="action_cast">پخش و نمایش تصویر</string>
-    <string name="action_clear_playing_queue">پاک کردن لیست پخش آهنگ</string>
     <string name="action_cycle_repeat">حالت پخش چرخشی آهنگ ها</string>
     <string name="action_delete">حذف</string>
     <string name="action_delete_from_device">حذف از دستگاه</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">اسکن</string>
     <string name="action_search">جستجو</string>
     <string name="action_set">شروع</string>
-    <string name="action_set_as_ringtone">تنظیم به‌عنوان زنگ</string>
     <string name="action_set_as_start_directory">تنظیم به عنوان منوی آغاز</string>
     <string name="action_settings">"تنظیمات"</string>
     <string name="action_share">اشتراک گذاری</string>
@@ -134,8 +132,6 @@
     <string name="deleted_x_songs">%1$d موزیک حذف شدند.</string>
     <string name="depth">عمق</string>
     <string name="device_info">اطلاعات دستگاه</string>
-    <string name="dialog_message_set_ringtone">به موسیقی رترو اجازه دهید تنظیمات صدا را تغییر دهد</string>
-    <string name="dialog_title_set_ringtone">تنظیم آهنگ زنگ</string>
     <string name="disc_hint">شماره دیسک</string>
     <string name="do_you_want_to_clear_the_blacklist">ایا می‌خواهید بلک لیست را پاک کنید؟</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[آیا شما میخواهید آهنگ X را از لیست سیاه حذف کنید؟]]></string>
@@ -392,8 +388,6 @@
     <string name="reset_artist_image">تنظیم مجدد تصویر هنرمند</string>
     <string name="restore">بازیابی</string>
     <string name="retro_music_player">پخش‌کننده موسیقی Retro</string>
-    <string name="ringtone_summary">برنامه برای دسترسی به تنظیمات دستگاه شما برای تنظیم موسیقی به عنوان آهنگ زنگ نیاز به مجوز دارد</string>
-    <string name="ringtone_title">آهنگ زنگ (اختیاری)</string>
     <string name="permission_alarm_summary">این برنامه برای تنظیم تایمر خواب نیازمند دسترسی به برنامه‌ریزی آلارم دارد</string>
     <string name="permission_alarm_title">آلارم (انتخابی)</string>
     <string name="saf_delete_failed">حذف پرونده انجام نشد:%s</string>
@@ -491,7 +485,6 @@
     <string name="welcome">خوش آمدید</string>
     <string name="what_do_you_want_to_share">چه چیزی را میخواهید به اشتراک بگذارید؟</string>
     <string name="window">پنجره</string>
-    <string name="x_has_been_set_as_ringtone">%1$s را به عنوان صدای زنگ تنظیم کن</string>
     <string name="x_selected">‏%1$d انتخاب شد</string>
     <string name="year">سال</string>
     <string name="you_have_to_select_at_least_one_category">شما باید حداقل یک دسته را انتخاب کنید.</string>

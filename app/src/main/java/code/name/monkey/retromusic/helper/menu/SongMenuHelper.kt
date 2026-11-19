@@ -12,6 +12,10 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): removed Set as Ringtone.
+ * Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.helper.menu
 
 import android.content.Intent
@@ -37,7 +41,6 @@ import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.providers.BlacklistStore
 import code.name.monkey.retromusic.repository.RealRepository
 import code.name.monkey.retromusic.util.MusicUtil
-import code.name.monkey.retromusic.util.RingtoneManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -54,14 +57,6 @@ object SongMenuHelper : KoinComponent {
     fun handleMenuClick(activity: FragmentActivity, song: Song, menuItemId: Int): Boolean {
         val libraryViewModel = activity.getViewModel() as LibraryViewModel
         when (menuItemId) {
-            R.id.action_set_as_ringtone -> {
-                if (RingtoneManager.requiresDialog(activity)) {
-                    RingtoneManager.showDialog(activity)
-                } else {
-                    RingtoneManager.setRingtone(activity, song)
-                }
-                return true
-            }
             R.id.action_share -> {
                 activity.startActivity(
                     Intent.createChooser(

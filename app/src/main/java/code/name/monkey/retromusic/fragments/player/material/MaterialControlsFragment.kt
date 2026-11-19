@@ -14,7 +14,8 @@
  */
 /*
  * Modifications copyright (c) 2026 crunchbank (Shark Music): the play button is a filled circle
- * in the accent colour, taken from the former MD3 style. Licensed under the GNU General Public License v3.
+ * in the accent colour, taken from the former MD3 style, and tapping the artist opens the artist's
+ * page. Licensed under the GNU General Public License v3.
  */
 package code.name.monkey.retromusic.fragments.player.material
 
@@ -23,7 +24,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import code.name.monkey.appthemehelper.util.ATHUtil
 import code.name.monkey.appthemehelper.util.ColorUtil
@@ -33,8 +33,10 @@ import code.name.monkey.retromusic.databinding.FragmentMaterialPlaybackControlsB
 import code.name.monkey.retromusic.extensions.*
 import code.name.monkey.retromusic.fragments.base.AbsPlayerControlsFragment
 import code.name.monkey.retromusic.fragments.base.goToAlbum
+import code.name.monkey.retromusic.fragments.base.goToArtist
 import code.name.monkey.retromusic.helper.MusicPlayerRemote
 import code.name.monkey.retromusic.helper.PlayPauseButtonOnClickHandler
+import code.name.monkey.retromusic.util.ArtistSeparator
 import code.name.monkey.retromusic.util.PreferenceUtil
 import code.name.monkey.retromusic.util.color.MediaNotificationProcessor
 import com.google.android.material.slider.Slider
@@ -79,20 +81,16 @@ class MaterialControlsFragment :
         binding.title.setOnClickListener {
             goToAlbum(requireActivity())
         }
+        binding.text.setOnClickListener {
+            goToArtist(requireActivity())
+        }
     }
 
     private fun updateSong() {
         val song = MusicPlayerRemote.currentSong
         binding.title.text = song.title
         
-        binding.text.setArtistLinks(song.artistName) { artistName ->
-            // TODO: Navigate to artist details when artistByName() is implemented
-            Toast.makeText(
-                requireContext(),
-                getString(R.string.go_to_artist) + ": $artistName",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+        binding.text.text = ArtistSeparator.split(song.artistName).joinToString(", ")
 
         if (PreferenceUtil.isSongInfo) {
             binding.songInfo.text = getSongInfo(song)

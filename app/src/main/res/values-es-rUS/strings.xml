@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">Agregar a lista de reproducción</string>
     <string name="action_cancel">Cancelar</string>
     <string name="action_cast">Lanzamiento</string>
-    <string name="action_clear_playing_queue">Limpiar cola de reproducción</string>
     <string name="action_cycle_repeat">Modo de repetición continua</string>
     <string name="action_delete">Eliminar</string>
     <string name="action_delete_from_device">Eliminar del dispositivo</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">Examinar</string>
     <string name="action_search">Buscar</string>
     <string name="action_set">Comenzar</string>
-    <string name="action_set_as_ringtone">Establecer como tono de llamada</string>
     <string name="action_set_as_start_directory">Establecer como directorio de inicio</string>
     <string name="action_settings">"Configuración"</string>
     <string name="action_share">Compartir</string>
@@ -134,8 +132,6 @@
     <string name="deleted_x_songs">Se eliminaron %1$d canciones.</string>
     <string name="depth">Profundidad</string>
     <string name="device_info">Información del dispositivo</string>
-    <string name="dialog_message_set_ringtone">Permitir que Retro Music modifique la configuración de audio</string>
-    <string name="dialog_title_set_ringtone">Establecer como tono de llamada</string>
     <string name="disc_hint">Número de disco</string>
     <string name="do_you_want_to_clear_the_blacklist">¿Deseas borrar la lista negra?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[¿Deseas eliminar <b>%1$s</b> de la lista negra?]]></string>
@@ -392,8 +388,6 @@
     <string name="reset_artist_image">Reiniciar imagen del artista</string>
     <string name="restore">Restaurar</string>
     <string name="retro_music_player">Reproductor Retro</string>
-    <string name="ringtone_summary">La aplicación necesita permiso para acceder a la configuración de tu dispositivo para establecer música como Tono de Llamada</string>
-    <string name="ringtone_title">Tono de Llamada (Opcional)</string>
     <string name="permission_alarm_summary">La aplicación necesita programar alarmas con exactitud para configurar el temporizador de apagado</string>
     <string name="permission_alarm_title">Alarma (opcional)</string>
     <string name="saf_delete_failed">La eliminación del archivo %s falló</string>
@@ -491,7 +485,6 @@
     <string name="welcome">Bienvenido,</string>
     <string name="what_do_you_want_to_share">¿Qué quieres compartir?</string>
     <string name="window">Ventana</string>
-    <string name="x_has_been_set_as_ringtone">Establecer %1$s como tono de llamada.</string>
     <string name="x_selected">%1$d seleccionado</string>
     <string name="year">Año</string>
     <string name="you_have_to_select_at_least_one_category">Tienes que seleccionar al menos una categoría.</string>

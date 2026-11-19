@@ -12,6 +12,10 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): removed the ringtone step
+ * (the "modify system settings" permission). Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.activities
 
 import android.Manifest.permission.BLUETOOTH_CONNECT
@@ -26,7 +30,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.getSystemService
-import androidx.core.net.toUri
 import androidx.core.text.parseAsHtml
 import androidx.core.view.isVisible
 import code.name.monkey.appthemehelper.util.VersionUtils
@@ -49,15 +52,6 @@ class PermissionActivity : AbsMusicServiceActivity() {
         binding.storagePermission.setButtonClick {
             requestPermissions()
         }
-        binding.audioPermission.show()
-        binding.audioPermission.setButtonClick {
-            if (!hasAudioPermission()) {
-                val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                intent.data = ("package:" + applicationContext.packageName).toUri()
-                startActivity(intent)
-            }
-        }
-
         if (VersionUtils.hasS()) {
             binding.bluetoothPermission.show()
             binding.bluetoothPermission.setButtonClick {
@@ -72,8 +66,6 @@ class PermissionActivity : AbsMusicServiceActivity() {
                 val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
                 startActivity(intent)
             }
-        } else {
-            binding.audioPermission.setNumber("2")
         }
 
         binding.finish.accentBackgroundColor()
@@ -116,11 +108,6 @@ class PermissionActivity : AbsMusicServiceActivity() {
             binding.storagePermission.checkImage.imageTintList =
                 ColorStateList.valueOf(accentColor())
         }
-        if (hasAudioPermission()) {
-            binding.audioPermission.checkImage.isVisible = true
-            binding.audioPermission.checkImage.imageTintList =
-                ColorStateList.valueOf(accentColor())
-        }
         if (VersionUtils.hasS()) {
             if (hasBluetoothPermission()) {
                 binding.bluetoothPermission.checkImage.isVisible = true
@@ -145,10 +132,6 @@ class PermissionActivity : AbsMusicServiceActivity() {
             this,
             BLUETOOTH_CONNECT
         ) == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun hasAudioPermission(): Boolean {
-        return Settings.System.canWrite(this)
     }
 
     @RequiresApi(Build.VERSION_CODES.S)

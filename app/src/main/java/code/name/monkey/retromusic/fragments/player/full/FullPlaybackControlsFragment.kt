@@ -12,6 +12,10 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the menu hides Go to Lyrics.
+ * Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.fragments.player.full
 
 import android.content.Intent
@@ -195,6 +199,8 @@ class FullPlaybackControlsFragment :
             popupMenu.setOnMenuItemClickListener(this)
             popupMenu.inflate(R.menu.menu_player)
             popupMenu.menu.findItem(R.id.action_toggle_favorite).isVisible = false
+            // Shark Music: Full shows lyrics over the cover, and tapping them opens the lyrics screen.
+            popupMenu.menu.findItem(R.id.action_go_to_lyrics).isVisible = false
             popupMenu.menu.findItem(R.id.action_toggle_lyrics).isChecked = PreferenceUtil.showLyrics
             popupMenu.show()
         }

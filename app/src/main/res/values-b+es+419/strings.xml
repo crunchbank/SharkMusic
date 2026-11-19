@@ -10,7 +10,6 @@
     <string name="action_add_to_playing_queue">Agregar a la cola de reproducción</string>
     <string name="action_add_to_playlist">Agregar a playlist</string>
     <string name="action_cast">Emitir</string>
-    <string name="action_clear_playing_queue">Vaciar cola de reproducción</string>
     <string name="action_cycle_repeat">Modo de repetición de ciclo</string>
     <string name="action_delete">Eliminar</string>
     <string name="action_delete_from_device">Eliminar del dispositivo</string>
@@ -38,7 +37,6 @@
     <string name="action_scan">Escanear</string>
     <string name="action_search">Buscar</string>
     <string name="action_set">Iniciar</string>
-    <string name="action_set_as_ringtone">Establecer como tono de llamada</string>
     <string name="action_set_as_start_directory">Establecer como directorio de inicio</string>
     <string name="action_settings">"Configuración"</string>
     <string name="action_share">Compartir</string>
@@ -130,8 +128,6 @@
     <string name="deleted_x_songs">Se eliminaron %1$d canciones.</string>
     <string name="depth">Profundidad</string>
     <string name="device_info">Información del dispositivo</string>
-    <string name="dialog_message_set_ringtone">Permitir que Retro Music modifique la configuración de audio</string>
-    <string name="dialog_title_set_ringtone">Establecer tono de llamada</string>
     <string name="disc_hint">Número de disco</string>
     <string name="do_you_want_to_clear_the_blacklist">¿Quieres borrar la lista negra?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[¿Quieres eliminar <b>%1$s</b> de la lista negra?]]></string>
@@ -365,8 +361,6 @@
     <string name="reset_artist_image">Reset artist image</string>
     <string name="restore">Restore</string>
     <string name="retro_music_player">Retro Music Player</string>
-    <string name="ringtone_summary">The app needs permission to access your device settings in order to set music as Ringtone</string>
-    <string name="ringtone_title">Ringtone (Optional)</string>
     <string name="saf_delete_failed">File delete failed: %s</string>
     <!-- SAF -->
     <string name="saf_error_uri">Can\'t get SAF URI</string>
@@ -458,7 +452,6 @@
     <string name="welcome">Welcome,</string>
     <string name="what_do_you_want_to_share">What do you want to share?</string>
     <string name="window">Window</string>
-    <string name="x_has_been_set_as_ringtone">Set %1$s as your ringtone.</string>
     <string name="x_selected">%1$d selected</string>
     <string name="year">Year</string>
     <string name="you_have_to_select_at_least_one_category">You have to select at least one category.</string>

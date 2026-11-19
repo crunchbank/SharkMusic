@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">أضف إلى قائمة التشغيل</string>
     <string name="action_cancel">إلغاء</string>
     <string name="action_cast">ممثلين</string>
-    <string name="action_clear_playing_queue">إخلاء قائمة التشغيل الحالية</string>
     <string name="action_cycle_repeat">وضع التكرار</string>
     <string name="action_delete">حذف</string>
     <string name="action_delete_from_device">حذف من الجهاز</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">فحص</string>
     <string name="action_search">بحث</string>
     <string name="action_set">بدأ</string>
-    <string name="action_set_as_ringtone">تعيين كنغمة رنين</string>
     <string name="action_set_as_start_directory">تعيين كملف بداية</string>
     <string name="action_settings">"الإعدادات"</string>
     <string name="action_share">مشاركة</string>
@@ -144,8 +142,6 @@
     <string name="deleted_x_songs">تم حذف %1$d الأغاني.</string>
     <string name="depth">العمق</string>
     <string name="device_info">معلومات الجهاز</string>
-    <string name="dialog_message_set_ringtone">السمات لتطبيق ريترو ميوزك بتعديل اعدادات الصوت</string>
-    <string name="dialog_title_set_ringtone">ك نغمة رنين</string>
     <string name="disc_hint">رقم القرص</string>
     <string name="do_you_want_to_clear_the_blacklist">هل تريد إزالة القائمة السوداء؟</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[هل تريد إزالة <b>%1$s</b> من القائمة السوداء]]></string>
@@ -403,8 +399,6 @@
     <string name="reset_artist_image">اعادة ضبط صور الالبومات</string>
     <string name="restore">استرجاع</string>
     <string name="retro_music_player">مشغل الموسيقى Retro</string>
-    <string name="ringtone_summary">يحتاج التطبيق إلى إذن للوصول إلى إعدادات جهازك من أجل تعيين الموسيقى كنغمة رنين</string>
-    <string name="ringtone_title">نغمة الرنين (إختياري)</string>
     <string name="permission_alarm_summary">The app needs permission to schedule exact alarms to set sleep timers</string>
     <string name="permission_alarm_title">Alarm (Optional)</string>
     <string name="saf_delete_failed">فشل حذف الملف: %s</string>
@@ -502,7 +496,6 @@
     <string name="welcome">مرحبا,</string>
     <string name="what_do_you_want_to_share">مالذي تريد مشاركته?</string>
     <string name="window">نافذة</string>
-    <string name="x_has_been_set_as_ringtone">تعيين %1$s كنغمة الرنين الخاصة بك.</string>
     <string name="x_selected">%1$d تحديد</string>
     <string name="year">السنة</string>
     <string name="you_have_to_select_at_least_one_category">عليك اختيار فئة واحدة على الأقل.</string>

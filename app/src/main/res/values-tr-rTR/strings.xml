@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">Oynatma listesine ekle</string>
     <string name="action_cancel">İptal et</string>
     <string name="action_cast">Yayınla</string>
-    <string name="action_clear_playing_queue">Oynatma kuyruğunu temizle</string>
     <string name="action_cycle_repeat">Tekrarlı oynatma modu</string>
     <string name="action_delete">Sil</string>
     <string name="action_delete_from_device">Cihazdan sil</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">Tara</string>
     <string name="action_search">Ara</string>
     <string name="action_set">Başlat</string>
-    <string name="action_set_as_ringtone">Zil sesi olarak ayarla</string>
     <string name="action_set_as_start_directory">Başlangıç ​​dizini olarak ayarla</string>
     <string name="action_settings">"Ayarlar"</string>
     <string name="action_share">Paylaş</string>
@@ -134,8 +132,6 @@
     <string name="deleted_x_songs">%1$d parça silindi.</string>
     <string name="depth">Derinlik</string>
     <string name="device_info">Cihaz Bilgisi</string>
-    <string name="dialog_message_set_ringtone">Retro Müzik\'in ses ayarlarını değiştirmesine izin verin</string>
-    <string name="dialog_title_set_ringtone">Zil sesini ayarla</string>
     <string name="disc_hint">Disk numarası</string>
     <string name="do_you_want_to_clear_the_blacklist">Kara listeyi temizlemek istiyor musunuz?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[Kara listeden <b>%1$s</b>\'i kaldırmak istiyor musunuz?]]></string>
@@ -392,8 +388,6 @@
     <string name="reset_artist_image">Sanatçı resmini sıfırla</string>
     <string name="restore">Geri yükle</string>
     <string name="retro_music_player">Retro Müzik Çalar</string>
-    <string name="ringtone_summary">Müziği zil sesi yapmak için uygulamanın cihaz ayarlarına erişim yetkisi gereklidir</string>
-    <string name="ringtone_title">Zil sesi (İsteğe Bağlı)</string>
     <string name="permission_alarm_summary">Uygulamanın alarm ve uyku zamanlayıcısı ayarlamak için özel izinlere ihtiyacı var</string>
     <string name="permission_alarm_title">Alarm (Opsiyonel)</string>
     <string name="saf_delete_failed">Dosya silme başarısız oldu: %s</string>
@@ -491,7 +485,6 @@
     <string name="welcome">Hoşgeldiniz,</string>
     <string name="what_do_you_want_to_share">Ne paylaşmak istiyorsunuz?</string>
     <string name="window">Pencere</string>
-    <string name="x_has_been_set_as_ringtone">%1$s\'i zil sesi olarak ayarla.</string>
     <string name="x_selected">%1$d seçildi</string>
     <string name="year">Yıl</string>
     <string name="you_have_to_select_at_least_one_category">En az bir kategori seçmek zorundasınız.</string>

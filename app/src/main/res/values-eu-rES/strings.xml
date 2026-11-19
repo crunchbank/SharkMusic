@@ -8,7 +8,6 @@
     <string name="action_add_to_favorites">Gogokoetara gehitu</string>
     <string name="action_add_to_playing_queue">Ilaran gehitu</string>
     <string name="action_add_to_playlist">Erreprodukzio zerrendan gehitu</string>
-    <string name="action_clear_playing_queue">Erreprodukzio ilara garbitu</string>
     <string name="action_cycle_repeat">Cycle repeat mode</string>
     <string name="action_delete">Ezabatu</string>
     <string name="action_delete_from_device">Gailutik ezabatu</string>
@@ -35,7 +34,6 @@
     <string name="action_scan">Eskaneatu</string>
     <string name="action_search">Bilatu</string>
     <string name="action_set">Hasi</string>
-    <string name="action_set_as_ringtone">Dei-tonu bezala ezarri</string>
     <string name="action_set_as_start_directory">Hasierako direktorio bezala ezarri</string>
     <string name="action_settings">"Ezarpenak"</string>
     <string name="action_share">Partekatu</string>
@@ -114,8 +112,6 @@
     <string name="deleted_x_songs">%1$d abesti ezabatu dira</string>
     <string name="depth">Sakonera</string>
     <string name="device_info">Gailuaren informazioa</string>
-    <string name="dialog_message_set_ringtone">Allow Retro Music to modify audio settings</string>
-    <string name="dialog_title_set_ringtone">Set ringtone</string>
     <string name="do_you_want_to_clear_the_blacklist">Zerrenda beltza garbitu nahi duzu?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[<b>%1$s</b> zerrenda beltzetik ezabatu nahi duzu?]]></string>
     <string name="donate">Lagundu diruz</string>
@@ -384,7 +380,6 @@
     <string name="welcome">Welcome,</string>
     <string name="what_do_you_want_to_share">Zer partekatu nahi duzu?</string>
     <string name="window">Leihoa</string>
-    <string name="x_has_been_set_as_ringtone">Ezarri %1$s dei-tonu gisa</string>
     <string name="x_selected">%1$d hautaturik</string>
     <string name="year">Urtea</string>
     <string name="you_have_to_select_at_least_one_category">You have to select at least one category.</string>

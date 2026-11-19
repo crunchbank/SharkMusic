@@ -12,6 +12,11 @@
  * See the GNU General Public License for more details.
  *
  */
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the Now Playing menu drops Share,
+ * Set as Ringtone, Go to Artist and Clear Playing Queue, and shows Go to Lyrics only in styles
+ * without lyrics over the cover. Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.fragments.base
 
 import android.annotation.SuppressLint
@@ -52,7 +57,6 @@ import code.name.monkey.retromusic.dialogs.DeleteSongsDialog
 import code.name.monkey.retromusic.dialogs.PlaybackSpeedDialog
 import code.name.monkey.retromusic.dialogs.SleepTimerDialog
 import code.name.monkey.retromusic.dialogs.SongDetailDialog
-import code.name.monkey.retromusic.dialogs.SongShareDialog
 import code.name.monkey.retromusic.extensions.currentFragment
 import code.name.monkey.retromusic.extensions.getTintedDrawable
 import code.name.monkey.retromusic.extensions.hide
@@ -70,7 +74,6 @@ import code.name.monkey.retromusic.repository.RealRepository
 import code.name.monkey.retromusic.service.MusicService
 import code.name.monkey.retromusic.util.NavigationUtil
 import code.name.monkey.retromusic.util.PreferenceUtil
-import code.name.monkey.retromusic.util.RingtoneManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -121,10 +124,6 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                 return true
             }
 
-            R.id.action_share -> {
-                SongShareDialog.create(song).show(childFragmentManager, "SHARE_SONG")
-                return true
-            }
 
             R.id.action_go_to_drive_mode -> {
                 NavigationUtil.gotoDriveMode(requireActivity())
@@ -147,10 +146,6 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                 return true
             }
 
-            R.id.action_clear_playing_queue -> {
-                MusicPlayerRemote.clearQueue()
-                return true
-            }
 
             R.id.action_save_playing_queue -> {
                 CreatePlaylistDialog.create(ArrayList(MusicPlayerRemote.playingQueue))
@@ -181,10 +176,6 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                 return true
             }
 
-            R.id.action_go_to_artist -> {
-                goToArtist(requireActivity())
-                return true
-            }
 
             R.id.now_playing -> {
                 requireActivity().findNavController(R.id.fragment_container).navigate(
@@ -211,17 +202,6 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                 return true
             }
 
-            R.id.action_set_as_ringtone -> {
-                requireContext().run {
-                    if (RingtoneManager.requiresDialog(this)) {
-                        RingtoneManager.showDialog(this)
-                    } else {
-                        RingtoneManager.setRingtone(this, song)
-                    }
-                }
-
-                return true
-            }
 
             R.id.action_go_to_genre -> {
                 val retriever = MediaMetadataRetriever()
@@ -356,6 +336,10 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                 showLyricsIcon(this)
             }
         }
+        // Go to Lyrics only where the lyrics icon can't show lyrics over the cover; elsewhere,
+        // tapping those lyrics opens the lyrics screen.
+        playerToolbar()?.menu?.findItem(R.id.action_go_to_lyrics)?.isVisible =
+            nps in GO_TO_LYRICS_STYLES
     }
 
     override fun onStart() {
@@ -410,6 +394,11 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
     companion object {
         val TAG: String = AbsPlayerFragment::class.java.simpleName
         const val VISIBILITY_ANIM_DURATION: Long = 300
+
+        /** Styles with no lyrics over the cover, so the menu's Go to Lyrics is the way in. */
+        private val GO_TO_LYRICS_STYLES = setOf(
+            NowPlayingScreen.Circle, NowPlayingScreen.Fit, NowPlayingScreen.Peek, NowPlayingScreen.Tiny
+        )
     }
 }
 

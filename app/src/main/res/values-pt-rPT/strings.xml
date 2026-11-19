@@ -11,7 +11,6 @@
     <string name="action_add_to_playlist">Adicionar à lista</string>
     <string name="action_cancel">Cancelar</string>
     <string name="action_cast">Transmitir</string>
-    <string name="action_clear_playing_queue">Limpar fila de reprodução</string>
     <string name="action_cycle_repeat">Modo de repetição</string>
     <string name="action_delete">Eliminar</string>
     <string name="action_delete_from_device">Eliminar do dispositivo</string>
@@ -39,7 +38,6 @@
     <string name="action_scan">Analisar</string>
     <string name="action_search">Procurar</string>
     <string name="action_set">Iniciar</string>
-    <string name="action_set_as_ringtone">Definir como toque</string>
     <string name="action_set_as_start_directory">Definir como diretoria inicial</string>
     <string name="action_settings">"Definições"</string>
     <string name="action_share">Partilhar</string>
@@ -134,8 +132,6 @@
     <string name="deleted_x_songs">%1$d músicas eliminadas.</string>
     <string name="depth">Profundidade</string>
     <string name="device_info">Info. do dispositivo</string>
-    <string name="dialog_message_set_ringtone">Permitir que Música Retro modifique as definições de áudio</string>
-    <string name="dialog_title_set_ringtone">Definir toque</string>
     <string name="disc_hint">Número do disco</string>
     <string name="do_you_want_to_clear_the_blacklist">Quer limpar a lista negra?</string>
     <string name="do_you_want_to_remove_from_the_blacklist"><![CDATA[Quer remover <b>%1$s</b> da lista negra?]]></string>
@@ -392,8 +388,6 @@
     <string name="reset_artist_image">Repor imagem do artista</string>
     <string name="restore">Restaurar</string>
     <string name="retro_music_player">Música Retro</string>
-    <string name="ringtone_summary">Esta aplicação necessita de permissão para aceder às definições para definir músicas como toques</string>
-    <string name="ringtone_title">Toque (opcional)</string>
     <string name="permission_alarm_summary">A aplicação precisa de permissão para agendar alarmes exatos para definir os temporizadores de sono</string>
     <string name="permission_alarm_title">Alarme (opcional)</string>
     <string name="saf_delete_failed">Erro ao eliminar ficheiro: %s</string>
@@ -491,7 +485,6 @@
     <string name="welcome">Bem-vindo,</string>
     <string name="what_do_you_want_to_share">O que deseja partilhar?</string>
     <string name="window">Janelas</string>
-    <string name="x_has_been_set_as_ringtone">Definir %1$s como toque.</string>
     <string name="x_selected">%1$d selecionado(s)</string>
     <string name="year">Ano</string>
     <string name="you_have_to_select_at_least_one_category">Tem que seleccionar pelo menos uma categoria.</string>
