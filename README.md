@@ -11,7 +11,6 @@ Get the latest APK from [Releases](https://github.com/crunchbank/SharkMusic/rele
 
 ## Changes from Retro Music
 
-- Playback keeps going with the screen off after using Quit.
 - The Playlists tab and home screen no longer wait for genres to load, and genres load in a fraction of a second
   on large libraries.
 - The Genres tab splits genres such as "Pop, Folk" into separate genres (Android 11+).
