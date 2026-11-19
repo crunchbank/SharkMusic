@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2019 Hemanth Savarala.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): makeSongCursor takes a projection.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -168,7 +169,8 @@ class RealSongRepository(private val context: Context) : SongRepository {
         selection: String?,
         selectionValues: Array<String>?,
         sortOrder: String = PreferenceUtil.songSortOrder,
-        ignoreBlacklist: Boolean = false
+        ignoreBlacklist: Boolean = false,
+        projection: Array<String> = baseProjection
     ): Cursor? {
         var selectionFinal = selection
         var selectionValuesFinal = selectionValues
@@ -208,7 +210,7 @@ class RealSongRepository(private val context: Context) : SongRepository {
         return try {
             context.contentResolver.query(
                 uri,
-                baseProjection,
+                projection,
                 selectionFinal,
                 selectionValuesFinal,
                 sortOrder

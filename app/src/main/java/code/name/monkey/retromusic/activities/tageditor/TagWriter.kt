@@ -12,7 +12,8 @@
  * See the GNU General Public License for more details.
  *
  * Modifications copyright (c) 2026 crunchbank (Shark Music): safer saving on Android 11+ (one
- * copy per song, edited copies verified, originals truncated on write, failures reported).
+ * copy per song, edited copies verified, originals truncated on write, failures reported); a
+ * file's genres are read and written as one comma-separated value.
  */
 package code.name.monkey.retromusic.activities.tageditor
 
@@ -40,6 +41,8 @@ import org.jaudiotagger.audio.exceptions.CannotWriteException
 import org.jaudiotagger.audio.exceptions.InvalidAudioFrameException
 import org.jaudiotagger.audio.exceptions.ReadOnlyFileException
 import org.jaudiotagger.tag.FieldDataInvalidException
+import org.jaudiotagger.tag.FieldKey
+import org.jaudiotagger.tag.Tag
 import org.jaudiotagger.tag.TagException
 import org.jaudiotagger.tag.images.AndroidArtwork
 import org.jaudiotagger.tag.images.Artwork
@@ -94,12 +97,12 @@ class TagWriter {
                         if (info.fieldKeyValueMap != null) {
                             for ((key, newValue) in info.fieldKeyValueMap) {
                                 try {
-                                    val currentValue = tag.getFirst(key)
+                                    val currentValue = currentText(tag, key)
                                     if (currentValue != newValue) {
                                         if (newValue.isEmpty()) {
                                             tag.deleteField(key)
                                         } else {
-                                            tag.setField(key, newValue)
+                                            setText(tag, key, newValue)
                                         }
                                     }
                                 } catch (e: FieldDataInvalidException) {
@@ -201,12 +204,12 @@ class TagWriter {
                         if (info.fieldKeyValueMap != null) {
                             for ((key, newValue) in info.fieldKeyValueMap) {
                                 try {
-                                    val currentValue = tag.getFirst(key)
+                                    val currentValue = currentText(tag, key)
                                     if (currentValue != newValue) {
                                         if (newValue.isEmpty()) {
                                             tag.deleteField(key)
                                         } else {
-                                            tag.setField(key, newValue)
+                                            setText(tag, key, newValue)
                                         }
                                     }
                                 } catch (e: FieldDataInvalidException) {
@@ -285,6 +288,30 @@ class TagWriter {
             Log.e(TAG, "Could not save tags to $target", e)
             false
         }
+
+        /**
+         * A file's genres as the editor shows them: every genre field, joined with ", ".
+         *
+         * A file can hold several genre fields, but the editor has one box and MediaStore keeps
+         * one genre string per song, which the Genres tab splits on commas. Showing only the first
+         * field would drop the rest on save; joining them keeps them all, and saving writes them
+         * back as one comma-separated field.
+         */
+        fun genreText(tag: Tag): String =
+            tag.getAll(FieldKey.GENRE).filter { it.isNotBlank() }.joinToString(", ")
+
+        /**
+         * Sets a field from the editor. The genre box stands for every genre field in the file,
+         * so all of them are replaced: setField alone replaces only the first, and in Vorbis
+         * comments the others would stay behind (and MediaStore files the song under the last).
+         */
+        private fun setText(tag: Tag, key: FieldKey, value: String) {
+            if (key == FieldKey.GENRE) tag.deleteField(key)
+            tag.setField(key, value)
+        }
+
+        private fun currentText(tag: Tag, key: FieldKey): String =
+            if (key == FieldKey.GENRE) genreText(tag) else tag.getFirst(key)
 
         private const val TAG = "TagWriter"
         const val TAG_EDIT_DIR = "tag-editor"

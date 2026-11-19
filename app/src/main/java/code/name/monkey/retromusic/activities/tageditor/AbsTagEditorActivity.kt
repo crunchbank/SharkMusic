@@ -12,7 +12,7 @@
  * See the GNU General Public License for more details.
  *
  * Modifications copyright (c) 2026 crunchbank (Shark Music): saves run off the main thread, skip
- * files that failed to edit, and report how many files could not be saved.
+ * files that failed to edit, and report how many files could not be saved; a "Fix genres" button.
  */
 package code.name.monkey.retromusic.activities.tageditor
 
@@ -30,12 +30,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.animation.OvershootInterpolator
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import code.name.monkey.appthemehelper.util.VersionUtils
@@ -49,11 +51,13 @@ import code.name.monkey.retromusic.extensions.setTaskDescriptionColorAuto
 import code.name.monkey.retromusic.extensions.showToast
 import code.name.monkey.retromusic.model.ArtworkInfo
 import code.name.monkey.retromusic.model.AudioTagInfo
+import code.name.monkey.retromusic.repository.RealGenreRepository
 import code.name.monkey.retromusic.repository.Repository
 import code.name.monkey.retromusic.util.logD
 import code.name.monkey.retromusic.util.logE
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -157,10 +161,54 @@ abstract class AbsTagEditorActivity<VB : ViewBinding> : AbsBaseActivity() {
             }
         }
 
+    /**
+     * Adds a "Fix genres" button to the genre box. It shows while the text holds more than one
+     * genre or is untidy (";" or "|" separators, stray spaces, repeats), and opens a list of the
+     * genres it contains: untick any to drop, and Apply writes the rest back as "A, B, C" — the
+     * form the Genres tab splits into separate genres.
+     */
+    protected fun setUpGenreFix(container: TextInputLayout, field: EditText) {
+        container.endIconMode = TextInputLayout.END_ICON_CUSTOM
+        container.setEndIconDrawable(drawable.ic_auto_fix)
+        container.endIconContentDescription = getString(R.string.fix_genres)
+        container.setEndIconOnClickListener { showGenreFix(field) }
+        val update = {
+            val text = field.text?.toString().orEmpty()
+            container.isEndIconVisible =
+                text.any { it in RealGenreRepository.GENRE_SEPARATORS } || tidyGenre(text) != text
+        }
+        update()
+        field.doAfterTextChanged { update() }
+    }
+
+    private fun showGenreFix(field: EditText) {
+        val genres = RealGenreRepository.splitGenre(field.text?.toString().orEmpty())
+        if (genres.isEmpty()) {
+            field.setText("")
+            return
+        }
+        val keep = BooleanArray(genres.size) { true }
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.fix_genres)
+            .setMultiChoiceItems(genres.toTypedArray(), keep) { _, which, checked ->
+                keep[which] = checked
+            }
+            .setPositiveButton(R.string.fix_genres_apply) { _, _ ->
+                field.setText(genres.filterIndexed { i, _ -> keep[i] }.joinToString(", "))
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .create()
+            .colorButtons()
+            .show()
+    }
+
+    private fun tidyGenre(text: String): String =
+        RealGenreRepository.splitGenre(text).joinToString(", ")
+
     protected val genreName: String?
         get() {
             return try {
-                getAudioFile(songPaths!![0]).tagOrCreateAndSetDefault.getFirst(FieldKey.GENRE)
+                TagWriter.genreText(getAudioFile(songPaths!![0]).tagOrCreateAndSetDefault)
             } catch (e: Exception) {
                 logE(e)
                 null

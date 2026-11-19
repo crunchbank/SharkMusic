@@ -11,6 +11,7 @@
  * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
  *
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): "Fix genres" button on the genre box.
  */
 package code.name.monkey.retromusic.activities.tageditor
 
@@ -92,6 +93,7 @@ class AlbumTagEditorActivity : AbsTagEditorActivity<ActivityAlbumTagEditorBindin
         binding.albumText.appHandleColor().doAfterTextChanged { dataChanged() }
         binding.albumArtistText.appHandleColor().doAfterTextChanged { dataChanged() }
         binding.genreTitle.appHandleColor().doAfterTextChanged { dataChanged() }
+        setUpGenreFix(binding.genreContainer, binding.genreTitle)
         binding.yearTitle.appHandleColor().doAfterTextChanged { dataChanged() }
     }
 
