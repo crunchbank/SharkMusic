@@ -1,20 +1,28 @@
-Retro Music Player 🎵
+Shark Music is a music player for the music files on your phone. It is based on Retro Music Player, with fixes and a few additions, and kept clean and minimal.
 
-<b>📦 Included Features</b>
+<b>Changes from Retro Music</b>
 <ul>
-    <li>Base 3 themes (Clearly White, Kinda Dark and Just Black)</li>
-    <li>Material You support on Android 12+</li>
-    <li>Gapless playback</li>
-    <li>Crossfade playback</li>
-    <li>Choose from 10+ now playing themes</li>
-    <li>Android auto support</li>
-    <li>Wallpaper accent picker on Android 8.1+</li>
-    <li>Home screen widgets</li>
-    <li>Lock screen playback controls</li>
+    <li>Playback keeps going with the screen off after using Quit</li>
+    <li>Faster loading of genres and playlists on large libraries</li>
+    <li>Genres such as "Pop, Folk" are split into separate genres (Android 11+)</li>
+    <li>Safer tag editing, a "Fix genres" button and an "All tags" viewer</li>
+    <li>Plays are counted properly, and songs can be sorted by most played</li>
+    <li>No "What's new" sheet, welcome greeting or profile page</li>
+</ul>
+
+<b>Features</b>
+<ul>
+    <li>Light, dark and black themes, with Material You on Android 12+</li>
+    <li>Gapless and crossfade playback</li>
+    <li>10+ now playing themes</li>
+    <li>Android Auto support</li>
+    <li>Home screen widgets and lock screen controls</li>
     <li>Sleep timer</li>
-    <li>Easy drag to sort playlist & play queue</li>
+    <li>Drag to sort playlists and the play queue</li>
     <li>Tag editor</li>
     <li>Create, edit and import playlists</li>
-    <li>Browse and play your music by songs, albums, artists, playlists and genre</li>
-    <li>Smart Auto Playlists - Recently played, most played and history</li>
+    <li>Browse by songs, albums, artists, playlists, genres and folders</li>
+    <li>Smart playlists: history, last added and most played</li>
 </ul>
+
+Shark Music is free software under the GNU GPL v3. Source: https://github.com/crunchbank/SharkMusic

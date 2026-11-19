@@ -1,1 +1,1 @@
-Material You Design Music player for Android
+A clean, minimal music player for your own music files
