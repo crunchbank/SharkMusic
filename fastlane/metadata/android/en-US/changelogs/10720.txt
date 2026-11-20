@@ -1,0 +1,5 @@
+• Streaming mode: every song plays at the same loudness (-14 LUFS by default), from ReplayGain tags or measured on the phone
+• Home: Unplayed replaces Shuffle, listing songs you haven't heard yet
+• Fewer Now Playing styles; Material gets a filled play button
+• Tidier Now Playing menu; Set as Ringtone removed
+• Rotating the phone no longer pauses the music

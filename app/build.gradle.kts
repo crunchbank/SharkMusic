@@ -1,4 +1,4 @@
-// Modified by crunchbank, 2026 (Shark Music): app ID; version 7.1. Licensed under the GNU GPL v3 or later.
+// Modified by crunchbank, 2026 (Shark Music): app ID; version 7.2. Licensed under the GNU GPL v3 or later.
 import java.util.Properties
 
 plugins {
@@ -23,8 +23,8 @@ android {
 
         // Shark Music: own app ID; the code namespace stays code.name.monkey.retromusic
         applicationId = "io.github.crunchbank.sharkmusic"
-        versionCode = 10710
-        versionName = "7.1"
+        versionCode = 10720
+        versionName = "7.2"
 
         buildConfigField("String", "GOOGLE_PLAY_LICENSING_KEY", "\"${getProperty(getProperties("../public.properties"), "GOOGLE_PLAY_LICENSE_KEY")}\"")
     }
