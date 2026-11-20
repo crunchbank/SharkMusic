@@ -35,6 +35,7 @@ import kotlin.math.min
  * allow (keeping [HEADROOM_DB] below full scale), so nothing is limited or clipped. Loudness comes
  * from ReplayGain/R128 tags when a file has them, otherwise it is measured on the device, one song
  * at a time, while streaming mode is on: the playing song first, then the next few in the queue.
+ * A song that starts playing unmeasured interrupts the measurement of one further down the queue.
  *
  * Players ask [gainDb] for the song they are about to play and register a listener to hear when
  * the answer changes (the mode is toggled, the target changes or a measurement arrives).
@@ -67,6 +68,13 @@ object StreamingMode {
 
     @Volatile
     private var enabledCache = false
+
+    /** The song being measured, and whether an urgent request for another song should stop it. */
+    @Volatile
+    private var measuring: String? = null
+
+    @Volatile
+    private var interrupted = false
 
     @Volatile
     private var targetCache = DEFAULT_TARGET
@@ -174,10 +182,13 @@ object StreamingMode {
     private fun request(song: Song, urgent: Boolean) {
         val k = key(song)
         if (urgent) {
-            // Move it to the front even if it's already waiting.
+            if (measuring == k) return // already under way
+            // Move it to the front even if it's already waiting, and stop a measurement of a
+            // song further down the queue: the playing song can't wait for it.
             queue.remove(song)
             queue.offerFirst(song)
             pending += k
+            if (measuring != null) interrupted = true
         } else if (pending.add(k)) {
             queue.offerLast(song)
         }
@@ -191,6 +202,7 @@ object StreamingMode {
                 return
             }
             val k = key(song)
+            var requeued = false
             try {
                 val current = known[k]
                 if (current is Known.Unmeasurable || (current is Known.Info && current.final)) continue
@@ -207,7 +219,21 @@ object StreamingMode {
                 }
 
                 val started = System.currentTimeMillis()
-                val measured = LoudnessMeter.measure(appContext, song.uri) { !enabledCache }
+                interrupted = false
+                measuring = k
+                val measured = try {
+                    LoudnessMeter.measure(appContext, song.uri) { !enabledCache || interrupted }
+                } finally {
+                    measuring = null
+                }
+                if (measured == null && interrupted && enabledCache) {
+                    // Put back behind the song that interrupted it.
+                    Log.d(TAG, "Interrupted ${song.title}")
+                    queue.remove(song)
+                    queue.offerLast(song)
+                    requeued = true
+                    continue
+                }
                 if (measured == null && !enabledCache) continue // cancelled; try again later
                 Log.d(TAG, "Measured ${song.title} in ${System.currentTimeMillis() - started} ms: " +
                         "${measured?.loudness} LUFS, peak ${measured?.peak}")
@@ -217,7 +243,7 @@ object StreamingMode {
             } catch (e: Exception) {
                 Log.w(TAG, "Can't get loudness of ${song.data}", e)
             } finally {
-                pending -= k
+                if (!requeued) pending -= k
             }
         }
     }
