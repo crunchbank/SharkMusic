@@ -13,7 +13,8 @@
  *
  */
 /*
- * Modifications copyright (c) 2026 crunchbank (Shark Music): the menu hides Go to Lyrics.
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): the menu hides Go to Lyrics and
+ * shows whether streaming mode is on.
  * Licensed under the GNU General Public License v3.
  */
 package code.name.monkey.retromusic.fragments.player.full
@@ -44,6 +45,7 @@ import code.name.monkey.retromusic.fragments.base.AbsPlayerControlsFragment
 import code.name.monkey.retromusic.fragments.base.goToAlbum
 import code.name.monkey.retromusic.fragments.base.goToArtist
 import code.name.monkey.retromusic.helper.MusicPlayerRemote
+import code.name.monkey.retromusic.loudness.StreamingMode
 import code.name.monkey.retromusic.helper.PlayPauseButtonOnClickHandler
 import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.service.MusicService
@@ -202,6 +204,7 @@ class FullPlaybackControlsFragment :
             // Shark Music: Full shows lyrics over the cover, and tapping them opens the lyrics screen.
             popupMenu.menu.findItem(R.id.action_go_to_lyrics).isVisible = false
             popupMenu.menu.findItem(R.id.action_toggle_lyrics).isChecked = PreferenceUtil.showLyrics
+            popupMenu.menu.findItem(R.id.action_streaming_mode).isChecked = StreamingMode.enabled
             popupMenu.show()
         }
     }

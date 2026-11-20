@@ -483,6 +483,11 @@
     <string name="unlabeled">Unlabeled</string>
     <string name="unplayable_file">Couldn\u2019t play this song.</string>
     <string name="unplayed">Unplayed</string>
+    <string name="streaming_mode">Streaming mode</string>
+    <string name="streaming_mode_summary">Plays every song at the same loudness, like streaming services do. Loudness comes from ReplayGain tags, or is measured on the device as each song comes up.</string>
+    <string name="streaming_mode_target">Streaming mode loudness</string>
+    <string name="streaming_mode_on">Streaming mode on: songs play at %s LUFS</string>
+    <string name="streaming_mode_off">Streaming mode off</string>
     <string name="up_next">Up next</string>
     <string name="update_image">Update image</string>
     <string name="updating">Updating…</string>

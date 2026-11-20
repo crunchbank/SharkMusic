@@ -15,7 +15,8 @@
 /*
  * Modifications copyright (c) 2026 crunchbank (Shark Music): the Now Playing menu drops Share,
  * Set as Ringtone, Go to Artist and Clear Playing Queue, and shows Go to Lyrics only in styles
- * without lyrics over the cover. Licensed under the GNU General Public License v3.
+ * without lyrics over the cover. A Streaming mode button turns loudness levelling on and off.
+ * Licensed under the GNU General Public License v3.
  */
 package code.name.monkey.retromusic.fragments.base
 
@@ -68,6 +69,7 @@ import code.name.monkey.retromusic.fragments.NowPlayingScreen
 import code.name.monkey.retromusic.fragments.ReloadType
 import code.name.monkey.retromusic.fragments.player.PlayerAlbumCoverFragment
 import code.name.monkey.retromusic.helper.MusicPlayerRemote
+import code.name.monkey.retromusic.loudness.StreamingMode
 import code.name.monkey.retromusic.interfaces.IPaletteColorHolder
 import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.repository.RealRepository
@@ -110,6 +112,17 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                     mainActivity.keepScreenOn(true)
                 } else if (!PreferenceUtil.isScreenOnEnabled && !PreferenceUtil.showLyrics) {
                     mainActivity.keepScreenOn(false)
+                }
+                return true
+            }
+
+            R.id.action_streaming_mode -> {
+                StreamingMode.enabled = !StreamingMode.enabled
+                showStreamingModeIcon(item)
+                if (StreamingMode.enabled) {
+                    showToast(getString(R.string.streaming_mode_on, formatLufs(StreamingMode.target)))
+                } else {
+                    showToast(R.string.streaming_mode_off)
                 }
                 return true
             }
@@ -234,6 +247,18 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
         item.icon = drawable
     }
 
+    private fun showStreamingModeIcon(item: MenuItem) {
+        val on = StreamingMode.enabled
+        item.isChecked = on
+        item.icon = requireContext().getTintedDrawable(
+            if (on) R.drawable.ic_streaming_mode else R.drawable.ic_streaming_mode_outline,
+            toolbarIconColor()
+        )
+    }
+
+    private fun formatLufs(value: Double): String =
+        if (value == value.toLong().toDouble()) value.toLong().toString() else value.toString()
+
     abstract fun playerToolbar(): Toolbar?
 
     abstract fun onShow()
@@ -336,6 +361,7 @@ abstract class AbsPlayerFragment(@LayoutRes layout: Int) : AbsMusicServiceFragme
                 showLyricsIcon(this)
             }
         }
+        playerToolbar()?.menu?.findItem(R.id.action_streaming_mode)?.let { showStreamingModeIcon(it) }
         // Go to Lyrics only where the lyrics icon can't show lyrics over the cover; elsewhere,
         // tapping those lyrics opens the lyrics screen.
         playerToolbar()?.menu?.findItem(R.id.action_go_to_lyrics)?.isVisible =

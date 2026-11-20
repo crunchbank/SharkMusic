@@ -15,6 +15,13 @@
         android:title="@string/lyrics"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_streaming_mode"
+        android:checkable="true"
+        android:icon="@drawable/ic_streaming_mode_outline"
+        android:orderInCategory="1"
+        android:title="@string/streaming_mode"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_toggle_favorite"
         android:checkable="true"
         android:icon="@drawable/ic_favorite"

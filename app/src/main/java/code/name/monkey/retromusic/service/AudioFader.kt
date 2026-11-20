@@ -1,3 +1,7 @@
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): a crossfade can scale each player's
+ * volume (streaming mode). Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.service
 
 import android.animation.Animator
@@ -15,6 +19,8 @@ class AudioFader {
             context: Context,
             fadeInMp: MediaPlayer,
             fadeOutMp: MediaPlayer,
+            fadeInGain: Float = 1f, /* Each song's full volume, e.g. for streaming mode */
+            fadeOutGain: Float = 1f,
             endAction: (animator: Animator) -> Unit, /* Code to run when Animator Ends*/
         ): Animator? {
             // Get Global animator scale
@@ -28,11 +34,9 @@ class AudioFader {
             return ValueAnimator.ofFloat(0f, 1f).apply {
                 this.duration = duration.toLong()
                 addUpdateListener { animation: ValueAnimator ->
-                    fadeInMp.setVolume(
-                        animation.animatedValue as Float, animation.animatedValue as Float
-                    )
-                    fadeOutMp.setVolume(1 - animation.animatedValue as Float,
-                        1 - animation.animatedValue as Float)
+                    val fraction = animation.animatedValue as Float
+                    fadeInMp.setVolume(fraction * fadeInGain, fraction * fadeInGain)
+                    fadeOutMp.setVolume((1 - fraction) * fadeOutGain, (1 - fraction) * fadeOutGain)
                 }
                 doOnEnd {
                     endAction(it)

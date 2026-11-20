@@ -2,7 +2,8 @@
  * Copyright (c) 2019 Hemanth Savarala.
  * Modifications copyright (c) 2026 crunchbank (Shark Music): the service can return to the foreground after quit();
  * it counts a play (for Most played) once at least half of a song has been heard, timed
- * from the moment each track starts; it says how much of the current song has been heard.
+ * from the moment each track starts; it says how much of the current song has been heard;
+ * streaming mode measures the next few songs ahead of time.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -91,6 +92,7 @@ import code.name.monkey.retromusic.model.smartplaylist.AbsSmartPlaylist
 import code.name.monkey.retromusic.providers.HistoryStore
 import code.name.monkey.retromusic.providers.MusicPlaybackQueueStore
 import code.name.monkey.retromusic.providers.SongPlayCountStore
+import code.name.monkey.retromusic.loudness.StreamingMode
 import code.name.monkey.retromusic.util.PlayCounts
 import code.name.monkey.retromusic.service.notification.PlayingNotification
 import code.name.monkey.retromusic.service.playback.Playback
@@ -311,8 +313,15 @@ class MusicService : MediaBrowserServiceCompat(),
     private var wakeLock: WakeLock? = null
     private var notificationManager: NotificationManager? = null
     private var isForeground = false
+    /** Streaming mode: the playing song and the next few, so they're measured before they play. */
+    private val prefetchLoudness = {
+        val from = position.coerceAtLeast(0)
+        StreamingMode.prefetch(playingQueue.drop(from).take(LOUDNESS_PREFETCH))
+    }
+
     override fun onCreate() {
         super.onCreate()
+        StreamingMode.addListener(prefetchLoudness)
         val powerManager = getSystemService<PowerManager>()
         if (powerManager != null) {
             wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, javaClass.name)
@@ -370,6 +379,7 @@ class MusicService : MediaBrowserServiceCompat(),
     }
 
     override fun onDestroy() {
+        StreamingMode.removeListener(prefetchLoudness)
         LocalBroadcastManager.getInstance(this).unregisterReceiver(widgetIntentReceiver)
         LocalBroadcastManager.getInstance(this).unregisterReceiver(updateFavoriteReceiver)
         unregisterReceiver(lockScreenReceiver)
@@ -1191,6 +1201,7 @@ class MusicService : MediaBrowserServiceCompat(),
                     }
                     storage.saveSong(currentSong)
                 }
+                prefetchLoudness()
             }
 
             QUEUE_CHANGED -> {
@@ -1200,6 +1211,7 @@ class MusicService : MediaBrowserServiceCompat(),
                 saveQueues()
                 if (playingQueue.size > 0) {
                     prepareNext()
+                    prefetchLoudness()
                 } else {
                     stopForegroundAndNotification()
                 }
@@ -1462,6 +1474,7 @@ class MusicService : MediaBrowserServiceCompat(),
 
     companion object {
         val TAG: String = MusicService::class.java.simpleName
+        private const val LOUDNESS_PREFETCH = 4
         const val RETRO_MUSIC_PACKAGE_NAME = "code.name.monkey.retromusic"
         const val MUSIC_PACKAGE_NAME = "com.android.music"
         const val ACTION_TOGGLE_PAUSE = "$RETRO_MUSIC_PACKAGE_NAME.togglepause"

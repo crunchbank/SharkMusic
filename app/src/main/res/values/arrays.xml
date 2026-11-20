@@ -221,4 +221,18 @@
         <item>@string/choose_image</item>
         <item>@string/remove_image</item>
     </string-array>
+    <string-array name="streaming_mode_target_titles" translatable="false">
+        <item>-11 LUFS (louder)</item>
+        <item>-14 LUFS (standard)</item>
+        <item>-16 LUFS</item>
+        <item>-18 LUFS (more headroom)</item>
+        <item>-23 LUFS (broadcast)</item>
+    </string-array>
+    <string-array name="streaming_mode_target_values" translatable="false">
+        <item>-11</item>
+        <item>-14</item>
+        <item>-16</item>
+        <item>-18</item>
+        <item>-23</item>
+    </string-array>
 </resources>

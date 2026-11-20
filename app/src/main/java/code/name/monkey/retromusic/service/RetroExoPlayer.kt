@@ -1,3 +1,7 @@
+/*
+ * Modifications copyright (c) 2026 crunchbank (Shark Music): streaming mode levels each song's
+ * loudness through a gain stage in the audio sink. Licensed under the GNU General Public License v3.
+ */
 package code.name.monkey.retromusic.service
 
 import android.content.Context
@@ -12,10 +16,15 @@ import androidx.media3.common.PlaybackException
 import androidx.media3.common.PlaybackParameters
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.exoplayer.DefaultRenderersFactory
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.audio.AudioSink
+import androidx.media3.exoplayer.audio.DefaultAudioSink
 import code.name.monkey.retromusic.R
 import code.name.monkey.retromusic.extensions.showToast
 import code.name.monkey.retromusic.extensions.uri
+import code.name.monkey.retromusic.loudness.GainAudioProcessor
+import code.name.monkey.retromusic.loudness.StreamingMode
 import code.name.monkey.retromusic.model.Song
 import code.name.monkey.retromusic.service.playback.Playback.PlaybackCallbacks
 import code.name.monkey.retromusic.util.PreferenceUtil.playbackPitch
@@ -30,9 +39,14 @@ class RetroExoPlayer(context: Context) : AudioManagerPlayback(context), Player.L
         .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
         .build()
 
-    private var player: ExoPlayer = ExoPlayer.Builder(context)
-        .setAudioAttributes(audioAttributes, false)
-        .build()
+    /** Streaming mode's gain, applied to the decoded audio before it reaches the AudioTrack. */
+    private val gainProcessor = GainAudioProcessor()
+    private var currentSong: Song? = null
+    private val streamingModeListener = {
+        gainProcessor.setGainDb(StreamingMode.gainDb(currentSong))
+    }
+
+    private var player: ExoPlayer = buildPlayer()
     override var callbacks: PlaybackCallbacks? = null
 
     /**
@@ -43,6 +57,25 @@ class RetroExoPlayer(context: Context) : AudioManagerPlayback(context), Player.L
 
     init {
         player.setWakeMode(C.WAKE_MODE_LOCAL)
+        StreamingMode.addListener(streamingModeListener)
+    }
+
+    @OptIn(UnstableApi::class)
+    private fun buildPlayer(): ExoPlayer {
+        val renderers = object : DefaultRenderersFactory(context) {
+            override fun buildAudioSink(
+                context: Context,
+                enableFloatOutput: Boolean,
+                enableAudioTrackPlaybackParams: Boolean,
+            ): AudioSink = DefaultAudioSink.Builder(context)
+                .setEnableFloatOutput(enableFloatOutput)
+                .setEnableAudioTrackPlaybackParams(enableAudioTrackPlaybackParams)
+                .setAudioProcessors(arrayOf(gainProcessor))
+                .build()
+        }
+        return ExoPlayer.Builder(context, renderers)
+            .setAudioAttributes(audioAttributes, false)
+            .build()
     }
 
     /**
@@ -58,6 +91,9 @@ class RetroExoPlayer(context: Context) : AudioManagerPlayback(context), Player.L
         val mediaItem = MediaItem.fromUri(song.uri)
         try {
             Handler(Looper.getMainLooper()).post {
+                // Set before the new item flushes the sink, so the song starts at its own level.
+                currentSong = song
+                gainProcessor.setGainDb(StreamingMode.gainDb(song))
                 player.setMediaItem(mediaItem)
                 player.setAudioAttributes(audioAttributes, false)
                 player.playbackParameters = PlaybackParameters(playbackSpeed, playbackPitch)
@@ -114,6 +150,7 @@ class RetroExoPlayer(context: Context) : AudioManagerPlayback(context), Player.L
      * Releases resources associated with this MediaPlayer object.
      */
     override fun release() {
+        StreamingMode.removeListener(streamingModeListener)
         stop()
         player.release()
     }
@@ -227,9 +264,7 @@ class RetroExoPlayer(context: Context) : AudioManagerPlayback(context), Player.L
         logE(error)
         isInitialized = false
         player.release()
-        player = ExoPlayer.Builder(context)
-            .setAudioAttributes(audioAttributes, false)
-            .build()
+        player = buildPlayer()
         player.setWakeMode(C.WAKE_MODE_LOCAL)
         context.showToast(R.string.unplayable_file)
     }
