@@ -3,7 +3,8 @@
  * Modifications copyright (c) 2026 crunchbank (Shark Music): the service can return to the foreground after quit();
  * it counts a play (for Most played) once at least half of a song has been heard, timed
  * from the moment each track starts; it says how much of the current song has been heard;
- * streaming mode measures the next few songs ahead of time.
+ * streaming mode measures the next few songs ahead of time; while playing it keeps itself
+ * started, so rotating the screen (which unbinds the activity) can't destroy it and stop the music.
  *
  * Licensed under the GNU General Public License v3
  *
@@ -313,6 +314,9 @@ class MusicService : MediaBrowserServiceCompat(),
     private var wakeLock: WakeLock? = null
     private var notificationManager: NotificationManager? = null
     private var isForeground = false
+    /** Whether the service has been started (not merely bound); see [keepStarted]. */
+    private var isStarted = false
+    private var lastStartId = 0
     /** Streaming mode: the playing song and the next few, so they're measured before they play. */
     private val prefetchLoudness = {
         val from = position.coerceAtLeast(0)
@@ -716,6 +720,8 @@ class MusicService : MediaBrowserServiceCompat(),
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        isStarted = true
+        lastStartId = startId
         if (intent != null && intent.action != null) {
             serviceScope.launch {
                 restoreQueuesAndPositionIfNecessary()
@@ -790,8 +796,10 @@ class MusicService : MediaBrowserServiceCompat(),
     }
 
     override fun onUnbind(intent: Intent): Boolean {
-        if (!isPlaying) {
-            stopSelf()
+        // Shark Music: stopSelfResult, so a start that arrived meanwhile (a new activity after a
+        // rotation) isn't cancelled. System UI's media-resume check also binds and unbinds here.
+        if (!isPlaying && stopSelfResult(lastStartId)) {
+            isStarted = false
         }
         return true
     }
@@ -916,6 +924,7 @@ class MusicService : MediaBrowserServiceCompat(),
 
         playingNotification?.clear(this)
 
+        isStarted = false
         stopSelf()
     }
 
@@ -1251,6 +1260,24 @@ class MusicService : MediaBrowserServiceCompat(),
                     PlayingNotification.NOTIFICATION_ID, playingNotification!!.build()
                 )
             }
+        }
+        if (isPlaying) keepStarted()
+    }
+
+    /**
+     * Shark Music: makes sure the service is started, not just bound, while it plays. onUnbind()
+     * stops a paused service even while the activity is still bound (System UI's media-resume
+     * check binds and unbinds just after launch, and so does a rotation); the service then lives
+     * only by the activity's binding, and the next rotation destroys it mid-song. Starting it
+     * again here is allowed because it is already in the foreground.
+     */
+    private fun keepStarted() {
+        if (isStarted) return
+        try {
+            startService(Intent(this, MusicService::class.java))
+            isStarted = true
+        } catch (e: Exception) {
+            Log.w(TAG, "Couldn't keep the service started", e)
         }
     }
 
